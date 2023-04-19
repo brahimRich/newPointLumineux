@@ -1,0 +1,17 @@
+<app-top-bar></app-top-bar>
+
+<h2>Product Details</h2>
+
+<div *ngIf="PointLumineux">
+    <h3>Nom : {{ PointLumineux.name }}</h3>
+    <h4>longitude : {{ PointLumineux.longitude}}</h4>
+    <p>Etat :{{ PointLumineux.allume }}</p>
+    <!--<button type="button" (click)="addToCart(PointLumineux)">Buy</button>-->
+  </div>
+
+  <!--<div *ngFor="let PointLumineux of productsP">
+    <p *ngIf="PointLumineux.name">
+        Description: {{ PointLumineux.name }}
+      </p>
+  </div>-->
+

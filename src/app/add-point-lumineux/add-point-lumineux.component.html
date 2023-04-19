@@ -1,0 +1,38 @@
+<app-top-bar></app-top-bar>
+
+<form *ngIf="PointLumineux">
+    <br> 
+    <div>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" (keyup)="updateErrorMessagee()" [(ngModel)]="PointLumineux.name" >
+      <div *ngIf="errorMessageN" [ngClass]="{'error-message': true}">
+        <div>{{errorMessageN}}</div>
+      </div>
+    </div>
+    
+  
+    <div>
+      <label for="longitude">Longitude:</label>
+      <input type="number" id="longitude" name="longitude" (keyup)="updateErrorMessagee()" [(ngModel)]="PointLumineux.longitude">
+      <div *ngIf="errorMessageLo" [ngClass]="{'error-message': true}">
+        <div>{{errorMessageLo}}</div>
+      </div>
+    </div>
+  
+    <div>
+      <label for="latitude">Latitude:</label>
+      <input type="number" id="latitude" name="latitude" (keyup)="updateErrorMessagee()" [(ngModel)]="PointLumineux.latitude">
+      <div *ngIf="errorMessageLa" [ngClass]="{'error-message': true}">
+        <div>{{errorMessageLa}}</div>
+      </div>
+    </div>
+  
+    <div>
+      <label for="allume">Allumé:</label>
+      <input type="text" id="allume" name="allume"  [(ngModel)]="PointLumineux.allume">
+    </div>
+    <br>
+    <button *ngIf="!Mofifer" [disabled]="boutonDesactive" (click)="submitProduct()">Ajouter</button>
+    <button *ngIf="Mofifer" [disabled]="boutonDesactive" (click)="updatePoint()">Mofier</button>
+  </form>
+  

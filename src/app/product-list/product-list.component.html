@@ -1,0 +1,18 @@
+<app-top-bar></app-top-bar>
+<h2>Les Points Lumineux</h2>
+<input type="text" [(ngModel)]="searchText" placeholder="Rechercher un produit" (keyup)="onSearchTermChanged()">
+<div *ngFor="let product of products">
+  <h3>
+    <a
+      [title]="product.name + ' details'"
+      [routerLink]="['/products', product.reference]">
+      {{ product.name }}
+    </a>
+  </h3>
+  <p *ngIf="product.name">
+    Description: {{ product.name }}
+  </p>
+  <button type="button" (click)="share()" >Share</button>
+  <button (click)="delete(product)" >Supprimer</button>
+  <button (click)="update(product)" >Modifier</button>
+</div>

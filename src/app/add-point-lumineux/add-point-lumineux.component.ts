@@ -1,0 +1,78 @@
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { PointLumineux ,ProductService} from '../products';
+import { ActivatedRoute } from '@angular/router';
+import { FormGroup, FormControl, Validators,FormBuilder } from '@angular/forms';
+
+
+@Component({
+  selector: 'app-add-point-lumineux',
+  templateUrl: './add-point-lumineux.component.html',
+  styleUrls: ['./add-point-lumineux.component.css']
+})
+export class AddPointLumineuxComponent implements OnInit {
+  Mofifer : boolean = false;
+  boutonDesactive: boolean = true;
+  errorMessageN='';
+  errorMessageLa='';
+  errorMessageLo='';
+  PointLumineux: PointLumineux = {
+    reference: 86,
+    name: '',
+    longitude: 0,
+    latitude: 0,
+    allume: true
+  };
+
+  @Output() productAdded = new EventEmitter<PointLumineux>();
+
+  constructor(private productService: ProductService,private route: ActivatedRoute,private formBuilder: FormBuilder) { 
+  }
+
+
+  ngOnInit(): void {
+      const routeParams = this.route.snapshot.paramMap;
+      const pointLumineux = Number(routeParams.get('pointLumineux'));
+      if(pointLumineux){
+        this.Mofifer=true;
+        this.errorMessageN='';
+        this.errorMessageLa='';
+        this.errorMessageLo='';
+        this.boutonDesactive = false;
+      this.productService.FindById(pointLumineux).subscribe(
+        pointLumineux => {
+          this.PointLumineux = pointLumineux;
+        },
+        error => {
+          console.error(error);
+        }
+      );
+      }
+}
+
+
+updateErrorMessagee() {
+  if(this.PointLumineux.name=='') this.errorMessageN='Le champ Name est obligatoire';
+  else this.errorMessageN='';
+  if(this.PointLumineux.latitude==null || this.PointLumineux.latitude==0) this.errorMessageLa='Le champ Latitude est obligatoire';
+  else this.errorMessageLa='';
+  if(this.PointLumineux.longitude==null || this.PointLumineux.longitude==0) this.errorMessageLo='Le champ Longitude est obligatoire';
+  else this.errorMessageLo='';
+  if (this.errorMessageN=='' && this.errorMessageLa=='' && this.errorMessageLo=='') {
+    console.log('eror vide')
+    this.boutonDesactive = false; 
+  } else {
+    this.boutonDesactive = true; 
+  }
+}
+
+submitProduct() {
+    //this.productAdded.emit(newProduct);
+    this.productService.AddPointLumineux(this.PointLumineux);
+  }
+
+  updatePoint(){
+    window.alert("modification"+this.PointLumineux.name)
+    this.productService.updatePointLumineux(this.PointLumineux);
+  }
+
+}
