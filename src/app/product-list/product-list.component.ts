@@ -40,7 +40,7 @@ export class ProductListComponent implements OnInit{
 
   delete(pointLumineux : PointLumineux){
     this.products=this.filteredProducts();
-    window.alert('supprimer le produit ?'+pointLumineux.name);
+    window.alert('supprimer le produit ?'+pointLumineux.type);
     this.productService.deletePointLumineux(pointLumineux.reference).subscribe(
       data => {
         console.log(data);
@@ -53,7 +53,7 @@ export class ProductListComponent implements OnInit{
   }
 
   update(PointLu : PointLumineux){
-    window.alert('Modifer'+PointLu.name);
+    window.alert('Modifer'+PointLu.type);
     this.router.navigate(['/product-update', PointLu.reference]);
   }
 
@@ -70,7 +70,7 @@ export class ProductListComponent implements OnInit{
    filteredProducts() {
     console.log("checheee");
     return this.products.filter(pointLumineux =>
-      pointLumineux.name.toLowerCase().includes(this.searchText.toLowerCase())
+      pointLumineux.type.toLowerCase().includes(this.searchText.toLowerCase())
     );
   }
 }

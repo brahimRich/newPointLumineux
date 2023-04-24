@@ -4,13 +4,13 @@
 <div *ngFor="let product of products">
   <h3>
     <a
-      [title]="product.name + ' details'"
+      [title]="product.type + ' details'"
       [routerLink]="['/products', product.reference]">
-      {{ product.name }}
+      {{ product.type }}
     </a>
   </h3>
-  <p *ngIf="product.name">
-    Description: {{ product.name }}
+  <p *ngIf="product.type">
+    Marque: {{ product.marque }}
   </p>
   <button type="button" (click)="share()" >Share</button>
   <button (click)="delete(product)" >Supprimer</button>

@@ -4,7 +4,7 @@
     <br> 
     <div>
       <label for="name">Name:</label>
-      <input type="text" id="name" name="name" (keyup)="updateErrorMessagee()" [(ngModel)]="PointLumineux.name" >
+      <input type="text" id="name" name="name" (keyup)="updateErrorMessagee()" [(ngModel)]="PointLumineux.type" >
       <div *ngIf="errorMessageN" [ngClass]="{'error-message': true}">
         <div>{{errorMessageN}}</div>
       </div>

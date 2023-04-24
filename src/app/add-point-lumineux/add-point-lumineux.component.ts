@@ -15,12 +15,19 @@ export class AddPointLumineuxComponent implements OnInit {
   errorMessageN='';
   errorMessageLa='';
   errorMessageLo='';
-  PointLumineux: PointLumineux = {
+  PointLumineux : PointLumineux = {
     reference: 86,
-    name: '',
+    type : '',
     longitude: 0,
     latitude: 0,
-    allume: true
+    allume: true,
+    numero :0,
+    marque : '',
+    degre_prot : '',
+    puissance_max : 0,
+    temperature : 0,
+    class_electrique : '',
+    date_accussition : ''
   };
 
   @Output() productAdded = new EventEmitter<PointLumineux>();
@@ -51,7 +58,7 @@ export class AddPointLumineuxComponent implements OnInit {
 
 
 updateErrorMessagee() {
-  if(this.PointLumineux.name=='') this.errorMessageN='Le champ Name est obligatoire';
+  if(this.PointLumineux.type=='') this.errorMessageN='Le champ Name est obligatoire';
   else this.errorMessageN='';
   if(this.PointLumineux.latitude==null || this.PointLumineux.latitude==0) this.errorMessageLa='Le champ Latitude est obligatoire';
   else this.errorMessageLa='';
@@ -71,7 +78,7 @@ submitProduct() {
   }
 
   updatePoint(){
-    window.alert("modification"+this.PointLumineux.name)
+    window.alert("modification"+this.PointLumineux.type)
     this.productService.updatePointLumineux(this.PointLumineux);
   }
 

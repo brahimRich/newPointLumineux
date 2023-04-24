@@ -4,13 +4,27 @@ import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { catchError } from 'rxjs/operators';
 import { map } from 'rxjs/operators';
+import { HttpHeaders } from '@angular/common/http';
 
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type':  'application/json',
+    Authorization: 'my-auth-token'
+  })
+};
 export interface PointLumineux {
     reference: number;
-    name: string;
+    type : string;
     longitude : number;
     latitude : number;
     allume: boolean;
+    numero :number;
+    marque : string;
+    degre_prot : string;
+    puissance_max : number;
+    temperature : number;
+    class_electrique : string;
+    date_accussition : string;
   }
   
    @Injectable({
@@ -32,14 +46,17 @@ export interface PointLumineux {
       return this.http.delete(url);
     }
     
-    AddPointLumineux(pointLumineux: PointLumineux): Observable<PointLumineux> {
-      console.log('ajout de '+pointLumineux.allume);
-    return this.http.post<PointLumineux>(this.AddURL, pointLumineux)
-      .pipe(
-        catchError((error: any) => {
-          console.error(error);
-          throw error;
-        })
+    AddPointLumineux(pointLumineux: PointLumineux) {
+      let pointLumineuxJson = JSON.stringify(pointLumineux);
+      console.log('ajout de j '+pointLumineuxJson);
+       this.http.post<PointLumineux>(this.AddURL, pointLumineuxJson , httpOptions)
+      .subscribe(
+        (response) => {
+          console.log('Réponse de la requête POST :', response);
+        },
+        (error) => {
+          console.error('Erreur lors de la requête POST :', error);
+        }
       );
     }
 
@@ -49,10 +66,17 @@ export interface PointLumineux {
       );
     }
 
-    updatePointLumineux(pointLumineux: PointLumineux): Observable<PointLumineux> {
+    updatePointLumineux(pointLumineux: PointLumineux){
       const url = `${this.UpdateURL}/${pointLumineux.reference}`;
-      console.log("updddddddddddddddddddddate "+url);
-      return this.http.put<PointLumineux>(url, pointLumineux);
+      console.log("updddddddddddddddddddddate "+url);  
+       this.http.put<PointLumineux>(url, pointLumineux)
+       .subscribe(
+        (response) => {
+          console.log('Réponse de la requête put :', response);
+        },
+        (error) => {
+          console.error('Erreur lors de la requête put :', error);
+        }
+      );
     }
-    
   }
