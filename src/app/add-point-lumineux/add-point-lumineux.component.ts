@@ -27,7 +27,15 @@ export class AddPointLumineuxComponent implements OnInit {
     puissance_max : 0,
     temperature : 0,
     class_electrique : '',
-    date_accussition : ''
+    date_accussition : '',
+    adresse : {
+      rue: '',
+      quertier: '',
+    },
+    coordonnees :{
+      x: 0,
+      y: 0,
+    }
   };
 
   @Output() productAdded = new EventEmitter<PointLumineux>();

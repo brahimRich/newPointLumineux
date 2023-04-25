@@ -31,6 +31,91 @@
       <label for="allume">Allumé:</label>
       <input type="text" id="allume" name="allume"  [(ngModel)]="PointLumineux.allume">
     </div>
+
+    <div>
+      <label for="Numero">Numéro:</label>
+      <input type="number" id="Numero" name="Numero" (keyup)="updateErrorMessagee()" [(ngModel)]="PointLumineux.numero">
+      <div *ngIf="errorMessageLo" [ngClass]="{'error-message': true}">
+        <div>{{errorMessageLo}}</div>
+      </div>
+    </div>
+
+    <div>
+      <label for="Marque">Marque:</label>
+      <input type="text" id="Marque" name="Marque" (keyup)="updateErrorMessagee()" [(ngModel)]="PointLumineux.marque">
+      <div *ngIf="errorMessageLo" [ngClass]="{'error-message': true}">
+        <div>{{errorMessageLo}}</div>
+      </div>
+    </div>
+
+    <div>
+      <label for="degre_prot">Degré de protection:</label>
+      <input type="text" id="degre_prot" name="degre_prot" (keyup)="updateErrorMessagee()" [(ngModel)]="PointLumineux.degre_prot">
+      <div *ngIf="errorMessageLo" [ngClass]="{'error-message': true}">
+        <div>{{errorMessageLo}}</div>
+      </div>
+    </div>
+
+    <div>
+      <label for="puissance_max">Puissance maximale:</label>
+      <input type="text" id="puissance_max" name="puissance_max" (keyup)="updateErrorMessagee()" [(ngModel)]="PointLumineux.puissance_max">
+      <div *ngIf="errorMessageLo" [ngClass]="{'error-message': true}">
+        <div>{{errorMessageLo}}</div>
+      </div>
+    </div>
+
+    <div>
+      <label for="temperature">Température:</label>
+      <input type="number" id="temperature" name="temperature" (keyup)="updateErrorMessagee()" [(ngModel)]="PointLumineux.temperature">
+      <div *ngIf="errorMessageLo" [ngClass]="{'error-message': true}">
+        <div>{{errorMessageLo}}</div>
+      </div>
+    </div>
+
+    <div>
+      <label for="class_electrique">Classe électrique:</label>
+      <input type="text" id="class_electrique" name="class_electrique" (keyup)="updateErrorMessagee()" [(ngModel)]="PointLumineux.class_electrique">
+      <div *ngIf="errorMessageLo" [ngClass]="{'error-message': true}">
+        <div>{{errorMessageLo}}</div>
+      </div>
+    </div>
+
+    <div>
+      <label for="date_accussition">Date d'acquisition:</label>
+      <input type="date" id="date_accussition" name="date_accussition" (keyup)="updateErrorMessagee()" [(ngModel)]="PointLumineux.date_accussition">
+      <div *ngIf="errorMessageLo" [ngClass]="{'error-message': true}">
+        <div>{{errorMessageLo}}</div>
+      </div>
+    </div>
+
+    <div>
+      <label for="class_electrique">Classe électrique:</label>
+      <input type="text" id="class_electrique" name="class_electrique" (keyup)="updateErrorMessagee()" [(ngModel)]="PointLumineux.class_electrique">
+      <div *ngIf="errorMessageLo" [ngClass]="{'error-message': true}">
+        <div>{{errorMessageLo}}</div>
+      </div>
+    </div>
+
+
+   
+    <fieldset>
+      <legend>Coordonnées:</legend>
+      <label for="x">X:</label>
+      <input type="number" id="x" name="x" [(ngModel)]="PointLumineux.coordonnees.x" >
+      <label for="y">Y:</label>
+      <input type="number" id="y" name="y" [(ngModel)]="PointLumineux.coordonnees.y">
+    </fieldset>
+
+
+    <fieldset>
+      <legend>Adresse:</legend>
+      <label for="rue">Rue:</label>
+      <input type="text" id="rue" name="rue" [(ngModel)]="PointLumineux.adresse.rue">
+      
+      <label for="quartier">Quartier:</label>
+      <input type="text" id="quartier" name="quartier" [(ngModel)]="PointLumineux.adresse.quertier">
+    </fieldset>
+
     <br>
     <button *ngIf="!Mofifer" [disabled]="boutonDesactive" (click)="submitProduct()">Ajouter</button>
     <button *ngIf="Mofifer" [disabled]="boutonDesactive" (click)="updatePoint()">Mofier</button>

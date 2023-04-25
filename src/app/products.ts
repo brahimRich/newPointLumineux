@@ -12,6 +12,17 @@ const httpOptions = {
     Authorization: 'my-auth-token'
   })
 };
+
+export interface Adresse {
+  rue: string,
+  quertier :string
+}
+
+export interface Coordonnees {
+  x :number,
+  y :number,
+}
+
 export interface PointLumineux {
     reference: number;
     type : string;
@@ -25,6 +36,8 @@ export interface PointLumineux {
     temperature : number;
     class_electrique : string;
     date_accussition : string;
+    adresse: Adresse;
+    coordonnees : Coordonnees;
   }
   
    @Injectable({
@@ -48,7 +61,7 @@ export interface PointLumineux {
     
     AddPointLumineux(pointLumineux: PointLumineux) {
       let pointLumineuxJson = JSON.stringify(pointLumineux);
-      console.log('ajout de j '+pointLumineuxJson);
+      console.log('ajout de j ********************'+pointLumineuxJson);
        this.http.post<PointLumineux>(this.AddURL, pointLumineuxJson , httpOptions)
       .subscribe(
         (response) => {
@@ -68,7 +81,7 @@ export interface PointLumineux {
 
     updatePointLumineux(pointLumineux: PointLumineux){
       const url = `${this.UpdateURL}/${pointLumineux.reference}`;
-      console.log("updddddddddddddddddddddate "+url);  
+      console.log("updddddddddddddddddddddate "+pointLumineux.adresse.rue);  
        this.http.put<PointLumineux>(url, pointLumineux)
        .subscribe(
         (response) => {
