@@ -1,0 +1,17 @@
+<app-top-bar></app-top-bar>
+
+<form *ngIf="Armoire">
+    <br> 
+    <div>
+      <label for="name">Marque:</label>
+      <input type="text" id="Marque" name="Marque" (keyup)="updateErrorMessagee()" [(ngModel)]="Armoire.MarqueSectionneur" >
+      <div *ngIf="errorMessageMarque" [ngClass]="{'error-message': true}">
+        <div>{{errorMessageMarque}}</div>
+      </div>
+    </div>
+    
+    <br>
+    <button *ngIf="!Mofifer" [disabled]="boutonDesactive" (click)="submitProduct()">Ajouter</button>
+    <button *ngIf="Mofifer" [disabled]="boutonDesactive" (click)="updatePoint()">Mofier</button>
+  </form>
+  

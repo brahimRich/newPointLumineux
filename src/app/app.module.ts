@@ -13,6 +13,8 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { ProductAlertsComponent } from './product-alerts/product-alerts.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { AddPointLumineuxComponent } from './add-point-lumineux/add-point-lumineux.component';
+import { AddArmoireComponent } from './add-armoire/add-armoire.component';
+
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 
@@ -34,6 +36,7 @@ import { HomeComponent } from './home/home.component';
       { path: 'Login', component: LoginComponent },
       { path: 'Home', component: HomeComponent },
       { path: '', component: HomeComponent },
+      { path: 'AddArmoire', component: AddArmoireComponent },
 
     ])
   ],
@@ -45,7 +48,8 @@ import { HomeComponent } from './home/home.component';
     ProductDetailsComponent,
     AddPointLumineuxComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    AddArmoireComponent,
   ],
   bootstrap: [
     AppComponent
