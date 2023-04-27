@@ -26,7 +26,9 @@ export class LoginComponent implements OnInit{
     password: ''
   };
 
-  ngOnInit() {}
+  ngOnInit() {
+   
+  }
 
   loadData() {
     const user = this.sessionStorage.retrieve('user');
@@ -34,7 +36,7 @@ export class LoginComponent implements OnInit{
   }
 
   onSubmit() {
-    console.log('ggggggggggggggggggggggggggggggggggggg')
+    /*console.log('ggggggggggggggggggggggggggggggggggggg')
     const email = this.email;
     const password = this.password;
     if(this.sessionStorage.retrieve('user')!=null)this.router.navigateByUrl('/Home', { skipLocationChange: false }).then(() => {window.location.reload();});
@@ -44,7 +46,7 @@ export class LoginComponent implements OnInit{
       if(typeof user == 'undefined'){
         this.errorLogin='email ou password est incorrecte !!!';
       }else{
-        this.errorLogin='';
+        this.errorLogin='';*/
         this.sessionStorage.store('user', this.user);
         this.loadData();
         const currentUrl = this.router.url;
@@ -52,7 +54,7 @@ export class LoginComponent implements OnInit{
           this.router.navigateByUrl('/Home', { skipLocationChange: false }).then(() => {
             window.location.reload();
           });
-        }else{
+       /* }else{
         this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
           this.router.navigateByUrl(currentUrl);
         });
@@ -63,7 +65,7 @@ export class LoginComponent implements OnInit{
       console.error("Erroroooooooooooooooooooooooooooooooooooooooooooooooooooooo: ", error);
     });
   }else{
-    this.updateErrorMessagee();
+    this.updateErrorMessagee();*/
   }
   }
   

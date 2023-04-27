@@ -57,7 +57,7 @@ export interface Armoire {
 
       updateArmoire(Armoire: Armoire){
         const url = `${this.UpdateURL}/${Armoire.Id_Armoire}`;
-        console.log("updddddddddddddddddddddate "+Armoire.MarqueSectionneur);  
+        console.log("update "+Armoire.MarqueSectionneur);  
          this.http.put<Armoire>(url, Armoire)
          .subscribe(
           (response) => {

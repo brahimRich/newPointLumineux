@@ -19,7 +19,7 @@ export class AddArmoireComponent implements OnInit {
 
   Armoire : Armoire = {
     Id_Armoire: 0,
-    MarqueSectionneur : ''
+    MarqueSectionneur : '',
   };
 
   constructor(private ArmoireService: ArmoireService,private route: ActivatedRoute,private formBuilder: FormBuilder) { 

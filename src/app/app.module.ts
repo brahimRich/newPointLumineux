@@ -33,9 +33,10 @@ import { HomeComponent } from './home/home.component';
       { path: 'ListeProducts/:productId', component: ProductListComponent },
       { path: 'AddPointLumineux', component: AddPointLumineuxComponent },
       { path: 'product-update/:pointLumineux', component: AddPointLumineuxComponent },
-      { path: 'Login', component: LoginComponent },
+      //{ path: 'Login', component: LoginComponent },
       { path: 'Home', component: HomeComponent },
-      { path: '', component: HomeComponent },
+      //{ path: '', component: HomeComponent },
+            //{ path: '', component: ProductListComponent },
       { path: 'AddArmoire', component: AddArmoireComponent },
 
     ])
