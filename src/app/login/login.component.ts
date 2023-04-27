@@ -36,8 +36,8 @@ export class LoginComponent implements OnInit{
   }
 
   onSubmit() {
-    /*console.log('ggggggggggggggggggggggggggggggggggggg')
-    const email = this.email;
+    console.log('ggggggggggggggggggggggggggggggggggggg')
+   /* const email = this.email;
     const password = this.password;
     if(this.sessionStorage.retrieve('user')!=null)this.router.navigateByUrl('/Home', { skipLocationChange: false }).then(() => {window.location.reload();});
     if(this.email!='' && this.password!=''){
@@ -52,7 +52,7 @@ export class LoginComponent implements OnInit{
         const currentUrl = this.router.url;
         if(currentUrl=='/' || currentUrl==''){
           this.router.navigateByUrl('/Home', { skipLocationChange: false }).then(() => {
-            window.location.reload();
+            window.location.reload(); 
           });
        /* }else{
         this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
