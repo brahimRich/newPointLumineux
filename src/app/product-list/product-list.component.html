@@ -1,3 +1,58 @@
+<style>
+  /* Style pour le titre "Les Points Lumineux" */
+h2 {
+  font-size: 2em;
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+/* Style pour la barre de recherche */
+input[type="text"] {
+  padding: 0.5em;
+  margin-bottom: 1em;
+  width: 98.5%;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Style pour les produits */
+h3 {
+  margin-top: 1.5em;
+  font-size: 1.5em;
+}
+
+p {
+  margin: 0.5em 0;
+}
+
+/* Style pour les boutons */
+button {
+  background-color: #4CAF50; /* couleur de fond */
+  color: white; /* couleur de texte */
+  padding: 0.5em 1em; /* taille du bouton */
+  border: none; /* pas de bordure */
+  border-radius: 4px; /* coins arrondis */
+  cursor: pointer; /* curseur en forme de main */
+  margin-right: 0.5em; /* espace entre les boutons */
+}
+
+/* Style pour le bouton "Share" */
+button:nth-of-type(1) {
+  background-color: #2196F3; /* couleur de fond différente */
+}
+
+/* Style pour le bouton "Supprimer" */
+button:nth-of-type(2) {
+  background-color: #f44336; /* couleur de fond différente */
+}
+
+/* Style pour le bouton "Modifier" */
+button:nth-of-type(3) {
+  background-color: #FFC107; /* couleur de fond différente */
+}
+
+</style>
+
 <app-top-bar></app-top-bar>
 <h2>Les Points Lumineux</h2>
 <input type="text" [(ngModel)]="searchText" placeholder="Rechercher un produit" (keyup)="onSearchTermChanged()">

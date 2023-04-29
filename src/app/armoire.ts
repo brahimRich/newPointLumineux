@@ -11,7 +11,31 @@ import { HttpHeaders } from '@angular/common/http';
 export interface Armoire {
     Id_Armoire: number;
     MarqueSectionneur : string;
+    calibreSectionneur : string;
+    nombreSectionneur : number;
+    marquePorteFusible : string;
+    calibrePorteFusible : string;
+    nombrePorteFusible : number;
+    marqueRepartiteur : string;
+    calibreRepartiteur : string;
+    nombreRepartiteur : number;
+    marqueContacteur : string;
+    calibreContacteur : string;
+    nombreContacteur : number;
+    marqueHorloge : string;
+    calibreHorloge : String;
+    nombreHorloge : number;
+    marqueDisjunicC2 : String;
+    calibreDisjunicC2 : String;
+    nombreDisjunicC2 : number;
+    marqueBornes : String;
+    calibreBornes : String;
+    nombreBornes : number;
+    marqueCablage : String;
+    calibreCablage : String;
+    nombreCablage : number;
   }
+
 
 
   @Injectable({
@@ -28,11 +52,11 @@ export interface Armoire {
 
        getAllArmoire(): Observable<any> {
         return this.http.get<any>(this.getURL);
-      }
+      } 
       
       deleteArmoire(id: number) {
         const url = `${this.deleteURL}/${id}`;
-        return this.http.delete(url);
+        return this.http.delete(url); 
       }
 
     AddArmoire(Armoire: Armoire) {

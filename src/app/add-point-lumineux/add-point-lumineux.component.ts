@@ -66,7 +66,7 @@ export class AddPointLumineuxComponent implements OnInit {
 
 
 updateErrorMessagee() {
-  if(this.PointLumineux.type=='') this.errorMessageN='Le champ Name est obligatoire';
+  if(this.PointLumineux.type=='') this.errorMessageN='Ce champ est obligatoire';
   else this.errorMessageN='';
   if(this.PointLumineux.latitude==null || this.PointLumineux.latitude==0) this.errorMessageLa='Le champ Latitude est obligatoire';
   else this.errorMessageLa='';

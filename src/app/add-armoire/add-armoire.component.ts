@@ -20,6 +20,29 @@ export class AddArmoireComponent implements OnInit {
   Armoire : Armoire = {
     Id_Armoire: 0,
     MarqueSectionneur : '',
+    calibreSectionneur : '',
+    nombreSectionneur : 0,
+    marquePorteFusible : '',
+    calibrePorteFusible : '',
+    nombrePorteFusible : 0,
+    marqueRepartiteur : '',
+    calibreRepartiteur : '',
+    nombreRepartiteur : 0,
+    marqueContacteur : '',
+    calibreContacteur : '',
+    nombreContacteur : 0,
+    marqueHorloge : '',
+    calibreHorloge : '',
+    nombreHorloge : 0,
+    marqueDisjunicC2 : '',
+    calibreDisjunicC2 : '',
+    nombreDisjunicC2 : 0,
+    marqueBornes : '',
+    calibreBornes : '',
+    nombreBornes : 0,
+    marqueCablage : '',
+    calibreCablage : '',
+    nombreCablage : 0,
   };
 
   constructor(private ArmoireService: ArmoireService,private route: ActivatedRoute,private formBuilder: FormBuilder) { 
@@ -38,23 +61,25 @@ export class AddArmoireComponent implements OnInit {
         },
         error => {
           console.error(error);
-        }
+        }  
       );
       }
 }
 
 
 updateErrorMessagee() {
-  if(this.Armoire.MarqueSectionneur=='') this.errorMessageMarque='Le champ Marque est obligatoire';
-  else this.errorMessageMarque='';
+
+  // if(this.Armoire.MarqueSectionneur=='') this.errorMessageMarque='Ce champ est obligatoire';
+  // else this.errorMessageMarque='';
 
 
   if (this.errorMessageMarque=='') {
-    console.log('eror vide')
+    console.log('erreur vide')
     this.boutonDesactive = false; 
   } else {
     this.boutonDesactive = true; 
   }
+
 }
 
 submitProduct() {
