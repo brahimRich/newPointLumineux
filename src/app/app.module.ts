@@ -17,6 +17,7 @@ import { AddArmoireComponent } from './add-armoire/add-armoire.component';
 
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
+import { AddDepartComponent } from './add-depart/add-depart.component';
 
 @NgModule({
   imports: [
@@ -37,7 +38,8 @@ import { HomeComponent } from './home/home.component';
       { path: 'Home', component: HomeComponent },
       //{ path: '', component: HomeComponent },
             //{ path: '', component: ProductListComponent },
-      { path: 'AddArmoire', component: AddArmoireComponent },
+      { path: 'AddArmoire', component: AddArmoireComponent }, 
+      { path: 'AddDepart', component: AddDepartComponent },  
 
     ])
   ],
@@ -51,6 +53,7 @@ import { HomeComponent } from './home/home.component';
     LoginComponent,
     HomeComponent,
     AddArmoireComponent,
+    AddDepartComponent,
   ],
   bootstrap: [
     AppComponent

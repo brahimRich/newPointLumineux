@@ -57,7 +57,7 @@ export interface Armoire {
   }
 */
 
-
+ 
   @Injectable({
     providedIn: 'root'
   })
@@ -70,7 +70,7 @@ export interface Armoire {
     private AddURL= 'http://localhost:4200/api/Armoire/add';
     private UpdateURL= 'http://localhost:4200/api/Armoire/update';
 
-       getAllArmoire(): Observable<any> {
+      getAllArmoire(): Observable<any> {
         return this.http.get<any>(this.getURL);
       } 
       
@@ -93,7 +93,7 @@ export interface Armoire {
         );
       }
   
-      FindById(id: number): Observable<Armoire> {
+      FindById(id: number): Observable<Armoire> {  
         return this.getAllArmoire().pipe(
           map(Armoires => Armoires.find((Armoire: Armoire) => Armoire.id === id))
         );

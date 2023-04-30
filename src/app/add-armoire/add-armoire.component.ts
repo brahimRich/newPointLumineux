@@ -23,7 +23,7 @@ export class AddArmoireComponent implements OnInit {
     id:0,
     nom : '',
   };
-
+ 
 
   armoireListe : armoireListe = {
     id:0,
@@ -142,7 +142,7 @@ export class AddArmoireComponent implements OnInit {
         }  
       );
       }
-}
+  }
 
 
 updateErrorMessagee() {
