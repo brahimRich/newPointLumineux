@@ -8,6 +8,26 @@ import { HttpHeaders } from '@angular/common/http';
 
 
 
+    
+export interface typeArmoire {
+  id:number;
+  nom : string;
+}
+
+export interface armoireListe {
+  id:number;
+  marque : string;
+  calibre : string;
+  nombre : number;
+  typeArmoire:typeArmoire;
+}
+
+export interface Armoire {
+  id: number;
+  armoireListe : armoireListe[],
+}
+
+/*
 export interface Armoire {
     Id_Armoire: number;
     MarqueSectionneur : string;
@@ -35,7 +55,7 @@ export interface Armoire {
     calibreCablage : String;
     nombreCablage : number;
   }
-
+*/
 
 
   @Injectable({
@@ -75,13 +95,12 @@ export interface Armoire {
   
       FindById(id: number): Observable<Armoire> {
         return this.getAllArmoire().pipe(
-          map(Armoires => Armoires.find((Armoire: Armoire) => Armoire.Id_Armoire === id))
+          map(Armoires => Armoires.find((Armoire: Armoire) => Armoire.id === id))
         );
       }
 
       updateArmoire(Armoire: Armoire){
-        const url = `${this.UpdateURL}/${Armoire.Id_Armoire}`;
-        console.log("update "+Armoire.MarqueSectionneur);  
+        const url = `${this.UpdateURL}/${Armoire.id}`;
          this.http.put<Armoire>(url, Armoire)
          .subscribe(
           (response) => {

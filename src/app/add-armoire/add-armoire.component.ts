@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { ArmoireService ,Armoire} from '../armoire';
+import { ArmoireService ,Armoire,typeArmoire,armoireListe} from '../armoire';
 
 import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl, Validators,FormBuilder } from '@angular/forms';
@@ -17,33 +17,111 @@ export class AddArmoireComponent implements OnInit {
   errorMessageMarque='';
  
 
-  Armoire : Armoire = {
-    Id_Armoire: 0,
-    MarqueSectionneur : '',
-    calibreSectionneur : '',
-    nombreSectionneur : 0,
-    marquePorteFusible : '',
-    calibrePorteFusible : '',
-    nombrePorteFusible : 0,
-    marqueRepartiteur : '',
-    calibreRepartiteur : '',
-    nombreRepartiteur : 0,
-    marqueContacteur : '',
-    calibreContacteur : '',
-    nombreContacteur : 0,
-    marqueHorloge : '',
-    calibreHorloge : '',
-    nombreHorloge : 0,
-    marqueDisjunicC2 : '',
-    calibreDisjunicC2 : '',
-    nombreDisjunicC2 : 0,
-    marqueBornes : '',
-    calibreBornes : '',
-    nombreBornes : 0,
-    marqueCablage : '',
-    calibreCablage : '',
-    nombreCablage : 0,
+
+
+  typeArmoire : typeArmoire = {
+    id:0,
+    nom : '',
   };
+
+
+  armoireListe : armoireListe = {
+    id:0,
+    marque : '',
+    calibre : '',
+    nombre : 0,
+    typeArmoire :{
+      id:0,
+      nom : '',
+    }
+  };
+
+
+  Armoire : Armoire = {
+    id:0,
+    armoireListe : [{
+      id:0,
+      marque : '',
+      calibre : '',
+      nombre : 0,
+      typeArmoire :{
+        id:0,
+        nom : 'Sectionneur',
+      },
+    },
+    {
+      id:0,
+      marque : '',
+      calibre : '',
+      nombre : 0,
+      typeArmoire :{
+        id:0,
+        nom : 'Porte fusible',
+      },
+    },
+    {
+      id:0,
+      marque : '',
+      calibre : '',
+      nombre : 0,
+      typeArmoire :{
+        id:0,
+        nom : 'Repartiteur',
+      },
+    },
+    {
+      id:0,
+      marque : '',
+      calibre : '',
+      nombre : 0,
+      typeArmoire :{
+        id:0,
+        nom : 'Contacteur',
+      },
+    }
+    ,{
+      id:0,
+      marque : '',
+      calibre : '',
+      nombre : 0,
+      typeArmoire :{
+        id:0,
+        nom : 'Horloge',
+      },
+    },
+    {
+      id:0,
+      marque : '',
+      calibre : '',
+      nombre : 0,
+      typeArmoire :{
+        id:0,
+        nom : 'Disj uni C32',
+      },
+    },{
+      id:0,
+      marque : '',
+      calibre : '',
+      nombre : 0,
+      typeArmoire :{
+        id:0,
+        nom : 'Bornes',
+      },
+    },{
+      id:0,
+      marque : '',
+      calibre : '',
+      nombre : 0,
+      typeArmoire :{
+        id:0,
+        nom : 'Cablage',
+      },
+    }
+  ]
+  };
+
+
+
 
   constructor(private ArmoireService: ArmoireService,private route: ActivatedRoute,private formBuilder: FormBuilder) { 
   }
@@ -87,7 +165,7 @@ submitProduct() {
   }
 
   updatePoint(){
-    window.alert("modification"+this.Armoire.Id_Armoire)
+    window.alert("modification"+this.Armoire.id)
     this.ArmoireService.updateArmoire(this.Armoire);
   }
 

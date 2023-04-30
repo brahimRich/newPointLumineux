@@ -57,120 +57,120 @@ td:first-child {
       <tbody>
         <tr>
           <td>Sectionneur</td>
-          <td><input type="text" id="MarqueSectionneur" name="MarqueSectionneur" (keyup)="updateErrorMessagee()" [(ngModel)]="Armoire.MarqueSectionneur" class="form-input">
+          <td><input type="text" id="MarqueSectionneur" name="MarqueSectionneur" (keyup)="updateErrorMessagee()" [(ngModel)]="Armoire.armoireListe[0].marque" class="form-input">
             <div *ngIf="errorMessageMarque" [ngClass]="{'error-message': true}">
               <div>{{errorMessageMarque}}</div>
             </div></td>
-          <td><input type="text" id="calibreSectionneur" name="calibreSectionneur" (keyup)="updateErrorMessagee()" [(ngModel)]="Armoire.calibreSectionneur" class="form-input">
+          <td><input type="text" id="calibreSectionneur" name="calibreSectionneur" (keyup)="updateErrorMessagee()" [(ngModel)]="Armoire.armoireListe[0].calibre" class="form-input">
             <div *ngIf="errorMessageMarque" [ngClass]="{'error-message': true}">
               <div>{{errorMessageMarque}}</div>
             </div></td>
-          <td><input type="text" id="nombreSectionneur" name="nombreSectionneur" (keyup)="updateErrorMessagee()" [(ngModel)]="Armoire.nombreSectionneur" class="form-input">
+          <td><input type="text" id="nombreSectionneur" name="nombreSectionneur" (keyup)="updateErrorMessagee()" [(ngModel)]="Armoire.armoireListe[0].nombre" class="form-input">
             <div *ngIf="errorMessageMarque" [ngClass]="{'error-message': true}">
               <div>{{errorMessageMarque}}</div>
             </div></td>
         </tr>
         <tr>
           <td>Porte fusible</td>
-          <td><input type="text" id="marquePorteFusible" name="marquePorteFusible" (keyup)="updateErrorMessagee()" [(ngModel)]="Armoire.marquePorteFusible" class="form-input">
+          <td><input type="text" id="marquePorteFusible" name="marquePorteFusible" (keyup)="updateErrorMessagee()" [(ngModel)]="Armoire.armoireListe[1].marque" class="form-input">
             <div *ngIf="errorMessageMarque" [ngClass]="{'error-message': true}">
               <div>{{errorMessageMarque}}</div>
             </div></td>
-          <td><input type="text" id="calibrePorteFusible" name="calibrePorteFusible" (keyup)="updateErrorMessagee()" [(ngModel)]="Armoire.calibrePorteFusible" class="form-input">
+          <td><input type="text" id="calibrePorteFusible" name="calibrePorteFusible" (keyup)="updateErrorMessagee()" [(ngModel)]="Armoire.armoireListe[1].calibre" class="form-input">
             <div *ngIf="errorMessageMarque" [ngClass]="{'error-message': true}">
               <div>{{errorMessageMarque}}</div>
             </div></td>
-          <td><input type="nombrePorteFusible" id="nombrePorteFusible" name="nombrePorteFusible" (keyup)="updateErrorMessagee()" [(ngModel)]="Armoire.nombrePorteFusible" class="form-input">
+          <td><input type="nombrePorteFusible" id="nombrePorteFusible" name="nombrePorteFusible" (keyup)="updateErrorMessagee()" [(ngModel)]="Armoire.armoireListe[1].nombre" class="form-input">
             <div *ngIf="errorMessageMarque" [ngClass]="{'error-message': true}">
               <div>{{errorMessageMarque}}</div>
             </div></td>
         </tr>
         <tr>
           <td>Répartiteur</td>
-          <td><input type="text" id="marqueRepartiteur" name="marqueRepartiteur" (keyup)="updateErrorMessagee()" [(ngModel)]="Armoire.marqueRepartiteur" class="form-input">
+          <td><input type="text" id="marqueRepartiteur" name="marqueRepartiteur" (keyup)="updateErrorMessagee()" [(ngModel)]="Armoire.armoireListe[2].marque" class="form-input">
             <div *ngIf="errorMessageMarque" [ngClass]="{'error-message': true}">
               <div>{{errorMessageMarque}}</div>
             </div></td>
-          <td><input type="text" id="calibreRepartiteur" name="calibreRepartiteur" (keyup)="updateErrorMessagee()" [(ngModel)]="Armoire.calibreRepartiteur" class="form-input">
+          <td><input type="text" id="calibreRepartiteur" name="calibreRepartiteur" (keyup)="updateErrorMessagee()" [(ngModel)]="Armoire.armoireListe[2].calibre" class="form-input">
             <div *ngIf="errorMessageMarque" [ngClass]="{'error-message': true}">
               <div>{{errorMessageMarque}}</div>
             </div></td>
-          <td><input type="text" id="nombreRepartiteur" name="nombreRepartiteur" (keyup)="updateErrorMessagee()" [(ngModel)]="Armoire.nombreRepartiteur" class="form-input">
+          <td><input type="text" id="nombreRepartiteur" name="nombreRepartiteur" (keyup)="updateErrorMessagee()" [(ngModel)]="Armoire.armoireListe[2].nombre" class="form-input">
             <div *ngIf="errorMessageMarque" [ngClass]="{'error-message': true}">
               <div>{{errorMessageMarque}}</div>
             </div></td>
         </tr>
         <tr>
           <td>Contacteur</td>
-          <td><input type="text" id="marqueContacteur" name="marqueContacteur" (keyup)="updateErrorMessagee()" [(ngModel)]="Armoire.marqueContacteur" class="form-input">
+          <td><input type="text" id="marqueContacteur" name="marqueContacteur" (keyup)="updateErrorMessagee()" [(ngModel)]="Armoire.armoireListe[3].marque" class="form-input">
             <div *ngIf="errorMessageMarque" [ngClass]="{'error-message': true}">
               <div>{{errorMessageMarque}}</div>
             </div></td>
-          <td><input type="text" id="calibreContacteur" name="calibreContacteur" (keyup)="updateErrorMessagee()" [(ngModel)]="Armoire.calibreContacteur" class="form-input">
+          <td><input type="text" id="calibreContacteur" name="calibreContacteur" (keyup)="updateErrorMessagee()" [(ngModel)]="Armoire.armoireListe[3].calibre" class="form-input">
             <div *ngIf="errorMessageMarque" [ngClass]="{'error-message': true}">
               <div>{{errorMessageMarque}}</div>
             </div></td>
-          <td><input type="text" id="nombreContacteur" name="nombreContacteur" (keyup)="updateErrorMessagee()" [(ngModel)]="Armoire.nombreContacteur" class="form-input">
+          <td><input type="text" id="nombreContacteur" name="nombreContacteur" (keyup)="updateErrorMessagee()" [(ngModel)]="Armoire.armoireListe[3].nombre" class="form-input">
             <div *ngIf="errorMessageMarque" [ngClass]="{'error-message': true}">
               <div>{{errorMessageMarque}}</div>
             </div></td>
         </tr>
         <tr>
           <td>Horloge</td>
-          <td><input type="text" id="marqueHorloge" name="marqueHorloge" (keyup)="updateErrorMessagee()" [(ngModel)]="Armoire.marqueHorloge" class="form-input">
+          <td><input type="text" id="marqueHorloge" name="marqueHorloge" (keyup)="updateErrorMessagee()" [(ngModel)]="Armoire.armoireListe[4].marque" class="form-input">
             <div *ngIf="errorMessageMarque" [ngClass]="{'error-message': true}">
               <div>{{errorMessageMarque}}</div>
             </div></td>
-          <td><input type="text" id="calibreHorloge" name="calibreHorloge" (keyup)="updateErrorMessagee()" [(ngModel)]="Armoire.calibreHorloge" class="form-input">
+          <td><input type="text" id="calibreHorloge" name="calibreHorloge" (keyup)="updateErrorMessagee()" [(ngModel)]="Armoire.armoireListe[4].calibre" class="form-input">
             <div *ngIf="errorMessageMarque" [ngClass]="{'error-message': true}">
               <div>{{errorMessageMarque}}</div>
             </div></td>
-          <td><input type="text" id="nombreHorloge" name="nombreHorloge" (keyup)="updateErrorMessagee()" [(ngModel)]="Armoire.nombreHorloge" class="form-input">
+          <td><input type="text" id="nombreHorloge" name="nombreHorloge" (keyup)="updateErrorMessagee()" [(ngModel)]="Armoire.armoireListe[4].nombre" class="form-input">
             <div *ngIf="errorMessageMarque" [ngClass]="{'error-message': true}">
               <div>{{errorMessageMarque}}</div>
             </div></td>
         </tr>
         <tr>
           <td>Disj uni C32</td>
-          <td><input type="text" id="marqueDisjunicC2" name="marqueDisjunicC2" (keyup)="updateErrorMessagee()" [(ngModel)]="Armoire.marqueDisjunicC2" class="form-input">
+          <td><input type="text" id="marqueDisjunicC2" name="marqueDisjunicC2" (keyup)="updateErrorMessagee()" [(ngModel)]="Armoire.armoireListe[5].marque" class="form-input">
             <div *ngIf="errorMessageMarque" [ngClass]="{'error-message': true}">
               <div>{{errorMessageMarque}}</div>
             </div></td>
-          <td><input type="text" id="calibreDisjunicC2" name="calibreDisjunicC2" (keyup)="updateErrorMessagee()" [(ngModel)]="Armoire.calibreDisjunicC2" class="form-input">
+          <td><input type="text" id="calibreDisjunicC2" name="calibreDisjunicC2" (keyup)="updateErrorMessagee()" [(ngModel)]="Armoire.armoireListe[5].calibre" class="form-input">
             <div *ngIf="errorMessageMarque" [ngClass]="{'error-message': true}">
               <div>{{errorMessageMarque}}</div>
             </div></td>
-          <td><input type="text" id="nombreDisjunicC2" name="nombreDisjunicC2" (keyup)="updateErrorMessagee()" [(ngModel)]="Armoire.nombreDisjunicC2" class="form-input">
+          <td><input type="text" id="nombreDisjunicC2" name="nombreDisjunicC2" (keyup)="updateErrorMessagee()" [(ngModel)]="Armoire.armoireListe[5].nombre" class="form-input">
             <div *ngIf="errorMessageMarque" [ngClass]="{'error-message': true}">
               <div>{{errorMessageMarque}}</div>
             </div></td>
         </tr>
         <tr>
           <td>Bornes</td>
-          <td><input type="text" id="marqueBornes" name="marqueBornes" (keyup)="updateErrorMessagee()" [(ngModel)]="Armoire.marqueBornes" class="form-input">
+          <td><input type="text" id="marqueBornes" name="marqueBornes" (keyup)="updateErrorMessagee()" [(ngModel)]="Armoire.armoireListe[6].marque" class="form-input">
             <div *ngIf="errorMessageMarque" [ngClass]="{'error-message': true}">
               <div>{{errorMessageMarque}}</div>
             </div></td>
-          <td><input type="text" id="calibreBornes" name="calibreBornes" (keyup)="updateErrorMessagee()" [(ngModel)]="Armoire.calibreBornes" class="form-input">
+          <td><input type="text" id="calibreBornes" name="calibreBornes" (keyup)="updateErrorMessagee()" [(ngModel)]="Armoire.armoireListe[6].calibre" class="form-input">
             <div *ngIf="errorMessageMarque" [ngClass]="{'error-message': true}">
               <div>{{errorMessageMarque}}</div>
             </div></td>
-          <td><input type="text" id="nombreBornes" name="nombreBornes" (keyup)="updateErrorMessagee()" [(ngModel)]="Armoire.nombreBornes" class="form-input">
+          <td><input type="text" id="nombreBornes" name="nombreBornes" (keyup)="updateErrorMessagee()" [(ngModel)]="Armoire.armoireListe[6].nombre" class="form-input">
             <div *ngIf="errorMessageMarque" [ngClass]="{'error-message': true}">
               <div>{{errorMessageMarque}}</div>
             </div></td>
         </tr>
         <tr>
           <td>Cablage</td>
-          <td><input type="text" id="marqueCablage" name="marqueCablage" (keyup)="updateErrorMessagee()" [(ngModel)]="Armoire.marqueCablage" class="form-input">
+          <td><input type="text" id="marqueCablage" name="marqueCablage" (keyup)="updateErrorMessagee()" [(ngModel)]="Armoire.armoireListe[7].marque" class="form-input">
             <div *ngIf="errorMessageMarque" [ngClass]="{'error-message': true}">
               <div>{{errorMessageMarque}}</div>
             </div></td>
-          <td><input type="text" id="calibreCablage" name="calibreCablage" (keyup)="updateErrorMessagee()" [(ngModel)]="Armoire.calibreCablage" class="form-input">
+          <td><input type="text" id="calibreCablage" name="calibreCablage" (keyup)="updateErrorMessagee()" [(ngModel)]="Armoire.armoireListe[7].calibre" class="form-input">
             <div *ngIf="errorMessageMarque" [ngClass]="{'error-message': true}">
               <div>{{errorMessageMarque}}</div>
             </div></td>
-          <td><input type="text" id="nombreCablage" name="nombreCablage" (keyup)="updateErrorMessagee()" [(ngModel)]="Armoire.nombreCablage" class="form-input">
+          <td><input type="text" id="nombreCablage" name="nombreCablage" (keyup)="updateErrorMessagee()" [(ngModel)]="Armoire.armoireListe[7].nombre" class="form-input">
             <div *ngIf="errorMessageMarque" [ngClass]="{'error-message': true}">
               <div>{{errorMessageMarque}}</div>
             </div></td>
