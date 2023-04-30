@@ -1,0 +1,118 @@
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import {Depart,caracteristiqueList,departType,DepartService} from '../depart';
+
+import {  ArmoireService ,Armoire,typeArmoire,armoireListe } from '../armoire';
+
+@Component({
+  selector: 'app-add-depart',
+  templateUrl: './add-depart.component.html',
+  styleUrls: ['./add-depart.component.css']  
+})
+export class AddDepartComponent implements OnInit{
+  Mofifer : boolean = false;
+  boutonDesactive: boolean = true;
+  errorMessageMarque='';
+ 
+
+  departType : departType = {
+    id_Depart : 0,
+    num_depart : '',
+    typedepart : '',
+  };
+
+  caracteristiqueList : caracteristiqueList = {
+    id : 0,
+    tenstion_sortie_triphase : '',
+    tenstion_sortie_mono : '',
+    courantA : '',
+    tenstion_extrimite_triphase : '',
+    tenstion_extrimite_mono : '',
+    nbr_lumineux : '',
+    derpar : '',
+    departType : {
+      id_Depart : 0,
+      num_depart : '',
+      typedepart : '',
+    }    
+  };
+
+  Depart : Depart = {
+    id: 0,
+    observation: '',
+    Armoire: {
+      id: 0,
+      armoireListe: [{
+        id: 0,
+        marque: '',
+        calibre: '',
+        nombre: 0,
+        typeArmoire: {
+          id: 0,
+          nom: 'Sectionneur'
+        }
+      }]
+    },
+    caracteristiqueList: [
+      {
+        id: 0,
+        tenstion_sortie_triphase: '',
+        tenstion_sortie_mono: '',
+        courantA: '',
+        tenstion_extrimite_triphase: '',
+        tenstion_extrimite_mono: '',
+        nbr_lumineux: '',
+        derpar: '',
+        departType: {
+          id_Depart: 0,
+          num_depart: '',
+          typedepart: ''
+        }
+      },
+      {
+        id: 0,
+        tenstion_sortie_triphase: '',
+        tenstion_sortie_mono: '',
+        courantA: '',
+        tenstion_extrimite_triphase: '',
+        tenstion_extrimite_mono: '',
+        nbr_lumineux: '',
+        derpar: '',
+        departType: {
+          id_Depart: 0,
+          num_depart: '',
+          typedepart: ''
+        }
+      },
+      {
+        id: 0,
+        tenstion_sortie_triphase: '',
+        tenstion_sortie_mono: '',
+        courantA: '',
+        tenstion_extrimite_triphase: '',
+        tenstion_extrimite_mono: '',
+        nbr_lumineux: '',
+        derpar: '',
+        departType: {
+          id_Depart: 0,
+          num_depart: '',
+          typedepart: ''
+        }
+      },
+      {
+        id: 0,
+        tenstion_sortie_triphase: '',
+        tenstion_sortie_mono: '',
+        courantA: '',
+        tenstion_extrimite_triphase: '',
+        tenstion_extrimite_mono: '',
+        nbr_lumineux: '',
+        derpar: '',
+        departType: {
+          id_Depart: 0,
+          num_depart: '',
+          typedepart: ''
+        }
+      },
+    ]}
+};
+    
