@@ -1,118 +1,70 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import {Depart,caracteristiqueList,departType,DepartService} from '../depart';
-
-import {  ArmoireService ,Armoire,typeArmoire,armoireListe } from '../armoire';
-
-@Component({
-  selector: 'app-add-depart',
-  templateUrl: './add-depart.component.html',
-  styleUrls: ['./add-depart.component.css']  
-})
-export class AddDepartComponent implements OnInit{
-  Mofifer : boolean = false;
-  boutonDesactive: boolean = true;
-  errorMessageMarque='';
- 
-
-  departType : departType = {
-    id_Depart : 0,
-    num_depart : '',
-    typedepart : '',
-  };
-
-  caracteristiqueList : caracteristiqueList = {
-    id : 0,
-    tenstion_sortie_triphase : '',
-    tenstion_sortie_mono : '',
-    courantA : '',
-    tenstion_extrimite_triphase : '',
-    tenstion_extrimite_mono : '',
-    nbr_lumineux : '',
-    derpar : '',
-    departType : {
-      id_Depart : 0,
-      num_depart : '',
-      typedepart : '',
-    }    
-  };
-
-  Depart : Depart = {
-    id: 0,
-    observation: '',
-    Armoire: {
-      id: 0,
-      armoireListe: [{
-        id: 0,
-        marque: '',
-        calibre: '',
-        nombre: 0,
-        typeArmoire: {
-          id: 0,
-          nom: 'Sectionneur'
-        }
-      }]
-    },
-    caracteristiqueList: [
-      {
-        id: 0,
-        tenstion_sortie_triphase: '',
-        tenstion_sortie_mono: '',
-        courantA: '',
-        tenstion_extrimite_triphase: '',
-        tenstion_extrimite_mono: '',
-        nbr_lumineux: '',
-        derpar: '',
-        departType: {
-          id_Depart: 0,
-          num_depart: '',
-          typedepart: ''
-        }
-      },
-      {
-        id: 0,
-        tenstion_sortie_triphase: '',
-        tenstion_sortie_mono: '',
-        courantA: '',
-        tenstion_extrimite_triphase: '',
-        tenstion_extrimite_mono: '',
-        nbr_lumineux: '',
-        derpar: '',
-        departType: {
-          id_Depart: 0,
-          num_depart: '',
-          typedepart: ''
-        }
-      },
-      {
-        id: 0,
-        tenstion_sortie_triphase: '',
-        tenstion_sortie_mono: '',
-        courantA: '',
-        tenstion_extrimite_triphase: '',
-        tenstion_extrimite_mono: '',
-        nbr_lumineux: '',
-        derpar: '',
-        departType: {
-          id_Depart: 0,
-          num_depart: '',
-          typedepart: ''
-        }
-      },
-      {
-        id: 0,
-        tenstion_sortie_triphase: '',
-        tenstion_sortie_mono: '',
-        courantA: '',
-        tenstion_extrimite_triphase: '',
-        tenstion_extrimite_mono: '',
-        nbr_lumineux: '',
-        derpar: '',
-        departType: {
-          id_Depart: 0,
-          num_depart: '',
-          typedepart: ''
-        }
-      },
-    ]}
-};
-    
+[
+	{
+		"type": "type",
+		"intitule_Intervention": "intetulle",
+		"dure_Intervention": 15,
+		"etat_intervention": 0.0,
+		"techniciennes": [
+			{
+				"id": 1,
+				"nom": "rida",
+				"prenom": "mihi",
+				"cin": "jh21d",
+				"interventionList": []
+			}
+		],
+		"pointLumineuxList": [
+			{
+				"reference": 3,
+				"type": "pointtttt",
+				"longitude": 278.7,
+				"latitude": 714.2,
+				"allume": false,
+				"numero": 0,
+				"marque": null,
+				"degre_prot": null,
+				"puissance_max": 0,
+				"temperature": 0,
+				"class_electrique": null,
+				"date_accussition": null,
+				"coordonnees": {
+					"id": 1,
+					"x": 6.0,
+					"y": 8.0
+				},
+				"adresse": {
+					"id": 2,
+					"rue": "rueeeeeeee22",
+					"quertier": "quatierrrrrrr33"
+				},
+				"armoire": {
+					"id": 5,
+					"armoireListe": [
+						{
+							"id": 2,
+							"marque": "marque1",
+							"calibre": "qualibre2",
+							"nombre": 16,
+							"typeArmoire": {
+								"id": 1,
+								"nom": "selectionneur"
+							}
+						},
+						{
+							"id": 4,
+							"marque": "marque2",
+							"calibre": "qualibre2",
+							"nombre": 17,
+							"typeArmoire": {
+								"id": 3,
+								"nom": "porte fusible"
+							}
+						}
+					]
+				},
+				"interventionList": []
+			}
+		],
+		"id_Intervention": 2,
+		"date_intervention": null
+	}
