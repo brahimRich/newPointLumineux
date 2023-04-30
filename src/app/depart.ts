@@ -29,7 +29,7 @@ export interface caracteristiqueList{
 
 export interface departType{
     id_Depart : number;
-    num_depart : string;
+    num_depart : number;
     typedepart : string;
 }
 
@@ -41,7 +41,7 @@ export interface departType{
 export class DepartService{
     constructor(private http: HttpClient) {}
 
-    private getURL = 'http://localhost:4200/api/Depart/getAll';
+    private getURL = 'http://localhost:4200/api/depart/getAll';
     private deleteURL= 'http://localhost:4200/api/Depart/delete';
     private AddURL= 'http://localhost:4200/api/Depart/add';
     private UpdateURL= 'http://localhost:4200/api/Depart/update';
@@ -75,6 +75,12 @@ export class DepartService{
         );
     }
 
+    FindByIdt(): Observable<Depart> {
+      console.log('hiiii');
+      return this.http.get<any>(this.getURL).pipe(
+        map(response => response.length > 0 ? response[0] : null)
+      );
+    }
     
     updateDepart(Depart: Depart){
         const url = `${this.UpdateURL}/${Depart.id}`;

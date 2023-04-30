@@ -18,7 +18,7 @@ export class AddDepartComponent implements OnInit{
 
   departType : departType = {
     id_Depart : 0,
-    num_depart : '',
+    num_depart : 0,
     typedepart : '',
   };
 
@@ -33,14 +33,14 @@ export class AddDepartComponent implements OnInit{
     derpar : '',
     departType : {
       id_Depart : 0,
-      num_depart : '',
+      num_depart : 0,
       typedepart : '',
     }    
   };
 
-  Depart : Depart = {
-    id: 0,
-    observation: '',
+  Depart : Depart =  {
+    id: 7,
+    observation: 'e',
     Armoire: {
       id: 0,
       armoireListe: [{
@@ -66,7 +66,7 @@ export class AddDepartComponent implements OnInit{
         derpar: '',
         departType: {
           id_Depart: 0,
-          num_depart: '',
+          num_depart: 0,
           typedepart: 'R'
         }
       },
@@ -81,7 +81,7 @@ export class AddDepartComponent implements OnInit{
         derpar: '',
         departType: {
           id_Depart: 0,
-          num_depart: '',
+          num_depart: 0,
           typedepart: 'S'
         }
       },
@@ -96,7 +96,7 @@ export class AddDepartComponent implements OnInit{
         derpar: '',
         departType: {
           id_Depart: 0,
-          num_depart: '',
+          num_depart: 0,
           typedepart: 'T'
         }
       },
@@ -111,12 +111,11 @@ export class AddDepartComponent implements OnInit{
         derpar: '',
         departType: {
           id_Depart: 0,
-          num_depart: '',
+          num_depart: 0,
           typedepart: 'R'
         }
       },
     ]
-
   };
 
 
@@ -140,6 +139,17 @@ export class AddDepartComponent implements OnInit{
       }  
     );
     }
+   
+
+
+    // recuperer 
+
+    this.DepartService.FindByIdt().subscribe(data => {
+      const jsonData = JSON.stringify(data); 
+      this.Depart=data;
+      console.log(this.Depart.caracteristiqueList[0].departType.num_depart); 
+      console.log(jsonData); 
+  });
   }
 
   updateErrorMessagee() {
