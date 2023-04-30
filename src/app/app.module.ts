@@ -18,6 +18,7 @@ import { AddArmoireComponent } from './add-armoire/add-armoire.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { AddDepartComponent } from './add-depart/add-depart.component';
+import { AddInterventionComponent } from './add-intervention/add-intervention.component';
 
 @NgModule({
   imports: [
@@ -54,6 +55,7 @@ import { AddDepartComponent } from './add-depart/add-depart.component';
     HomeComponent,
     AddArmoireComponent,
     AddDepartComponent,
+    AddInterventionComponent,
   ],
   bootstrap: [
     AppComponent
