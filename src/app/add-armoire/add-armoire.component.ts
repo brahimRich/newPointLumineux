@@ -5,7 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl, Validators,FormBuilder } from '@angular/forms';
 
 
-@Component({
+@Component({ 
   selector: 'app-add-armoire',
   templateUrl: './add-armoire.component.html',
   styleUrls: ['./add-armoire.component.css']

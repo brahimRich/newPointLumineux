@@ -25,6 +25,7 @@ export interface techniciennes{
     nom : string;
     prenom : string;
     cin : string;
+    interventionList : null; 
 }
 
 @Injectable({
