@@ -52,7 +52,7 @@ import { AddInterventionComponent } from './add-intervention/add-intervention.co
     ProductDetailsComponent,
     AddPointLumineuxComponent,
     LoginComponent,
-    HomeComponent,
+    HomeComponent,  
     AddArmoireComponent,
     AddDepartComponent,
     AddInterventionComponent,

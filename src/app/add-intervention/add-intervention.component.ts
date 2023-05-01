@@ -8,7 +8,7 @@ import { PointLumineux } from '../products';
 
 @Component({
   selector: 'app-add-intervention',
-  templateUrl: './add-intervention.component.html',
+  templateUrl: './add-intervention.component.html',  
   styleUrls: ['./add-intervention.component.css']
 })
 export class AddInterventionComponent {
@@ -125,21 +125,21 @@ export class AddInterventionComponent {
 
   ngOnInit(): void {
     const routeParams = this.route.snapshot.paramMap;
-    const Intervention = Number(routeParams.get(''));
-    if(Intervention){
-      this.Mofifer=true;
-      this.errorMessageMarque='';
-      this.boutonDesactive = false;
-    this.InterventionService.FindById(Intervention).subscribe(
-      Intervention => {
-        this.Intervention = Intervention;
-      },
-      error => {
-        console.error(error);
-      }  
-    );
+      const Intervention = Number(routeParams.get('Intervention'));
+      if(Intervention){
+        this.Mofifer=true;
+        this.errorMessageMarque='';
+        this.boutonDesactive = false;
+      this.InterventionService.FindById(Intervention).subscribe(
+        Intervention => {
+          this.Intervention = Intervention;
+        },
+        error => {
+          console.error(error);
+        }  
+      );
     }
-}
+  }
 
 
 updateErrorMessagee() {
@@ -157,11 +157,11 @@ updateErrorMessagee() {
 
 }
 
-submitProduct() {
+submitDepart() {
   this.InterventionService.AddIntervention(this.Intervention);
 }
 
-updatePoint(){
+updateDepart(){
   window.alert("modification"+this.Intervention.id_Intervention)
   this.InterventionService.updateArmoire(this.Intervention);
 }

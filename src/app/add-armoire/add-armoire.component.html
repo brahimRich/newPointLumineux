@@ -1,37 +1,3 @@
-<style>
-  form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-table {
-  border-collapse: collapse;
-  margin-top: 20px;
-}
-
-th,
-td {
-  border: 1px solid black;
-  padding: 10px;
-  text-align: center;
-}
-
-th {
-  background-color: #c0c0c0;
-}
-
-td:first-child {
-  font-weight: bold;
-}
-
-.error-message {
-  color: red;
-  font-size: 0.8em;
-  margin-top: 5px;
-}
-
-</style>
 
 <app-top-bar></app-top-bar>
 
@@ -52,7 +18,7 @@ td:first-child {
           <th>Marque</th>
           <th>Calibre</th>  
           <th>Nombre</th>
-        </tr>
+        </tr> 
       </thead>
       <tbody>
         <tr>
@@ -179,7 +145,7 @@ td:first-child {
       </tbody>
     </table>
     <br>
-    <button *ngIf="!Mofifer" [disabled]="boutonDesactive" (click)="submitProduct()">Ajouter</button>
-    <button *ngIf="Mofifer" [disabled]="boutonDesactive" (click)="updatePoint()">Mofier</button>
+    <button  type="submit"  (click)="submitProduct()">Suivant</button>
+    <button *ngIf="Mofifer" [disabled]="boutonDesactive" (click)="updatePoint()">Update</button>
 </form> 
   
