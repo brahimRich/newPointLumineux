@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit{
     const user = this.sessionStorage.retrieve('user');
     console.log("load data ********************************************* "+user.prenom);
   }
-
+ 
   onSubmit() {
     console.log('ggggggggggggggggggggggggggggggggggggg')
    /* const email = this.email;

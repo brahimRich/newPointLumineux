@@ -1,0 +1,67 @@
+<app-top-bar></app-top-bar>
+
+<p>add-techniciennes works!</p>
+ 
+<div class="container">
+
+    <form class="well form-horizontal" action=" " method="post"  id="contact_form">
+<fieldset>
+
+<!-- Form Name -->
+<legend>Add a new technician!</legend>
+
+<!-- Text input-->
+
+<div class="form-group">
+  <label class="col-md-4 control-label">Nom</label>  
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input   placeholder="Nom" class="form-control"  id="nom" type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="techniciennes.nom" >
+    </div>
+  </div>
+</div>
+
+<!-- Text input-->
+
+<div class="form-group">
+  <label class="col-md-4 control-label" >Prenom</label> 
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input  placeholder="Prenom" class="form-control"  id="prenom" type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="techniciennes.prenom">
+    </div>
+  </div>
+</div>
+
+<!-- Text input-->
+       <div class="form-group">
+  <label class="col-md-4 control-label">CIN</label>  
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+  <input  placeholder="CIN" class="form-control"  id="cin" type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="techniciennes.cin">
+    </div>
+  </div>
+</div>
+
+
+<!-- Text input-->
+       
+<div class="form-group">
+  <label class="col-md-4 control-label">InterventionList</label>  
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+  <input placeholder="interventionList" class="form-control" id="interventionList" type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="techniciennes.interventionList">
+    </div>
+  </div>
+</div>
+<br>
+
+<button (click)="onSubmit()" >Soumettre</button>
+
+</fieldset>
+</form>
+</div>
+    
