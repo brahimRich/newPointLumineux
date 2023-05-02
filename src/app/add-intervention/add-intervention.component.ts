@@ -5,6 +5,12 @@ import { FormGroup, FormControl, Validators,FormBuilder } from '@angular/forms';
 import { from } from 'rxjs';
 import { PointLumineux } from '../products';
 
+import { SessionStorageService } from 'ngx-webstorage';
+import { Location } from '@angular/common';
+import { Router } from '@angular/router';
+import { CartService } from '../cart.service';
+
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-add-intervention',
@@ -16,6 +22,9 @@ export class AddInterventionComponent {
   boutonDesactive: boolean = true;
   errorMessageMarque='';
  
+  techniciens: string[] = [];
+  PointxLimineux: string[] = [];
+
   
   Intervention : Intervention = {
     id_Intervention : 0,
@@ -119,8 +128,10 @@ export class AddInterventionComponent {
     interventionList : null,
   }
 
+ 
 
-  constructor(private InterventionService: InterventionService,private route: ActivatedRoute,private formBuilder: FormBuilder) { 
+
+  constructor(private http: HttpClient,private InterventionService: InterventionService,private route: ActivatedRoute,private formBuilder: FormBuilder,private cartService: CartService,private sessionStorage: SessionStorageService,private router: Router,private location: Location) { 
   }
 
   ngOnInit(): void {
@@ -139,6 +150,16 @@ export class AddInterventionComponent {
         }  
       );
     }
+
+    // select nom from techniciens
+    this.http.get<string[]>('srs ghid link').subscribe(data => {
+      this.techniciens = data;
+    });
+
+    // select num from pointlimineux
+    this.http.get<string[]>('srs ghid link').subscribe(dataa => {
+      this.PointxLimineux = dataa;
+    });
   }
 
 
@@ -167,5 +188,19 @@ updateDepart(){
 }
 
 
+
+submitIntervention() {
+  this.InterventionService.AddIntervention(this.Intervention);
+
+      const currentUrl = this.router.url;
+      if(currentUrl=='/Intervention' || currentUrl==''){
+        this.router.navigateByUrl('/Home', { skipLocationChange: false }).then(() => {
+          window.location.reload(); 
+        });
 }
+}
+
+
+}
+
   

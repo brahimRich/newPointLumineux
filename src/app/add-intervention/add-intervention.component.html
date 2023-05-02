@@ -1,20 +1,39 @@
-<form action="../add-depart/add-depart.component.html">
-    <label for="nom">Nom :</label>
-    <input type="text" id="nom" name="nom"><br>
-  
-    <label for="prenom">Prénom :</label>
-    <input type="text" id="prenom" name="prenom"><br>
-  
-    <label for="pays">Pays :</label>
-    <select id="pays" name="pays">
-      <option value="france">France</option>
-      <option value="espagne">Espagne</option>
-      <option value="italie">Italie</option>
-    </select><br>
-  
-    <label for="newsletter">S'abonner à la newsletter :</label>
-    <input type="checkbox" id="newsletter" name="newsletter"><br>
-  
-    <button type="submit">Envoyer</button>
-  </form>
-  
+
+<app-top-bar></app-top-bar>
+<br>
+<form> 
+    <label for="type" >Type d'intervention</label>
+    <input type="text" id="email" name="email" [(ngModel)]="Intervention.type" (keyup)="updateErrorMessagee()">
+
+    <label for="intitule_Intervention" >Intitule d'intervention:</label>
+    <input type="text" id="password" name="password" [(ngModel)]="Intervention.intitule_Intervention" (keyup)="updateErrorMessagee()">
+
+    <label for="dure_Intervention" >Dure d'intervention:</label>
+    <input type="number" id="dure_Intervention" name="dure_Intervention" [(ngModel)]="Intervention.dure_Intervention" (keyup)="updateErrorMessagee()">
+
+    <label for="etat_intervention" >Etat d'intervention:</label>
+    <input type="text" id="etat_intervention" name="etat_intervention" [(ngModel)]="Intervention.etat_intervention" (keyup)="updateErrorMessagee()">
+
+    <label for="date_intervention" >Date d'intervention:</label>
+    <input type="date" id="date_intervention" name="date_intervention" [(ngModel)]="Intervention.date_intervention" (keyup)="updateErrorMessagee()">
+<!-- 
+    <label for="techniciennes" >Techniciennes :</label>
+    <input type="text" id="techniciennes" name="techniciennes" [(ngModel)]="Intervention.techniciennes" (keyup)="updateErrorMessagee()"> -->
+
+    <label for="techniciens">Techniciennes :</label>
+    <select name="techniciens" id="techniciens" [(ngModel)]="Intervention.techniciennes">
+      <option *ngFor="let technicien of techniciens" [value]="technicien">{{ technicien }}</option>
+    </select>
+    <br>
+    <!-- <label for="PointLumineux" >PointLumineux :</label>
+    <input type="text" id="PointLumineux" name="PointLumineux" [(ngModel)]="Intervention.PointLumineux" (keyup)="updateErrorMessagee()">
+ -->
+
+    <label for="PointxLimineux">Point Limineux :</label>
+    <select name="PointxLimineux" id="PointxLimineux" [(ngModel)]="Intervention.PointLumineux">
+      <option *ngFor="let PointxLimineu of PointxLimineux" [value]="PointxLimineu">{{ PointxLimineu }}</option>
+    </select>
+
+    <br>
+  <button (click)="submitIntervention()" >Soumettre</button>
+</form>

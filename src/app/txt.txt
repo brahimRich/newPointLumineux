@@ -1,70 +1,7 @@
-[
-	{
-		"type": "type",
-		"intitule_Intervention": "intetulle",
-		"dure_Intervention": 15,
-		"etat_intervention": 0.0,
-		"techniciennes": [
-			{
-				"id": 1,
-				"nom": "rida",
-				"prenom": "mihi",
-				"cin": "jh21d",
-				"interventionList": []
-			}
-		],
-		"pointLumineuxList": [
-			{
-				"reference": 3,
-				"type": "pointtttt",
-				"longitude": 278.7,
-				"latitude": 714.2,
-				"allume": false,
-				"numero": 0,
-				"marque": null,
-				"degre_prot": null,
-				"puissance_max": 0,
-				"temperature": 0,
-				"class_electrique": null,
-				"date_accussition": null,
-				"coordonnees": {
-					"id": 1,
-					"x": 6.0,
-					"y": 8.0
-				},
-				"adresse": {
-					"id": 2,
-					"rue": "rueeeeeeee22",
-					"quertier": "quatierrrrrrr33"
-				},
-				"armoire": {
-					"id": 5,
-					"armoireListe": [
-						{
-							"id": 2,
-							"marque": "marque1",
-							"calibre": "qualibre2",
-							"nombre": 16,
-							"typeArmoire": {
-								"id": 1,
-								"nom": "selectionneur"
-							}
-						},
-						{
-							"id": 4,
-							"marque": "marque2",
-							"calibre": "qualibre2",
-							"nombre": 17,
-							"typeArmoire": {
-								"id": 3,
-								"nom": "porte fusible"
-							}
-						}
-					]
-				},
-				"interventionList": []
-			}
-		],
-		"id_Intervention": 2,
-		"date_intervention": null
-	}
+<td>Depart 1</td>
+            <td><input type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[0].tenstion_sortie_triphase"></td>
+            <td><input type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[0].tenstion_sortie_mono"></td>
+            <td type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[0].courantA"></td>
+            <td><input type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[0].tenstion_extrimite_triphase"></td>
+            <td><input type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[0].tenstion_extrimite_mono"></td>
+            <td><input type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[0].nbr_lumineux"></td>
