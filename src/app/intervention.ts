@@ -6,6 +6,8 @@ import { catchError } from 'rxjs/operators';
 import { map } from 'rxjs/operators';
 import { HttpHeaders } from '@angular/common/http';
 import { PointLumineux } from './products';
+import { techniciennes } from './techniciennes';
+
 
 
 export interface Intervention {
@@ -20,13 +22,6 @@ export interface Intervention {
     interventionList : null;
 }
 
-export interface techniciennes{
-    id : number;
-    nom : string;
-    prenom : string;
-    cin : string;
-    interventionList : null; 
-}
 
 @Injectable({
     providedIn: 'root'

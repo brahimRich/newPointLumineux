@@ -1,9 +1,11 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import {Intervention,techniciennes,InterventionService} from '../intervention'
+import {Intervention,InterventionService} from '../intervention'
+import {techniciennes,techniciennesService} from '../techniciennes'
+
 import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl, Validators,FormBuilder } from '@angular/forms';
 import { from } from 'rxjs';
-import { PointLumineux } from '../products';
+import { PointLumineux,ProductService } from '../products';
 
 import { SessionStorageService } from 'ngx-webstorage';
 import { Location } from '@angular/common';
@@ -21,10 +23,18 @@ export class AddInterventionComponent {
   Mofifer : boolean = false;
   boutonDesactive: boolean = true;
   errorMessageMarque='';
- 
-  techniciens: string[] = [];
-  PointxLimineux: string[] = [];
+  selectedPoints: PointLumineux[] = [];
+  selecteTechnicienes:techniciennes[] = [];
 
+  techniciens: techniciennes[] = [];
+  PointxLimineuxs: PointLumineux[] = [];
+
+  techniciennes : techniciennes = {
+    id : 0,
+    nom : '',
+    prenom : '',
+    cin : '',
+  }
   
   Intervention : Intervention = {
     id_Intervention : 0,
@@ -34,104 +44,16 @@ export class AddInterventionComponent {
     etat_intervention : 0,
     date_intervention : new Date(2023, 3, 30),
     techniciennes : [
-      {
-        id : 0,
-        nom : '',
-        prenom : '',
-        cin : '',
-        interventionList : null,
-      },
-      {
-        id : 0,
-        nom : '',
-        prenom : '',
-        cin : '',
-        interventionList : null,
-      }
+      
     ],
     PointLumineux : [
-      {
-        reference: 5,
-        type : '',
-        longitude: 0,
-        latitude: 0,
-        allume: true,
-        numero :0,
-        marque : '',
-        degre_prot : '',
-        puissance_max : 0,
-        temperature : 0,
-        class_electrique : '',
-        date_accussition : '',
-        adresse : {
-          rue: '',
-          quertier: '',
-        },
-        coordonnees :{
-          x: 0,
-          y: 0,
-        }
-      },
-      {
-        reference: 8,
-        type : '',
-        longitude: 0,
-        latitude: 0,
-        allume: true,
-        numero :0,
-        marque : '',
-        degre_prot : '',
-        puissance_max : 0,
-        temperature : 0,
-        class_electrique : '',
-        date_accussition : '',
-        adresse : {
-          rue: '',
-          quertier: '',
-        },
-        coordonnees :{
-          x: 0,
-          y: 0,
-        }
-      },
-      {
-        reference: 86,
-        type : '',
-        longitude: 0,
-        latitude: 0,
-        allume: true,
-        numero :0,
-        marque : '',
-        degre_prot : '',
-        puissance_max : 0,
-        temperature : 0,
-        class_electrique : '',
-        date_accussition : '',
-        adresse : {
-          rue: '',
-          quertier: '',
-        },
-        coordonnees :{
-          x: 0,
-          y: 0,
-        }
-      }
+      
     ],
     interventionList : null,
   }
 
-  techniciennes : techniciennes = {
-    id : 0,
-    nom : '',
-    prenom : '',
-    cin : '',
-    interventionList : null,
-  }
 
- 
-
-
-  constructor(private http: HttpClient,private InterventionService: InterventionService,private route: ActivatedRoute,private formBuilder: FormBuilder,private cartService: CartService,private sessionStorage: SessionStorageService,private router: Router,private location: Location) { 
+  constructor(private http: HttpClient,private InterventionService: InterventionService,private route: ActivatedRoute,private formBuilder: FormBuilder,private cartService: CartService,private sessionStorage: SessionStorageService,private router: Router,private location: Location,private techniciennesService :techniciennesService,private ProductService : ProductService) { 
   }
 
   ngOnInit(): void {
@@ -151,24 +73,27 @@ export class AddInterventionComponent {
       );
     }
 
-    // select nom from techniciens
-    this.http.get<string[]>('srs ghid link').subscribe(data => {
+    this.techniciennesService.getAlltechniciennes()
+    .subscribe((data: techniciennes[]) => {
       this.techniciens = data;
+      console.log("tech "+data[0].nom);
     });
 
-    // select num from pointlimineux
-    this.http.get<string[]>('srs ghid link').subscribe(dataa => {
-      this.PointxLimineux = dataa;
+
+    this.ProductService.getAllPointLumineux()
+    .subscribe((data: PointLumineux[]) => {
+      this.PointxLimineuxs = data;
+      console.log("point lu "+data[0].adresse.quertier);
     });
+
+
   }
 
 
+
+
+
 updateErrorMessagee() {
-
-  // if(this.Armoire.MarqueSectionneur=='') this.errorMessageMarque='Ce champ est obligatoire';
-  // else this.errorMessageMarque='';
-
-
   if (this.errorMessageMarque=='') {
     console.log('erreur vide')
     this.boutonDesactive = false; 
@@ -179,7 +104,7 @@ updateErrorMessagee() {
 }
 
 submitDepart() {
-  this.InterventionService.AddIntervention(this.Intervention);
+  //this.InterventionService.AddIntervention(this.Intervention);
 }
 
 updateDepart(){
@@ -187,17 +112,25 @@ updateDepart(){
   this.InterventionService.updateArmoire(this.Intervention);
 }
 
+onPointsLumineuxSelected() {
+  this.Intervention.PointLumineux = [...this.selectedPoints];
+}
 
+onTechnicinnesSelected(){
+  this.Intervention.techniciennes = [...this.selecteTechnicienes];
+}
 
 submitIntervention() {
-  this.InterventionService.AddIntervention(this.Intervention);
+  console.log("intervention "+this.Intervention.techniciennes[0].nom)
+  console.log("intervention "+this.Intervention.techniciennes[1].nom)
 
+  /*this.InterventionService.AddIntervention(this.Intervention);
       const currentUrl = this.router.url;
       if(currentUrl=='/Intervention' || currentUrl==''){
         this.router.navigateByUrl('/Home', { skipLocationChange: false }).then(() => {
           window.location.reload(); 
         });
-}
+}*/
 }
 
 

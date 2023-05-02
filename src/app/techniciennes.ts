@@ -10,11 +10,10 @@ import { Router } from '@angular/router';
 
 
   export interface techniciennes{
-    id: 1;
+    id: number;
 	  nom : string;
     prenom : string ;
 	  cin : string;
-	  interventionList : null
   }
 
   @Injectable({
@@ -23,16 +22,16 @@ import { Router } from '@angular/router';
 
   export class techniciennesService {
 
-    private getURL = '';
+    private getURL = 'http://localhost:4200/api/technicienne/getAll';
     private deleteURL= '';
     private AddURL= '';
     private UpdateURL= '';
 
-
-    
+  
     constructor(private http: HttpClient,private sessionStorage: SessionStorageService,private router: Router,private location: Location) {}
 
     getAlltechniciennes(): Observable<any> {
+      console.log("get all techn");
         return this.http.get<any>(this.getURL);
     } 
 

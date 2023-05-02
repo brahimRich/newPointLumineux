@@ -15,12 +15,10 @@ const httpOptions = {
 
     
 export interface typeArmoire {
-  id:number;
   nom : string;
 }
 
 export interface armoireListe {
-  id:number;
   marque : string;
   calibre : string;
   nombre : number;

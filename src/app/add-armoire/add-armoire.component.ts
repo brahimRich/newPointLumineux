@@ -23,145 +23,88 @@ export class AddArmoireComponent implements OnInit {
 
 
   typeArmoire : typeArmoire = {
-    id:0,
     nom : '',
   };
  
 
   armoireListe : armoireListe = {
-    id:0,
     marque : '',
     calibre : '',
     nombre : 0,
     typeArmoire :{
-      id:0,
       nom : '',
     }
   };
 
-/*
+
   Armoire : Armoire = {
     id:88,
     armoireListe : [{
-      id:9,
       marque : '',
       calibre : '',
       nombre : 0,
       typeArmoire :{
-        id:1,
         nom : 'Sectionneur',
       },
     },
     {
-      id:10,
       marque : '',
       calibre : '',
       nombre : 0,
       typeArmoire :{
-        id:2,
         nom : 'Porte fusible',
       },
     },
     {
-      id:3,
       marque : '',
       calibre : '',
       nombre : 0,
       typeArmoire :{
-        id:3,
         nom : 'Repartiteur',
       },
     },
     {
-      id:4,
       marque : '',
       calibre : '',
       nombre : 0,
       typeArmoire :{
-        id:4,
         nom : 'Contacteur',
       },
     }
     ,{
-      id:5,
       marque : '',
       calibre : '',
       nombre : 0,
       typeArmoire :{
-        id:5,
         nom : 'Horloge',
       },
     },
     {
-      id:6,
       marque : '',
       calibre : '',
       nombre : 0,
       typeArmoire :{
-        id:6,
         nom : 'Disj uni C32',
       },
     },{
-      id:7,
       marque : '',
       calibre : '',
       nombre : 0,
       typeArmoire :{
-        id:7,
         nom : 'Bornes',
       },
     },{
-      id:8,
       marque : '',
       calibre : '',
       nombre : 0,
       typeArmoire :{
-        id:8,
         nom : 'Cablage',
       },
     }
   ]
   };
 
-  */
-
   
-  Armoire : Armoire = {
-    id:88,
-    armoireListe : [{
-      id:9,
-      marque : '',
-      calibre : '',
-      nombre : 0,
-      typeArmoire :{
-        id:1,
-        nom : 'Sectionneur',
-      },
-    },
-    {
-      id:10,
-      marque : '',
-      calibre : '',
-      nombre : 0,
-      typeArmoire :{
-        id:2,
-        nom : 'Porte fusible',
-      },
-    },
-    {
-      id:13,
-      marque : '',
-      calibre : '',
-      nombre : 0,
-      typeArmoire :{
-        id:3,
-        nom : 'Repartiteur',
-      },
-    }
-  ]
-  };
-
-
 
   constructor(private ArmoireService: ArmoireService,private route: ActivatedRoute,private formBuilder: FormBuilder,private router: Router) { 
   }
@@ -190,8 +133,6 @@ export class AddArmoireComponent implements OnInit {
         console.log(jsonData); 
     });*/
 
-    this.Armoire.id=58;
-    this.ArmoireService.AddArmoire(this.Armoire);
 
   }
 
@@ -212,14 +153,13 @@ updateErrorMessagee() {
 }
 
 submitProduct() {
-    this.ArmoireService.AddArmoire(this.Armoire);
-
-        const currentUrl = this.router.url;
+  this.ArmoireService.AddArmoire(this.Armoire);
+        /*const currentUrl = this.router.url;
         if(currentUrl=='/AddArmoire' || currentUrl==''){
           this.router.navigateByUrl('/AddDepart', { skipLocationChange: false }).then(() => {
             window.location.reload(); 
           });
-  }
+  }*/
 }
 
   updatePoint(){

@@ -44,12 +44,10 @@ export class AddDepartComponent implements OnInit{
     Armoire: {
       id: 0,
       armoireListe: [{
-        id: 0,
         marque: '',
         calibre: '',
         nombre: 0,
         typeArmoire: {
-          id: 0,
           nom: ''
         }
       }]

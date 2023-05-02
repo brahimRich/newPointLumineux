@@ -1,4 +1,149 @@
-<p>add-depart works!</p>
+<app-top-bar></app-top-bar>
 
+<br>
+<form *ngIf="Depart">
+    <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th colspan="2">Tension de sortie</th>
+            <th>CourantA</th>
+            <th colspan="2">Novembre</th>
+            <th>Nbre de luminaires</th>
+          </tr> 
+          <tr>
+            <th></th>
+            <th>Triphasé</th>
+            <th>Mono</th>
+            <th ></th>
+            <th>Triphasé</th>
+            <th>Mono</th>
+            <th>150W</th>
+          </tr>
+        </thead>
+      
+        <tbody>
+          <tr>
+            <td>Depart 1</td>
+            <td><input type='hidden' value="Depart 1"></td>
+            <td><input type='hidden' value="Depart 1"></td>
+            <td><input type='hidden' value="Depart 1"></td>
+            <td><input type='hidden' value="Depart 1"></td>
+            <td><input type='hidden' value="Depart 1"></td>
+            <td><input type='hidden' value="Depart 1"></td>
+          </tr>
+          <tr>
+            <td>R</td>
+            <td><input type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[1].tenstion_sortie_triphase"></td>
+            <td><input type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[1].tenstion_sortie_mono"></td>
+            <td type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[1].courantA"></td>
+            <td><input type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[1].tenstion_extrimite_triphase"></td>
+            <td><input type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[1].tenstion_extrimite_mono"></td>
+            <td><input type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[1].nbr_lumineux"></td>
+          </tr>
+          <tr>
+            <td>S</td>
+            <td><input type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[2].tenstion_sortie_triphase"></td>
+            <td><input type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[2].tenstion_sortie_mono"></td>
+            <td type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[2].courantA"></td>
+            <td><input type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[2].tenstion_extrimite_triphase"></td>
+            <td><input type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[2].tenstion_extrimite_mono"></td>
+            <td><input type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[2].nbr_lumineux"></td>
+          </tr>
+          <tr>
+            <td>T</td>
+            <td><input type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[3].tenstion_sortie_triphase"></td>
+            <td><input type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[3].tenstion_sortie_mono"></td>
+            <td type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[3].courantA"></td>
+            <td><input type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[3].tenstion_extrimite_triphase"></td>
+            <td><input type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[3].tenstion_extrimite_mono"></td>
+            <td><input type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[3].nbr_lumineux"></td>
+          </tr>
+    
+          <tr>
+            <td>Depart 2</td>
+            <td><input type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[4].tenstion_sortie_triphase"></td>
+            <td><input type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[4].tenstion_sortie_mono"></td>
+            <td type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[4].courantA"></td>
+            <td><input type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[4].tenstion_extrimite_triphase"></td>
+            <td><input type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[4].tenstion_extrimite_mono"></td>
+            <td><input type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[4].nbr_lumineux"></td>
+          </tr>
+          <tr>
+            <td>R</td>
+            <td><input type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[5].tenstion_sortie_triphase"></td>
+            <td><input type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[5].tenstion_sortie_mono"></td>
+            <td type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[5].courantA"></td>
+            <td><input type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[5].tenstion_extrimite_triphase"></td>
+            <td><input type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[5].tenstion_extrimite_mono"></td>
+            <td><input type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[5].nbr_lumineux"></td>
+          </tr>
+          <tr>
+            <td>S</td>
+            <td><input type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[6].tenstion_sortie_triphase"></td>
+            <td><input type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[6].tenstion_sortie_mono"></td>
+            <td type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[6].courantA"></td>
+            <td><input type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[6].tenstion_extrimite_triphase"></td>
+            <td><input type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[6].tenstion_extrimite_mono"></td>
+            <td><input type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[6].nbr_lumineux"></td>
+          </tr>
+          <tr>
+            <td>T</td>
+            <td><input type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[7].tenstion_sortie_triphase"></td>
+            <td><input type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[7].tenstion_sortie_mono"></td>
+            <td type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[7].courantA"></td>
+            <td><input type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[7].tenstion_extrimite_triphase"></td>
+            <td><input type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[7].tenstion_extrimite_mono"></td>
+            <td><input type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[7].nbr_lumineux"></td>
+          </tr>
+    
+          <tr>
+            <td>Depart 3</td>
+            <td><input type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[8].tenstion_sortie_triphase"></td>
+            <td><input type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[8].tenstion_sortie_mono"></td>
+            <td type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[8].courantA"></td>
+            <td><input type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[8].tenstion_extrimite_triphase"></td>
+            <td><input type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[8].tenstion_extrimite_mono"></td>
+            <td><input type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[8].nbr_lumineux"></td>
+          </tr>
+          <tr>
+            <td>R</td>
+            <td><input type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[9].tenstion_sortie_triphase"></td>
+            <td><input type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[9].tenstion_sortie_mono"></td>
+            <td type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[9].courantA"></td>
+            <td><input type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[9].tenstion_extrimite_triphase"></td>
+            <td><input type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[9].tenstion_extrimite_mono"></td>
+            <td><input type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[9].nbr_lumineux"></td>
+          </tr>
+          <tr>
+            <td>S</td>
+            <td><input type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[10].tenstion_sortie_triphase"></td>
+            <td><input type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[10].tenstion_sortie_mono"></td>
+            <td type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[10].courantA"></td>
+            <td><input type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[10].tenstion_extrimite_triphase"></td>
+            <td><input type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[10].tenstion_extrimite_mono"></td>
+            <td><input type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[10].nbr_lumineux"></td>
+          </tr>
+          <tr>
+            <td>T</td>
+            <td><input type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[11].tenstion_sortie_triphase"></td>
+            <td><input type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[11].tenstion_sortie_mono"></td>
+            <td type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[11].courantA"></td>
+            <td><input type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[11].tenstion_extrimite_triphase"></td>
+            <td><input type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[11].tenstion_extrimite_mono"></td>
+            <td><input type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.caracteristiqueList[11].nbr_lumineux"></td>
+          </tr>
+          <tr>
+            <td>Observation</td>
+            <td style="width: 100%;"><input type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="Depart.observation"></td>
+          </tr>
+        </tbody>
+          
+        <tfoot>
+    
+        </tfoot>
+    </table>
 
-
+    <button  (click)="submitProduct()">Ajouter</button>
+    <!-- <button *ngIf="Mofifer" [disabled]="boutonDesactive" (click)="updatePoint()">Mofier</button> -->
+</form>
