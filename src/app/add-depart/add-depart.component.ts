@@ -144,12 +144,13 @@ export class AddDepartComponent implements OnInit{
 
     // recuperer 
 
-    this.DepartService.FindByIdt().subscribe(data => {
+    this.DepartService.FindById(3).subscribe(data => {
       const jsonData = JSON.stringify(data); 
       this.Depart=data;
       console.log(this.Depart.caracteristiqueList[0].departType.num_depart); 
       console.log(jsonData); 
   });
+
   }
 
   updateErrorMessagee() {
@@ -168,7 +169,7 @@ export class AddDepartComponent implements OnInit{
   }
   
   submitProduct() {
-      this.DepartService.AddDepart(this.Depart);
+    this.DepartService.AddDepart(this.Depart);
   }
   
     updatePoint(){

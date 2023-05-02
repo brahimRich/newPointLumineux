@@ -49,6 +49,8 @@ export class InterventionService {
         return this.http.delete(url); 
       }
 
+
+
     AddIntervention(Intervention: Intervention) {
         let InterventionJson = JSON.stringify(Intervention);
         console.log('ajout de j ********************'+InterventionJson);
@@ -63,6 +65,7 @@ export class InterventionService {
         );
       }
   
+      
       FindById(id: number): Observable<Intervention> {  
         return this.getAllIntervention().pipe(
           map(Interventions => Interventions.find((Intervention: Intervention) => Intervention.id_Intervention === id))

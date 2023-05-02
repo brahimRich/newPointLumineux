@@ -42,18 +42,21 @@ export class DepartService{
     constructor(private http: HttpClient) {}
 
     private getURL = 'http://localhost:4200/api/depart/getAll';
-    private deleteURL= 'http://localhost:4200/api/Depart/delete';
-    private AddURL= 'http://localhost:4200/api/Depart/add';
-    private UpdateURL= 'http://localhost:4200/api/Depart/update';
+    private deleteURL= 'http://localhost:4200/api/depart/delete';
+    private AddURL= 'http://localhost:4200/api/depart/add';
+    private UpdateURL= 'http://localhost:4200/api/depart/update';
 
     getAllDepart(): Observable<any> {
         return this.http.get<any>(this.getURL);
     }
     
+
     deleteDepart(id: number) {
-        const url = `${this.deleteURL}/${id}`;
+      const url = `${this.deleteURL}/${id}`;
+      console.log("delete "+url);
         return this.http.delete(url); 
     }
+
 
     AddDepart(Depart: Depart) {
         let DepartJson = JSON.stringify(Depart);
@@ -69,18 +72,13 @@ export class DepartService{
         );
     }   
 
+
     FindById(id: number): Observable<Depart> {
         return this.getAllDepart().pipe(
           map(Departs => Departs.find((Depart: Depart) => Depart.id === id))
         );
     }
 
-    FindByIdt(): Observable<Depart> {
-      console.log('hiiii');
-      return this.http.get<any>(this.getURL).pipe(
-        map(response => response.length > 0 ? response[0] : null)
-      );
-    }
     
     updateDepart(Depart: Depart){
         const url = `${this.UpdateURL}/${Depart.id}`;

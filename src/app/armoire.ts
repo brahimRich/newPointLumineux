@@ -7,6 +7,11 @@ import { map } from 'rxjs/operators';
 import { HttpHeaders } from '@angular/common/http';
 
 
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json'
+  })
+};
 
     
 export interface typeArmoire {
@@ -65,10 +70,10 @@ export interface Armoire {
   export class ArmoireService {
     constructor(private http: HttpClient) {}
 
-    private getURL = 'http://localhost:4200/api/Armoire/getAll';
-    private deleteURL= 'http://localhost:4200/api/Armoire/delete';
-    private AddURL= 'http://localhost:4200/api/Armoire/add';
-    private UpdateURL= 'http://localhost:4200/api/Armoire/update';
+    private getURL = 'http://localhost:4200/api/armoire/getAll';
+    private deleteURL= 'http://localhost:4200/api/armoire/delete';
+    private AddURL= 'http://localhost:4200/api/armoire/add';
+    private UpdateURL= 'http://localhost:4200/api/armoire/update';
 
       getAllArmoire(): Observable<any> {
         return this.http.get<any>(this.getURL);
@@ -82,7 +87,7 @@ export interface Armoire {
     AddArmoire(Armoire: Armoire) {
         let ArmoireJson = JSON.stringify(Armoire);
         console.log('ajout de j ********************'+ArmoireJson);
-         this.http.post<Armoire>(this.AddURL, ArmoireJson )
+         this.http.post<Armoire>(this.AddURL, ArmoireJson ,httpOptions)
         .subscribe(
           (response) => {
             console.log('Réponse de la requête POST :', response);
@@ -111,5 +116,4 @@ export interface Armoire {
           }
         );
       }
-
   }

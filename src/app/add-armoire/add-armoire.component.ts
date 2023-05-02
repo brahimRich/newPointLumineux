@@ -36,90 +36,127 @@ export class AddArmoireComponent implements OnInit {
     }
   };
 
-
+/*
   Armoire : Armoire = {
-    id:0,
+    id:88,
     armoireListe : [{
-      id:0,
+      id:9,
       marque : '',
       calibre : '',
       nombre : 0,
       typeArmoire :{
-        id:0,
+        id:1,
         nom : 'Sectionneur',
       },
     },
     {
-      id:0,
+      id:10,
       marque : '',
       calibre : '',
       nombre : 0,
       typeArmoire :{
-        id:0,
+        id:2,
         nom : 'Porte fusible',
       },
     },
     {
-      id:0,
+      id:3,
       marque : '',
       calibre : '',
       nombre : 0,
       typeArmoire :{
-        id:0,
+        id:3,
         nom : 'Repartiteur',
       },
     },
     {
-      id:0,
+      id:4,
       marque : '',
       calibre : '',
       nombre : 0,
       typeArmoire :{
-        id:0,
+        id:4,
         nom : 'Contacteur',
       },
     }
     ,{
-      id:0,
+      id:5,
       marque : '',
       calibre : '',
       nombre : 0,
       typeArmoire :{
-        id:0,
+        id:5,
         nom : 'Horloge',
       },
     },
     {
-      id:0,
+      id:6,
       marque : '',
       calibre : '',
       nombre : 0,
       typeArmoire :{
-        id:0,
+        id:6,
         nom : 'Disj uni C32',
       },
     },{
-      id:0,
+      id:7,
       marque : '',
       calibre : '',
       nombre : 0,
       typeArmoire :{
-        id:0,
+        id:7,
         nom : 'Bornes',
       },
     },{
-      id:0,
+      id:8,
       marque : '',
       calibre : '',
       nombre : 0,
       typeArmoire :{
-        id:0,
+        id:8,
         nom : 'Cablage',
       },
     }
   ]
   };
 
+  */
+
+  
+  Armoire : Armoire = {
+    id:88,
+    armoireListe : [{
+      id:9,
+      marque : '',
+      calibre : '',
+      nombre : 0,
+      typeArmoire :{
+        id:1,
+        nom : 'Sectionneur',
+      },
+    },
+    {
+      id:10,
+      marque : '',
+      calibre : '',
+      nombre : 0,
+      typeArmoire :{
+        id:2,
+        nom : 'Porte fusible',
+      },
+    },
+    {
+      id:13,
+      marque : '',
+      calibre : '',
+      nombre : 0,
+      typeArmoire :{
+        id:3,
+        nom : 'Repartiteur',
+      },
+    }
+  ]
+  };
 
 
 
@@ -142,6 +179,17 @@ export class AddArmoireComponent implements OnInit {
         }  
       );
       }
+
+      /* this.ArmoireService.FindById(5).subscribe(data => {
+        const jsonData = JSON.stringify(data); 
+        this.Armoire=data;
+        console.log(this.Armoire.id); 
+        console.log(jsonData); 
+    });*/
+
+    this.Armoire.id=58;
+    this.ArmoireService.AddArmoire(this.Armoire);
+
   }
 
 
