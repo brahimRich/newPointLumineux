@@ -19,6 +19,7 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { AddDepartComponent } from './add-depart/add-depart.component';
 import { AddInterventionComponent } from './add-intervention/add-intervention.component';
+import { AddTechniciennesComponent } from './add-techniciennes/add-techniciennes.component';
 
 @NgModule({
   imports: [
@@ -41,6 +42,9 @@ import { AddInterventionComponent } from './add-intervention/add-intervention.co
             //{ path: '', component: ProductListComponent },
       { path: 'AddArmoire', component: AddArmoireComponent }, 
       { path: 'AddDepart', component: AddDepartComponent },  
+      { path: 'Intervention', component: AddInterventionComponent }, 
+      { path: 'techniciennes', component: AddTechniciennesComponent }, 
+
 
     ])
   ],
@@ -52,10 +56,11 @@ import { AddInterventionComponent } from './add-intervention/add-intervention.co
     ProductDetailsComponent,
     AddPointLumineuxComponent,
     LoginComponent,
-    HomeComponent,
+    HomeComponent,  
     AddArmoireComponent,
     AddDepartComponent,
     AddInterventionComponent,
+    AddTechniciennesComponent,
   ],
   bootstrap: [
     AppComponent

@@ -5,10 +5,16 @@ import { FormGroup, FormControl, Validators,FormBuilder } from '@angular/forms';
 import { from } from 'rxjs';
 import { PointLumineux } from '../products';
 
+import { SessionStorageService } from 'ngx-webstorage';
+import { Location } from '@angular/common';
+import { Router } from '@angular/router';
+import { CartService } from '../cart.service';
+
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-add-intervention',
-  templateUrl: './add-intervention.component.html',
+  templateUrl: './add-intervention.component.html',  
   styleUrls: ['./add-intervention.component.css']
 })
 export class AddInterventionComponent {
@@ -16,6 +22,9 @@ export class AddInterventionComponent {
   boutonDesactive: boolean = true;
   errorMessageMarque='';
  
+  techniciens: string[] = [];
+  PointxLimineux: string[] = [];
+
   
   Intervention : Intervention = {
     id_Intervention : 0,
@@ -119,27 +128,39 @@ export class AddInterventionComponent {
     interventionList : null,
   }
 
+ 
 
-  constructor(private InterventionService: InterventionService,private route: ActivatedRoute,private formBuilder: FormBuilder) { 
+
+  constructor(private http: HttpClient,private InterventionService: InterventionService,private route: ActivatedRoute,private formBuilder: FormBuilder,private cartService: CartService,private sessionStorage: SessionStorageService,private router: Router,private location: Location) { 
   }
 
   ngOnInit(): void {
     const routeParams = this.route.snapshot.paramMap;
-    const Intervention = Number(routeParams.get(''));
-    if(Intervention){
-      this.Mofifer=true;
-      this.errorMessageMarque='';
-      this.boutonDesactive = false;
-    this.InterventionService.FindById(Intervention).subscribe(
-      Intervention => {
-        this.Intervention = Intervention;
-      },
-      error => {
-        console.error(error);
-      }  
-    );
+      const Intervention = Number(routeParams.get('Intervention'));
+      if(Intervention){
+        this.Mofifer=true;
+        this.errorMessageMarque='';
+        this.boutonDesactive = false;
+      this.InterventionService.FindById(Intervention).subscribe(
+        Intervention => {
+          this.Intervention = Intervention;
+        },
+        error => {
+          console.error(error);
+        }  
+      );
     }
-}
+
+    // select nom from techniciens
+    this.http.get<string[]>('srs ghid link').subscribe(data => {
+      this.techniciens = data;
+    });
+
+    // select num from pointlimineux
+    this.http.get<string[]>('srs ghid link').subscribe(dataa => {
+      this.PointxLimineux = dataa;
+    });
+  }
 
 
 updateErrorMessagee() {
@@ -157,15 +178,29 @@ updateErrorMessagee() {
 
 }
 
-submitProduct() {
+submitDepart() {
   this.InterventionService.AddIntervention(this.Intervention);
 }
 
-updatePoint(){
+updateDepart(){
   window.alert("modification"+this.Intervention.id_Intervention)
   this.InterventionService.updateArmoire(this.Intervention);
 }
 
 
+
+submitIntervention() {
+  this.InterventionService.AddIntervention(this.Intervention);
+
+      const currentUrl = this.router.url;
+      if(currentUrl=='/Intervention' || currentUrl==''){
+        this.router.navigateByUrl('/Home', { skipLocationChange: false }).then(() => {
+          window.location.reload(); 
+        });
 }
+}
+
+
+}
+
   

@@ -4,6 +4,9 @@ import { ArmoireService ,Armoire,typeArmoire,armoireListe} from '../armoire';
 import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl, Validators,FormBuilder } from '@angular/forms';
 
+ 
+
+import { Router } from '@angular/router';
 
 @Component({ 
   selector: 'app-add-armoire',
@@ -160,7 +163,7 @@ export class AddArmoireComponent implements OnInit {
 
 
 
-  constructor(private ArmoireService: ArmoireService,private route: ActivatedRoute,private formBuilder: FormBuilder) { 
+  constructor(private ArmoireService: ArmoireService,private route: ActivatedRoute,private formBuilder: FormBuilder,private router: Router) { 
   }
 
   ngOnInit(): void {
@@ -210,11 +213,18 @@ updateErrorMessagee() {
 
 submitProduct() {
     this.ArmoireService.AddArmoire(this.Armoire);
+
+        const currentUrl = this.router.url;
+        if(currentUrl=='/AddArmoire' || currentUrl==''){
+          this.router.navigateByUrl('/AddDepart', { skipLocationChange: false }).then(() => {
+            window.location.reload(); 
+          });
   }
+}
 
   updatePoint(){
     window.alert("modification"+this.Armoire.id)
     this.ArmoireService.updateArmoire(this.Armoire);
   }
 
-}
+} 
