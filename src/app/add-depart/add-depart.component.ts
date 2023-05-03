@@ -186,9 +186,9 @@ export class AddDepartComponent implements OnInit{
 
     // recuperer 
 
-    this.DepartService.FindById(29).subscribe(data => {
-      const jsonData = JSON.stringify(data); 
-      this.Depart=data;
+    this.DepartService.getAllDepart().subscribe(data => {
+      const jsonData = JSON.stringify(data[0]); 
+      this.Depart=data[0];
       console.log(this.Depart.caracteristiqueList[0].departType.num_depart); 
       console.log(jsonData); 
   });
