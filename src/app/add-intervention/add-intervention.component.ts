@@ -88,12 +88,6 @@ export class AddInterventionComponent {
         prenom: 'John',
         cin: 'AB1234'
       },*/
-      {
-        id: 3,
-        nom: 'Smith',
-        prenom: 'Jane',
-        cin: 'CD5678'
-      }
     ],
     pointLumineuxList : [
       {
@@ -123,6 +117,13 @@ export class AddInterventionComponent {
   }
   
   
+
+  technicienChoisi: techniciennes = {
+    id: 1,
+    nom: '',
+    prenom: '',
+    cin: '',
+  };  
   
 
 
@@ -144,8 +145,13 @@ export class AddInterventionComponent {
 
   optionsSelectionnees: techniciennes[] = [];
 
+
+
+ 
+  
   ajouterOption() {
     if (this.technicienneSelectionnee !== undefined) {
+
       console.log("technicienne sélectionnée :", this.technicienneSelectionnee.id);
       this.Intervention.techniciennes.push(this.technicienneSelectionnee);
     } else {
@@ -241,6 +247,7 @@ submitIntervention() {
         this.router.navigateByUrl('/Home', { skipLocationChange: false }).then(() => {
           window.location.reload(); 
         });
+
 }*/
 }
 

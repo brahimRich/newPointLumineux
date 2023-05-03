@@ -16,32 +16,6 @@
 
     <label for="date_intervention" >Date d'intervention:</label>
     <input type="date" id="date_intervention" name="date_intervention" [(ngModel)]="Intervention.date_intervention" (keyup)="updateErrorMessagee()">
-<!-- 
-    <label for="techniciennes" >Techniciennes :</label>
-    <input type="text" id="techniciennes" name="techniciennes" [(ngModel)]="Intervention.techniciennes" (keyup)="updateErrorMessagee()"> -->
-
-    <!-- <label for="techniciens">Techniciennes :</label> <!-
-    <select name="techniciens" id="techniciens" [(ngModel)]="Intervention.techniciennes" multiple (change)="onTechnicinnesSelected()">
-      <option *ngFor="let technicien of techniciennes" [value]="technicien">{{ technicien }}</option>
-    </select> -->
-
-
-
-
-
-
-    <!-- <label for="techniciennes">Techniciennes :</label>
-    <select name="techniciennes" id="techniciennes" [(ngModel)]="selectedUser" (change)="onUserSelected()">
-      <option *ngFor="let technicienne of techniciennes" [value]="technicienne">{{ technicienne.nom }} {{ technicienne.prenom }}</option>
-    </select>
-
-    <div *ngIf="selectedUser && selectedUser.selectedOptions">
-      <h3>Selected options:</h3>
-      <ul>
-        <li *ngFor="let option of selectedUser.selectedOptions">{{ option.value }}</li>
-      </ul>
-    </div> -->
-
 
 
 
@@ -56,22 +30,34 @@
     <li *ngFor="let option of selectedUser.selectedOptions">{{ option }}</li>
   </ul>
 </div> -->
-<label for="techniciennes">Techniciennes :</label>
-<select name="technicienne" id="technicienne" [(ngModel)]="technicienneSelectionnee"  (change)="ajouterOption()">
+<!-- <label for="techniciennes">Techniciennes :</label>
+<select name="technicienne" id="technicienne" [(ngModel)]="technicienChoisi"  (change)="ajouterOption()">
   <option *ngFor="let technicienne of techniciennes"  [value]="technicienne">
     {{ technicienne.nom }} {{ technicienne.prenom }}
   </option>
 </select>
 
-<!-- <label for="techniciennes">Techniciens sélectionnés :</label>
-<select name="techniciennes" id="techniciennes" multiple onchange="updateSelectedTechniciennes()">
-  <option *ngFor="let option of Intervention.techniciennes" [value]="option">{{ option.nom }} {{ option.prenom }} ({{ option.cin }})</option>
-</select> -->
-
 <label for="selectedPoints"> technicienneSelectionnee:</label>
-<div *ngFor="let option of Intervention.techniciennes" >
-  Nom : {{ option.nom }} Prenom : {{ option.prenom }} CIN : ({{ option.cin }})  
-</div>
+<div [(ngModel)]="technicienChoisi" >
+  Nom : {{ technicienChoisi.nom }} Prenom : {{ technicienChoisi.prenom }} CIN : ({{ technicienChoisi.cin }})  
+</div> -->
+ 
+<label for="techniciennes">Techniciennes :</label>
+<select name="technicienne" id="technicienne" [(ngModel)]="technicienChoisi" (change)="ajouterOption()">
+  <option *ngFor="let technicienne of techniciennes" [ngValue]="technicienne">
+    {{ technicienne.nom }} {{ technicienne.prenom }}
+  </option>
+</select>
+
+
+
+<!--*****************************avec id*********************************-->
+<div class="techChoisi">
+  <ng-container *ngIf="technicienChoisi">
+    <strong>Nom :</strong> {{ technicienChoisi.nom }} <strong>Prenom :</strong> {{ technicienChoisi.prenom }} <strong>CIN : </strong> {{ technicienChoisi.cin }}  <a routerLink="/technicien/{{technicienChoisi.id}}">Details</a> 
+  </ng-container>
+</div> 
+
 
 
     <!-- <label for="selecteTechnicienes">Techniciennes sélectionnés :</label>

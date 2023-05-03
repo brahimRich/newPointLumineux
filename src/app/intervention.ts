@@ -14,7 +14,7 @@ const httpOptions = {
     'Content-Type':  'application/json',
     Authorization: 'my-auth-token'
   })
-};
+};  
 
 export interface Intervention {
     id_Intervention: number;

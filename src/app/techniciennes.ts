@@ -26,7 +26,7 @@ import { Router } from '@angular/router';
     private deleteURL= '';
     private AddURL= '';
     private UpdateURL= '';
-
+    
   
     constructor(private http: HttpClient,private sessionStorage: SessionStorageService,private router: Router,private location: Location) {}
 
@@ -34,6 +34,13 @@ import { Router } from '@angular/router';
       console.log("get all techn");
         return this.http.get<any>(this.getURL);
     } 
+
+
+    FindtechniciennesById(id : number): Observable<techniciennes> {
+      return this.getAlltechniciennes().pipe(
+        map(technicienness => technicienness.find((techniciennes: techniciennes) => techniciennes.id === id))
+      );
+    }
 
     Findtechniciennes(nom: String , prenom : String): Observable<techniciennes> {
         return this.getAlltechniciennes().pipe(

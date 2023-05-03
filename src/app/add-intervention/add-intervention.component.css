@@ -31,10 +31,35 @@ form {
   }
   
 
+  .techChoisi{
+    background-color: wheat;
+    border: rgb(217, 217, 217);
+    margin-top: 15px;
+    padding: 5px;
+    text-align: center;
+  }
 
 
+  .techChoisi {
+    background-color: #f2f2f2;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .techChoisi strong {
+    margin-right: 5px;
+  }
+  
+  .techChoisi ng-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
 
-
+strong{
+  color: #007bff;
+}
 
 
 

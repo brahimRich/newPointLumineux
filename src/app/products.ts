@@ -50,7 +50,7 @@ export interface PointLumineux {
     private UpdateURL= 'http://localhost:4200/api/produit/update';
     constructor(private http: HttpClient) {}
 
-    getAllPointLumineux(): Observable<any> {
+    getAllPointLumineux(): Observable<any> {  
       return this.http.get<any>(this.getURL);
     }
     

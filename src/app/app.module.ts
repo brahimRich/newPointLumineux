@@ -20,6 +20,7 @@ import { HomeComponent } from './home/home.component';
 import { AddDepartComponent } from './add-depart/add-depart.component';
 import { AddInterventionComponent } from './add-intervention/add-intervention.component';
 import { AddTechniciennesComponent } from './add-techniciennes/add-techniciennes.component';
+import { DetailTechComponent } from './detail-tech/detail-tech.component';
 
 @NgModule({
   imports: [
@@ -44,6 +45,7 @@ import { AddTechniciennesComponent } from './add-techniciennes/add-techniciennes
       { path: 'AddDepart', component: AddDepartComponent },  
       { path: 'Intervention', component: AddInterventionComponent }, 
       { path: 'techniciennes', component: AddTechniciennesComponent }, 
+      {path : 'technicien/:id',component : DetailTechComponent},
 
 
     ])
@@ -61,6 +63,7 @@ import { AddTechniciennesComponent } from './add-techniciennes/add-techniciennes
     AddDepartComponent,
     AddInterventionComponent,
     AddTechniciennesComponent,
+    DetailTechComponent,
   ],
   bootstrap: [
     AppComponent
