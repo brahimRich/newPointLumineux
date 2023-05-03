@@ -20,15 +20,63 @@
     <label for="techniciennes" >Techniciennes :</label>
     <input type="text" id="techniciennes" name="techniciennes" [(ngModel)]="Intervention.techniciennes" (keyup)="updateErrorMessagee()"> -->
 
-    <label for="techniciens">Techniciennes :</label>
-    <select name="techniciens" id="techniciens" [(ngModel)]="selecteTechnicienes" multiple (change)="onTechnicinnesSelected()">
-      <option *ngFor="let technicien of techniciens" [value]="technicien">{{ technicien }}</option>
+    <!-- <label for="techniciens">Techniciennes :</label>
+    <select name="techniciens" id="techniciens" [(ngModel)]="Intervention.techniciennes" multiple (change)="onTechnicinnesSelected()">
+      <option *ngFor="let technicien of techniciennes" [value]="technicien">{{ technicien }}</option>
+    </select> -->
+
+
+
+
+
+
+    <!-- <label for="techniciennes">Techniciennes :</label>
+    <select name="techniciennes" id="techniciennes" [(ngModel)]="selectedUser" (change)="onUserSelected()">
+      <option *ngFor="let technicienne of techniciennes" [value]="technicienne">{{ technicienne.nom }} {{ technicienne.prenom }}</option>
     </select>
 
-    <label for="selecteTechnicienes">Techniciennes sélectionnés :</label>
+    <div *ngIf="selectedUser && selectedUser.selectedOptions">
+      <h3>Selected options:</h3>
+      <ul>
+        <li *ngFor="let option of selectedUser.selectedOptions">{{ option.value }}</li>
+      </ul>
+    </div> -->
+
+
+
+
+    <!-- HTML -->
+<!-- <select #userSelect (change)="onUserSelected()">
+  <option *ngFor="let technicienne of techniciennes" [value]="technicienne.id">{{ technicienne.nom }} {{ technicienne.prenom }}</option>
+</select>
+
+<div *ngIf="selectedUser && selectedUser.selectedOptions">
+  <h3>Options sélectionnées :</h3>
+  <ul>
+    <li *ngFor="let option of selectedUser.selectedOptions">{{ option }}</li>
+  </ul>
+</div> -->
+<label for="techniciennes">Techniciennes :</label>
+<select>
+  <option *ngFor="let technicienne of techniciennes" [value]="technicienne.id">
+    {{ technicienne.nom }} {{ technicienne.prenom }}
+  </option>
+</select>
+
+<!-- <label for="techniciennes">Techniciens sélectionnés :</label>
+<select name="techniciennes" id="techniciennes" multiple onchange="updateSelectedTechniciennes()">
+  <option *ngFor="let option of Intervention.techniciennes" [value]="option">{{ option.nom }} {{ option.prenom }} ({{ option.cin }})</option>
+</select> -->
+
+<div *ngFor="let option of Intervention.techniciennes" >
+  Nom : {{ option.nom }} Prenom : {{ option.prenom }} CIN : ({{ option.cin }})  
+</div>
+
+
+    <!-- <label for="selecteTechnicienes">Techniciennes sélectionnés :</label>
     <select name="selecteTechnicienes" id="selecteTechnicienes" multiple>
       <option *ngFor="let techn of Intervention.techniciennes" [value]="techn">{{ techn }}</option>
-    </select>
+    </select> -->
     <br>
     <!-- <label for="PointLumineux" >PointLumineux :</label>
     <input type="text" id="PointLumineux" name="PointLumineux" [(ngModel)]="Intervention.PointLumineux" (keyup)="updateErrorMessagee()">
@@ -48,3 +96,4 @@
     <br>
   <button (click)="submitIntervention()" >Soumettre</button>
 </form>
+

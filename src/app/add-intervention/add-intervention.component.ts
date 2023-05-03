@@ -24,17 +24,49 @@ export class AddInterventionComponent {
   boutonDesactive: boolean = true;
   errorMessageMarque='';
   selectedPoints: PointLumineux[] = [];
-  selecteTechnicienes:techniciennes[] = [];
+  // selecteTechnicienes:techniciennes[] = [
 
-  techniciens: techniciennes[] = [];
+  //   {
+  //     id: 1,
+  //     nom : 'mihi',
+  //     prenom : 'rida' ,
+  //     cin : 'JH5454',
+  //   },{
+  //     id: 2,
+  //     nom : 'rich',
+  //     prenom : 'brahim' ,
+  //     cin : 'JH5478',
+  //   },
+  //   {
+  //     id: 2,
+  //     nom : 'rich',
+  //     prenom : 'brahim' ,
+  //     cin : 'JH5478',
+  //   },
+  //]; 
+
   PointxLimineuxs: PointLumineux[] = [];
 
-  techniciennes : techniciennes = {
-    id : 0,
-    nom : '',
-    prenom : '',
-    cin : '',
-  }
+  techniciennes: techniciennes[] = [
+    {
+      id: 1,
+      nom: 'mihi',
+      prenom: 'rida',
+      cin: 'JH5454'
+    },
+    {
+      id: 2,
+      nom: 'Doe',
+      prenom: 'John',
+      cin: 'AB1234'
+    },
+    {
+      id: 3,
+      nom: 'Smith',
+      prenom: 'Jane',
+      cin: 'CD5678'
+    }
+  ];
   
   Intervention : Intervention = {
     id_Intervention : 0,
@@ -44,16 +76,53 @@ export class AddInterventionComponent {
     etat_intervention : 0,
     date_intervention : new Date(2023, 3, 30),
     techniciennes : [
-      
+      {
+        id: 1,
+        nom: 'mihi',
+        prenom: 'rida',
+        cin: 'JH5454'
+      },
+      {
+        id: 2,
+        nom: 'Doe',
+        prenom: 'John',
+        cin: 'AB1234'
+      },
+      {
+        id: 3,
+        nom: 'Smith',
+        prenom: 'Jane',
+        cin: 'CD5678'
+      }
     ],
     PointLumineux : [
       
     ],
     interventionList : null,
   }
+  
+  
+  
 
+
+
+  technicienneSelectionnee: techniciennes ;
+
+  afficherTechnicienneSelectionnee() {
+    console.log(this.technicienneSelectionnee);
+  }
+
+
+  optionsSelectionnees: techniciennes[] = [];
+
+  ajouterOption() {
+    if (this.technicienneSelectionnee) {
+      this.optionsSelectionnees.push(this.technicienneSelectionnee);
+    }
+  }
 
   constructor(private http: HttpClient,private InterventionService: InterventionService,private route: ActivatedRoute,private formBuilder: FormBuilder,private cartService: CartService,private sessionStorage: SessionStorageService,private router: Router,private location: Location,private techniciennesService :techniciennesService,private ProductService : ProductService) { 
+    this.technicienneSelectionnee = this.techniciennes[0];
   }
 
   ngOnInit(): void {
@@ -75,7 +144,7 @@ export class AddInterventionComponent {
 
     this.techniciennesService.getAlltechniciennes()
     .subscribe((data: techniciennes[]) => {
-      this.techniciens = data;
+      //this.techniciens = data;
       console.log("tech "+data[0].nom);
     });
 
@@ -117,7 +186,7 @@ onPointsLumineuxSelected() {
 }
 
 onTechnicinnesSelected(){
-  this.Intervention.techniciennes = [...this.selecteTechnicienes];
+ // this.Intervention.techniciennes = [...this.selecteTechnicienes];
 }
 
 submitIntervention() {
@@ -132,6 +201,8 @@ submitIntervention() {
         });
 }*/
 }
+
+
 
 
 }

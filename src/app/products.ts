@@ -44,7 +44,7 @@ export interface PointLumineux {
     providedIn: 'root'
   })
   export class ProductService {
-    private getURL = 'http://localhost:4200/api/produit/getAll';
+    private getURL = 'http://localhost:8090/api/produit/getAll';
     private deleteURL= 'http://localhost:4200/api/produit/delete';
     private AddURL= 'http://localhost:4200/api/produit/add';
     private UpdateURL= 'http://localhost:4200/api/produit/update';
