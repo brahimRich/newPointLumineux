@@ -42,23 +42,21 @@
   Nom : {{ technicienChoisi.nom }} Prenom : {{ technicienChoisi.prenom }} CIN : ({{ technicienChoisi.cin }})  
 </div> -->
  
+
+
 <label for="techniciennes">Techniciennes :</label>
-<select name="technicienne" id="technicienne" [(ngModel)]="technicienChoisi" (change)="ajouterOption()">
+<select name="techniciennes" id="techniciennes" [(ngModel)]="selectedTechniciennes" multiple (change)="ajouterOption()">
   <option *ngFor="let technicienne of techniciennes" [ngValue]="technicienne">
     {{ technicienne.nom }} {{ technicienne.prenom }}
   </option>
 </select>
 
-
-
-<!--*****************************avec id*********************************-->
-<div class="techChoisi">
-  <ng-container *ngIf="technicienChoisi">
-    <strong>Nom :</strong> {{ technicienChoisi.nom }} <strong>Prenom :</strong> {{ technicienChoisi.prenom }} <strong>CIN : </strong> {{ technicienChoisi.cin }}  <a routerLink="/technicien/{{technicienChoisi.id}}">Details</a> 
-  </ng-container>
-</div> 
-
-
+<!-- Use *ngFor to loop through the selected techniciennes array -->
+<div class="techChoisi" *ngIf="selectedTechniciennes.length">
+  <div *ngFor="let technicien of technicienChoisi">
+    <strong>Nom :</strong> {{ technicien.nom }} <strong>Prenom :</strong> {{ technicien.prenom }} <strong>CIN : </strong> {{ technicien.cin }}  <a routerLink="/technicien/{{technicien.id}}">     Details</a> 
+  </div>
+</div>
 
     <!-- <label for="selecteTechnicienes">Techniciennes sélectionnés :</label>
     <select name="selecteTechnicienes" id="selecteTechnicienes" multiple>

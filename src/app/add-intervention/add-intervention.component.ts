@@ -118,16 +118,27 @@ export class AddInterventionComponent {
   
   
 
-  technicienChoisi: techniciennes = {
-    id: 1,
-    nom: '',
-    prenom: '',
-    cin: '',
-  };  
+  // technicienChoisi: techniciennes [ ]= [
+  //   {
+  //     id: 1,
+  //     nom: '',
+  //     prenom: '',
+  //     cin: '',
+  //   }
+  // ];  
   
+  //selectedTechniciennes: Array<{id: number, nom: string, prenom: string, cin: string}> = [];
+  selectedTechniciennes: any[] = [];
+
+  ajouterOption() {
+    // add selected techniciennes to the technicienChoisi array
+    this.technicienChoisi = [...this.technicienChoisi, ...this.selectedTechniciennes];
+  }
+  
+  technicienChoisi: any[] = [];
 
 
-
+  
   technicienneSelectionnee: techniciennes = {
     id: 1,
     nom: '',
@@ -149,7 +160,7 @@ export class AddInterventionComponent {
 
  
   
-  ajouterOption() {
+  aajouterOption() {
     if (this.technicienneSelectionnee !== undefined) {
 
       console.log("technicienne sélectionnée :", this.technicienneSelectionnee.id);
@@ -221,6 +232,7 @@ updateErrorMessagee() {
 }
 
 submitDepart() {
+
   //this.InterventionService.AddIntervention(this.Intervention);
 }
 

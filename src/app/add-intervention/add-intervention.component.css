@@ -56,6 +56,16 @@ form {
     align-items: flex-start;
   }
   
+  .techChoisi strong {
+    margin-right: 10px;
+    
+    margin-left: 10px;
+  }
+
+  .techChoisi a{
+    margin-left: 15px;
+  }
+  
 
 strong{
   color: #007bff;
