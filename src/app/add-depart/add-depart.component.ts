@@ -188,10 +188,12 @@ export class AddDepartComponent implements OnInit{
 
     this.DepartService.getAllDepart().subscribe(data => {
       const jsonData = JSON.stringify(data[0]); 
-      this.Depart=data[0];
+      //this.Depart=data[0];
       console.log(this.Depart.caracteristiqueList[0].departType.num_depart); 
       console.log(jsonData); 
   });
+
+ 
 
   }
 
@@ -206,7 +208,9 @@ export class AddDepartComponent implements OnInit{
   }
   
   submitProduct() {
-    //this.DepartService.AddDepart(this.Depart);
+    const jsonData = JSON.stringify(this.Depart); 
+    console.log("ajout avant "+ jsonData);
+    this.DepartService.AddDepart(this.Depart);
   }
   
     updatePoint(){

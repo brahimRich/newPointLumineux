@@ -7,6 +7,11 @@ import { map } from 'rxjs/operators';
 import { HttpHeaders } from '@angular/common/http';
 import {  ArmoireService ,Armoire,typeArmoire,armoireListe } from './armoire';
 
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json'
+  })
+};
 
 export interface Depart {
     id : number ;
@@ -40,7 +45,7 @@ export class DepartService{
 
     private getURL = 'http://localhost:4200/api/depart/getAll';
     private deleteURL= 'http://localhost:4200/api/depart/delete';
-    private AddURL= 'http://localhost:4200/api/depart/add';
+    private AddURL= 'api/depart/add';
     private UpdateURL= 'http://localhost:4200/api/depart/update';
 
     getAllDepart(): Observable<any> {
@@ -58,7 +63,7 @@ export class DepartService{
     AddDepart(Depart: Depart) {
         let DepartJson = JSON.stringify(Depart);
         console.log('ajout de j ********************'+DepartJson);
-         this.http.post<Depart>(this.AddURL, DepartJson )
+         this.http.post<Depart>(this.AddURL, DepartJson,httpOptions)
         .subscribe(
           (response) => {
             console.log('Réponse de la requête POST :', response);
