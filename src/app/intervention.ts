@@ -9,6 +9,12 @@ import { PointLumineux } from './products';
 import { techniciennes } from './techniciennes';
 
 
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type':  'application/json',
+    Authorization: 'my-auth-token'
+  })
+};
 
 export interface Intervention {
     id_Intervention: number;
@@ -18,7 +24,7 @@ export interface Intervention {
     etat_intervention : number;
     date_intervention : Date;
     techniciennes : techniciennes[];
-    PointLumineux : PointLumineux[];
+    pointLumineuxList : PointLumineux[];
     interventionList : null;
 }
 
@@ -30,10 +36,10 @@ export interface Intervention {
 export class InterventionService {
     constructor(private http: HttpClient) {}
 
-    private getURL = 'http://localhost:4200/api/Intervention/getAll';
-    private deleteURL= 'http://localhost:4200/api/Intervention/delete';
-    private AddURL= 'http://localhost:4200/api/Intervention/add';
-    private UpdateURL= 'http://localhost:4200/api/Intervention/update';
+    private getURL = 'http://localhost:4200/api/intervention/getAll';
+    private deleteURL= 'http://localhost:4200/api/intervention/delete';
+    private AddURL= 'http://localhost:4200/api/intervention/add';
+    private UpdateURL= 'http://localhost:4200/api/intervention/update';
 
       getAllIntervention(): Observable<any> {
         return this.http.get<any>(this.getURL);
@@ -45,11 +51,10 @@ export class InterventionService {
       }
 
 
-
     AddIntervention(Intervention: Intervention) {
         let InterventionJson = JSON.stringify(Intervention);
         console.log('ajout de j ********************'+InterventionJson);
-         this.http.post<Intervention>(this.AddURL, InterventionJson )
+         this.http.post<Intervention>(this.AddURL, InterventionJson ,httpOptions)
         .subscribe(
           (response) => {
             console.log('Réponse de la requête POST :', response);

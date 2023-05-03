@@ -16,19 +16,16 @@ export interface Depart {
 }
 
 export interface caracteristiqueList{
-    id : number;
     tenstion_sortie_triphase : string;
     tenstion_sortie_mono : string;
     courantA : string;
     tenstion_extrimite_triphase : string;
     tenstion_extrimite_mono : string;
     nbr_lumineux : string;
-    derpar : string;
     departType : departType;
 }
 
 export interface departType{
-    id_Depart : number;
     num_depart : number;
     typedepart : string;
 }

@@ -20,7 +20,7 @@
     <label for="techniciennes" >Techniciennes :</label>
     <input type="text" id="techniciennes" name="techniciennes" [(ngModel)]="Intervention.techniciennes" (keyup)="updateErrorMessagee()"> -->
 
-    <!-- <label for="techniciens">Techniciennes :</label>
+    <!-- <label for="techniciens">Techniciennes :</label> <!-
     <select name="techniciens" id="techniciens" [(ngModel)]="Intervention.techniciennes" multiple (change)="onTechnicinnesSelected()">
       <option *ngFor="let technicien of techniciennes" [value]="technicien">{{ technicien }}</option>
     </select> -->
@@ -57,8 +57,8 @@
   </ul>
 </div> -->
 <label for="techniciennes">Techniciennes :</label>
-<select>
-  <option *ngFor="let technicienne of techniciennes" [value]="technicienne.id">
+<select name="technicienne" id="technicienne" [(ngModel)]="technicienneSelectionnee"  (change)="ajouterOption()">
+  <option *ngFor="let technicienne of techniciennes"  [value]="technicienne">
     {{ technicienne.nom }} {{ technicienne.prenom }}
   </option>
 </select>
@@ -68,6 +68,7 @@
   <option *ngFor="let option of Intervention.techniciennes" [value]="option">{{ option.nom }} {{ option.prenom }} ({{ option.cin }})</option>
 </select> -->
 
+<label for="selectedPoints"> technicienneSelectionnee:</label>
 <div *ngFor="let option of Intervention.techniciennes" >
   Nom : {{ option.nom }} Prenom : {{ option.prenom }} CIN : ({{ option.cin }})  
 </div>
@@ -84,14 +85,15 @@
 
 
 <label for="pointsLumineux">Points Lumineux :</label>
-<select name="pointsLumineux" id="pointsLumineux" [(ngModel)]="selectedPoints" multiple (change)="onPointsLumineuxSelected()">
-  <option *ngFor="let PointxLimineu of PointxLimineuxs" [value]="PointxLimineu">{{ PointxLimineu }}</option>
+<select name="pointsLumineux" id="pointsLumineux" [(ngModel)]="pointlumineuxSelectionnee"  (change)="ajouterOptionPoint()">
+  <option *ngFor="let PointxLimineu of PointxLimineuxs" [value]="PointxLimineu">{{ PointxLimineu.type }}</option>
 </select>
 
+
 <label for="selectedPoints">Points Lumineux sélectionnés :</label>
-<select name="selectedPoints" id="selectedPoints" multiple>
-  <option *ngFor="let pointLumineux of Intervention.PointLumineux" [value]="pointLumineux">{{ pointLumineux }}</option>
-</select>
+<div *ngFor="let pointLumineux of Intervention.pointLumineuxList" >
+  Type : {{ pointLumineux.type }}   
+</div>
 
     <br>
   <button (click)="submitIntervention()" >Soumettre</button>

@@ -17,22 +17,18 @@ export class AddDepartComponent implements OnInit{
  
 
   departType : departType = {
-    id_Depart : 0,
     num_depart : 0,
     typedepart : '',
   };
 
   caracteristiqueList : caracteristiqueList = {
-    id : 0,
     tenstion_sortie_triphase : '',
     tenstion_sortie_mono : '',
     courantA : '',
     tenstion_extrimite_triphase : '',
     tenstion_extrimite_mono : '',
     nbr_lumineux : '',
-    derpar : '',
     departType : {
-      id_Depart : 0,
       num_depart : 0,
       typedepart : '',
     }    
@@ -40,7 +36,7 @@ export class AddDepartComponent implements OnInit{
 
   Depart : Depart =  {
     id: 7,
-    observation: 'e',
+    observation: 'observation',
     Armoire: {
       id: 0,
       armoireListe: [{
@@ -54,65 +50,113 @@ export class AddDepartComponent implements OnInit{
     },
     caracteristiqueList: [
       {
-        id: 0,
-        tenstion_sortie_triphase: '',
-        tenstion_sortie_mono: '',
-        courantA: '',
-        tenstion_extrimite_triphase: '',
-        tenstion_extrimite_mono: '',
-        nbr_lumineux: '',
-        derpar: '',
+        tenstion_sortie_triphase: 'tri1',
+        tenstion_sortie_mono: 'mono1',
+        courantA: 'cor1',
+        tenstion_extrimite_triphase: 'ex tri1',
+        tenstion_extrimite_mono: 'ext mono 1',
+        nbr_lumineux: '2',
         departType: {
-          id_Depart: 0,
-          num_depart: 0,
+          num_depart: 1,
           typedepart: 'R'
         }
       },
       {
-        id: 0,
-        tenstion_sortie_triphase: '',
-        tenstion_sortie_mono: '',
+        tenstion_sortie_triphase: 'tri2',
+        tenstion_sortie_mono: 'mono2',
         courantA: '',
         tenstion_extrimite_triphase: '',
         tenstion_extrimite_mono: '',
         nbr_lumineux: '',
-        derpar: '',
         departType: {
-          id_Depart: 0,
           num_depart: 0,
           typedepart: 'S'
         }
       },
       {
-        id: 0,
         tenstion_sortie_triphase: '',
         tenstion_sortie_mono: '',
         courantA: '',
         tenstion_extrimite_triphase: '',
         tenstion_extrimite_mono: '',
         nbr_lumineux: '',
-        derpar: '',
         departType: {
-          id_Depart: 0,
           num_depart: 0,
           typedepart: 'T'
         }
       },
       {
-        id: 0,
         tenstion_sortie_triphase: '',
         tenstion_sortie_mono: '',
         courantA: '',
         tenstion_extrimite_triphase: '',
         tenstion_extrimite_mono: '',
         nbr_lumineux: '',
-        derpar: '',
         departType: {
-          id_Depart: 0,
           num_depart: 0,
           typedepart: 'R'
         }
       },
+      {
+        tenstion_sortie_triphase: '',
+        tenstion_sortie_mono: '',
+        courantA: '',
+        tenstion_extrimite_triphase: '',
+        tenstion_extrimite_mono: '',
+        nbr_lumineux: '',
+        departType: {
+          num_depart: 0,
+          typedepart: 'S'
+        }
+      },
+      {
+        tenstion_sortie_triphase: '',
+        tenstion_sortie_mono: '',
+        courantA: '',
+        tenstion_extrimite_triphase: '',
+        tenstion_extrimite_mono: '',
+        nbr_lumineux: '',
+        departType: {
+          num_depart: 0,
+          typedepart: 'T'
+        }
+      },
+      {
+        tenstion_sortie_triphase: '',
+        tenstion_sortie_mono: '',
+        courantA: '',
+        tenstion_extrimite_triphase: '',
+        tenstion_extrimite_mono: '',
+        nbr_lumineux: '',
+        departType: {
+          num_depart: 0,
+          typedepart: 'R'
+        }
+      },
+      {
+        tenstion_sortie_triphase: '',
+        tenstion_sortie_mono: '',
+        courantA: '',
+        tenstion_extrimite_triphase: '',
+        tenstion_extrimite_mono: '',
+        nbr_lumineux: 'k',
+        departType: {
+          num_depart: 0,
+          typedepart: 'S'
+        }
+      },
+      {
+        tenstion_sortie_triphase: '',
+        tenstion_sortie_mono: '',
+        courantA: '',
+        tenstion_extrimite_triphase: '',
+        tenstion_extrimite_mono: '',
+        nbr_lumineux: 'jk',
+        departType: {
+          num_depart: 0,
+          typedepart: 'T'
+        }
+      }
     ]
   };
 
@@ -122,7 +166,7 @@ export class AddDepartComponent implements OnInit{
 
 
   ngOnInit(): void {
-    const routeParams = this.route.snapshot.paramMap;
+   /* const routeParams = this.route.snapshot.paramMap;
     const Depart = Number(routeParams.get('Depart'));
     if(this.Depart){
       this.Mofifer=true;
@@ -136,13 +180,13 @@ export class AddDepartComponent implements OnInit{
         console.error(error);
       }  
     );
-    }
+    }/*/
    
 
 
     // recuperer 
 
-    this.DepartService.FindById(3).subscribe(data => {
+    this.DepartService.FindById(29).subscribe(data => {
       const jsonData = JSON.stringify(data); 
       this.Depart=data;
       console.log(this.Depart.caracteristiqueList[0].departType.num_depart); 
@@ -152,11 +196,6 @@ export class AddDepartComponent implements OnInit{
   }
 
   updateErrorMessagee() {
-
-    // if(this.Armoire.MarqueSectionneur=='') this.errorMessageMarque='Ce champ est obligatoire';
-    // else this.errorMessageMarque='';
-  
-  
     if (this.errorMessageMarque=='') {
       console.log('erreur vide')
       this.boutonDesactive = false; 
@@ -167,12 +206,12 @@ export class AddDepartComponent implements OnInit{
   }
   
   submitProduct() {
-    this.DepartService.AddDepart(this.Depart);
+    //this.DepartService.AddDepart(this.Depart);
   }
   
     updatePoint(){
       window.alert("modification"+this.Depart.id)
-      this.DepartService.updateDepart(this.Depart);
+      //this.DepartService.updateDepart(this.Depart);
     }
 
 }
