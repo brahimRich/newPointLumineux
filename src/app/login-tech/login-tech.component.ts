@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { user,UserService } from '../users';
+import { userTech,UserTechService } from '../userTech'; 
 import { CartService } from '../cart.service';
 import { SessionStorageService } from 'ngx-webstorage';
 import { Location } from '@angular/common';
@@ -15,15 +15,15 @@ import { Router } from '@angular/router';
 })
 export class LoginTechComponent implements OnInit {
 
-  constructor(private userService: UserService,private cartService: CartService,private sessionStorage: SessionStorageService,private router: Router,private location: Location){}
+  constructor(private UserTechService: UserTechService,private cartService: CartService,private sessionStorage: SessionStorageService,private router: Router,private location: Location){}
   email: string='';
   password: string='';
   errorMessageN='';
   errorMessageLo='';
   errorLogin='';
 
-  
-  user: user = {
+
+  userTech: userTech = {
     id: 0,
     nom: '',
     prenom: '',
@@ -35,13 +35,13 @@ export class LoginTechComponent implements OnInit {
    
   }
 
-  loadData() {
+  loadData() { 
     const user = this.sessionStorage.retrieve('user');
   }
 
   
   onSubmit() {
-        this.sessionStorage.store('user', this.user);
+        this.sessionStorage.store('userTech', this.userTech);
         this.loadData();
         const currentUrl = this.router.url;
         if(currentUrl=='/' || currentUrl==''){
@@ -49,6 +49,12 @@ export class LoginTechComponent implements OnInit {
             window.location.reload(); 
           });
         }
+  }
+
+  submitProduct() {
+    //this.productAdded.emit(newProduct);
+    this.UserTechService.AddAdminTechnicien(this.userTech);
+    this.onSubmit();
   }
   
   updateErrorMessagee() {

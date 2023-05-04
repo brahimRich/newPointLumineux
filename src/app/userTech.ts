@@ -4,6 +4,14 @@ import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { catchError } from 'rxjs/operators';
 import { map } from 'rxjs/operators';
+import { HttpHeaders } from '@angular/common/http';
+
+const httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':  'application/json',
+      Authorization: 'my-auth-token'
+    })
+  };
 
 export interface userTech {
     nom: String;
@@ -16,8 +24,10 @@ export interface userTech {
   @Injectable({
     providedIn: 'root'
   })
-  export class UserService {
+  export class UserTechService {
     private getURL = 'http://localhost:4200/api/admin/getAll';
+    private AddURL= 'http://localhost:4200/api/admin/add';
+
     constructor(private http: HttpClient) {}
 
     getAllAdmin(): Observable<any> {
@@ -30,4 +40,18 @@ export interface userTech {
         );
     }
      
+
+    AddAdminTechnicien(userTech: userTech) {
+        let userTechJson = JSON.stringify(userTech);
+        console.log('ajout de j ********************'+userTechJson);
+         this.http.post<userTech>(this.AddURL, userTechJson , httpOptions)
+        .subscribe(
+          (response) => {
+            console.log('Réponse de la requête POST :', response);
+          },
+          (error) => {
+            console.error('Erreur lors de la requête POST :', error);
+          }
+        );
+      }
   }

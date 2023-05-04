@@ -52,6 +52,7 @@ import { LoginTechComponent } from './login-tech/login-tech.component';
       { path: 'techniciennes', component: AddTechniciennesComponent }, 
       {path : 'technicien/:id',component : DetailTechComponent},
 
+      {path : 'LoginTech',component : LoginTechComponent},
 
     ])
   ],

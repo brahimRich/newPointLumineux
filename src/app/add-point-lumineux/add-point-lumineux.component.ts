@@ -42,7 +42,7 @@ export class AddPointLumineuxComponent implements OnInit {
 
   constructor(private productService: ProductService,private route: ActivatedRoute,private formBuilder: FormBuilder) { 
   }
-
+ 
 
   ngOnInit(): void {
       const routeParams = this.route.snapshot.paramMap;

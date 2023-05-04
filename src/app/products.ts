@@ -71,7 +71,7 @@ export interface PointLumineux {
           console.error('Erreur lors de la requête POST :', error);
         }
       );
-    }
+    }  
 
     FindById(idPointL: number): Observable<PointLumineux> {
       return this.getAllPointLumineux().pipe(
