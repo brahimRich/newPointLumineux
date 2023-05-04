@@ -1,0 +1,30 @@
+<app-top-bar></app-top-bar>
+
+
+<h2>Les des armoires</h2>
+
+<input type="text" [(ngModel)]="searchText" placeholder="Rechercher une armoire" (keyup)="onSearchTermChanged()">
+<div *ngFor="let product of Armoirees">
+  <p *ngIf="product.id"> 
+    id : {{ product.id }}
+  </p>
+  
+  <div *ngFor="let armoire of product.armoireListe">
+    <p> 
+      Marque : {{ armoire.marque }}
+    </p>
+    <p> 
+      Calibre : {{ armoire.calibre }}
+    </p>
+    <p> 
+      Nombre : {{ armoire.nombre }}
+    </p>
+    <p> 
+      Type d'armoire : {{ armoire.typeArmoire.nom }}
+    </p>
+  </div>
+  
+  <button type="button" (click)="share()" >Share</button>
+  <button (click)="delete(product)" >Supprimer</button>
+  <button (click)="update(product)" >Modifier</button>
+</div> 
