@@ -23,6 +23,7 @@ import { AddTechniciennesComponent } from './add-techniciennes/add-techniciennes
 import { DetailTechComponent } from './detail-tech/detail-tech.component';
 import { ListeArmoireComponent } from './liste-armoire/liste-armoire.component';
 import { LoginTechComponent } from './login-tech/login-tech.component';
+import { NomDuComposantComponent } from './nom-du-composant/nom-du-composant.component';
 
 @NgModule({
   imports: [
@@ -47,11 +48,12 @@ import { LoginTechComponent } from './login-tech/login-tech.component';
       { path: 'AddArmoire', component: AddArmoireComponent }, 
       { path: 'AddDepart', component: AddDepartComponent },  
       { path: 'ListeArmoire', component: ListeArmoireComponent }, 
-      { path: 'armoire-update/:id', component: AddArmoireComponent },
+      { path: 'armoire-update/:armoire', component: AddArmoireComponent },
+      { path: 'depart-update/:depart', component: AddDepartComponent },
       { path: 'Intervention', component: AddInterventionComponent }, 
-      { path: 'techniciennes', component: AddTechniciennesComponent }, 
+      { path: 'Addtechnicienne', component: AddTechniciennesComponent }, 
+      { path: 'technicienne-update/:technicienne', component: AddTechniciennesComponent },
       {path : 'technicien/:id',component : DetailTechComponent},
-
       {path : 'LoginTech',component : LoginTechComponent},
 
     ])
@@ -72,6 +74,7 @@ import { LoginTechComponent } from './login-tech/login-tech.component';
     DetailTechComponent,
     ListeArmoireComponent,
     LoginTechComponent,
+    NomDuComposantComponent,
   ],
   bootstrap: [
     AppComponent

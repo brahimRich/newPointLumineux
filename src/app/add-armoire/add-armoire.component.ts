@@ -21,7 +21,6 @@ export class AddArmoireComponent implements OnInit {
  
 
 
-
   typeArmoire : typeArmoire = {
     nom : '',
   };
@@ -111,7 +110,7 @@ export class AddArmoireComponent implements OnInit {
 
   ngOnInit(): void {
       const routeParams = this.route.snapshot.paramMap;
-      const Armoire = Number(routeParams.get('Armoire'));
+      const Armoire = Number(routeParams.get('armoire'));
       if(Armoire){
         this.Mofifer=true;
         this.errorMessageMarque='';
@@ -138,11 +137,6 @@ export class AddArmoireComponent implements OnInit {
 
 
 updateErrorMessagee() {
-
-  // if(this.Armoire.MarqueSectionneur=='') this.errorMessageMarque='Ce champ est obligatoire';
-  // else this.errorMessageMarque='';
-
-
   if (this.errorMessageMarque=='') {
     console.log('erreur vide')
     this.boutonDesactive = false; 
@@ -164,7 +158,10 @@ submitProduct() {
 
   updatePoint(){
     window.alert("modification"+this.Armoire.id)
+    let ArmoireJson = JSON.stringify(this.Armoire);
+        console.log('modification 111 ********************'+ArmoireJson);
     this.ArmoireService.updateArmoire(this.Armoire);
   }
+
 
 } 

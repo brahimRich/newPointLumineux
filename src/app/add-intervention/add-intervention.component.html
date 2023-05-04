@@ -52,6 +52,7 @@
 </select>
 
 <!-- Use *ngFor to loop through the selected techniciennes array -->
+<label for="selectedPoints"> technicienne selectioner:</label>
 <div class="techChoisi" *ngIf="selectedTechniciennes.length">
   <div *ngFor="let technicien of technicienChoisi">
     <strong>Nom :</strong> {{ technicien.nom }} <strong>Prenom :</strong> {{ technicien.prenom }} <strong>CIN : </strong> {{ technicien.cin }}  <a routerLink="/technicien/{{technicien.id}}">     Details</a> 
@@ -69,14 +70,16 @@
 
 
 <label for="pointsLumineux">Points Lumineux :</label>
-<select name="pointsLumineux" id="pointsLumineux" [(ngModel)]="pointlumineuxSelectionnee"  (change)="ajouterOptionPoint()">
+<select name="pointsLumineux" id="pointsLumineux" [(ngModel)]="selectedPoints" multiple (change)="ajouterOptionPoint()">
   <option *ngFor="let PointxLimineu of PointxLimineuxs" [value]="PointxLimineu">{{ PointxLimineu.type }}</option>
 </select>
 
 
 <label for="selectedPoints">Points Lumineux sélectionnés :</label>
-<div *ngFor="let pointLumineux of Intervention.pointLumineuxList" >
+<div class="techChoisi" *ngIf="selectedPoints.length">
+<div *ngFor="let pointLumineux of pointlimunieuxchoisi" >
   Type : {{ pointLumineux.type }}   
+</div>
 </div>
 
     <br>

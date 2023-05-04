@@ -14,14 +14,18 @@ export class AddDepartComponent implements OnInit{
   Mofifer : boolean = false;
   boutonDesactive: boolean = true;
   errorMessageMarque='';
- 
+  selectedArmoire: any []=[];
+
+  ListeArmoires : any []=[];
 
   departType : departType = {
+    id_Depart: 0,
     num_depart : 0,
     typedepart : '',
   };
 
   caracteristiqueList : caracteristiqueList = {
+    id :0,
     tenstion_sortie_triphase : '',
     tenstion_sortie_mono : '',
     courantA : '',
@@ -29,6 +33,7 @@ export class AddDepartComponent implements OnInit{
     tenstion_extrimite_mono : '',
     nbr_lumineux : '',
     departType : {
+      id_Depart: 0,
       num_depart : 0,
       typedepart : '',
     }    
@@ -37,43 +42,41 @@ export class AddDepartComponent implements OnInit{
   Depart : Depart =  {
     id: 7,
     observation: 'observation',
-    Armoire: {
-      id: 0,
-      armoireListe: [{
-        marque: '',
-        calibre: '',
-        nombre: 0,
-        typeArmoire: {
-          nom: ''
-        }
-      }]
+    armoire: {
+      id: 9,
+      armoireListe: []
     },
     caracteristiqueList: [
       {
-        tenstion_sortie_triphase: 'tri1',
-        tenstion_sortie_mono: 'mono1',
-        courantA: 'cor1',
-        tenstion_extrimite_triphase: 'ex tri1',
-        tenstion_extrimite_mono: 'ext mono 1',
+        id :0,
+        tenstion_sortie_triphase: '',
+        tenstion_sortie_mono: '',
+        courantA: '',
+        tenstion_extrimite_triphase: '',
+        tenstion_extrimite_mono: '',
         nbr_lumineux: '2',
         departType: {
+          id_Depart: 0,
           num_depart: 1,
           typedepart: 'R'
         }
       },
       {
-        tenstion_sortie_triphase: 'tri2',
-        tenstion_sortie_mono: 'mono2',
+        id :0,
+        tenstion_sortie_triphase: '',
+        tenstion_sortie_mono: '',
         courantA: '',
         tenstion_extrimite_triphase: '',
         tenstion_extrimite_mono: '',
         nbr_lumineux: '',
         departType: {
+          id_Depart: 0,
           num_depart: 0,
           typedepart: 'S'
         }
       },
       {
+        id :0,
         tenstion_sortie_triphase: '',
         tenstion_sortie_mono: '',
         courantA: '',
@@ -81,11 +84,13 @@ export class AddDepartComponent implements OnInit{
         tenstion_extrimite_mono: '',
         nbr_lumineux: '',
         departType: {
+          id_Depart: 0,
           num_depart: 0,
           typedepart: 'T'
         }
       },
       {
+        id :0,
         tenstion_sortie_triphase: '',
         tenstion_sortie_mono: '',
         courantA: '',
@@ -93,11 +98,13 @@ export class AddDepartComponent implements OnInit{
         tenstion_extrimite_mono: '',
         nbr_lumineux: '',
         departType: {
+          id_Depart: 0,
           num_depart: 0,
           typedepart: 'R'
         }
       },
       {
+        id :0,
         tenstion_sortie_triphase: '',
         tenstion_sortie_mono: '',
         courantA: '',
@@ -105,11 +112,14 @@ export class AddDepartComponent implements OnInit{
         tenstion_extrimite_mono: '',
         nbr_lumineux: '',
         departType: {
+          id_Depart: 0,
           num_depart: 0,
           typedepart: 'S'
         }
       },
       {
+        id :0,
+
         tenstion_sortie_triphase: '',
         tenstion_sortie_mono: '',
         courantA: '',
@@ -117,11 +127,14 @@ export class AddDepartComponent implements OnInit{
         tenstion_extrimite_mono: '',
         nbr_lumineux: '',
         departType: {
+          id_Depart: 0,
           num_depart: 0,
           typedepart: 'T'
         }
       },
       {
+        id :0,
+
         tenstion_sortie_triphase: '',
         tenstion_sortie_mono: '',
         courantA: '',
@@ -129,11 +142,13 @@ export class AddDepartComponent implements OnInit{
         tenstion_extrimite_mono: '',
         nbr_lumineux: '',
         departType: {
+          id_Depart: 0,
           num_depart: 0,
           typedepart: 'R'
         }
       },
       {
+        id :0,
         tenstion_sortie_triphase: '',
         tenstion_sortie_mono: '',
         courantA: '',
@@ -141,11 +156,13 @@ export class AddDepartComponent implements OnInit{
         tenstion_extrimite_mono: '',
         nbr_lumineux: 'k',
         departType: {
+          id_Depart: 0,
           num_depart: 0,
           typedepart: 'S'
         }
       },
       {
+        id :0,
         tenstion_sortie_triphase: '',
         tenstion_sortie_mono: '',
         courantA: '',
@@ -153,6 +170,7 @@ export class AddDepartComponent implements OnInit{
         tenstion_extrimite_mono: '',
         nbr_lumineux: 'jk',
         departType: {
+          id_Depart: 0,
           num_depart: 0,
           typedepart: 'T'
         }
@@ -161,40 +179,52 @@ export class AddDepartComponent implements OnInit{
   };
 
 
-  constructor(private DepartService: DepartService,private route: ActivatedRoute,private formBuilder: FormBuilder) { 
+  constructor(private DepartService: DepartService,private route: ActivatedRoute,private formBuilder: FormBuilder,private ArmoireService: ArmoireService) { 
   }
 
 
   ngOnInit(): void {
-   /* const routeParams = this.route.snapshot.paramMap;
-    const Depart = Number(routeParams.get('Depart'));
-    if(this.Depart){
+    const routeParams = this.route.snapshot.paramMap;
+    const Depart = Number(routeParams.get('depart'));
+    if(Depart){
       this.Mofifer=true;
       this.errorMessageMarque='';
       this.boutonDesactive = false;
     this.DepartService.FindById(Depart).subscribe(
       Depart => {
+        const jsonData1 = JSON.stringify(Depart); 
+        console.log("avant   "+ jsonData1);
         this.Depart = Depart;
+        this.selectedArmoire[0]=this.Depart.armoire;
       },
       error => {
         console.error(error);
       }  
     );
-    }/*/
+    }
    
 
 
     // recuperer 
 
     this.DepartService.getAllDepart().subscribe(data => {
-      const jsonData = JSON.stringify(data[0]); 
+      //const jsonData = JSON.stringify(data[0]); 
       //this.Depart=data[0];
-      console.log(this.Depart.caracteristiqueList[0].departType.num_depart); 
-      console.log(jsonData); 
+      //console.log(this.Depart.caracteristiqueList[0].departType.num_depart); 
+      //console.log(jsonData); 
   });
 
- 
+  this.ArmoireService.getAllArmoire().subscribe(data => {
+    this.ListeArmoires=data;
+});
 
+
+  }
+
+  ajouterArmoire(){
+    this.Depart.armoire=this.selectedArmoire[0];
+    const jsonData = JSON.stringify(this.Depart.armoire); 
+    console.log("------------ "+jsonData)
   }
 
   updateErrorMessagee() {
@@ -214,8 +244,9 @@ export class AddDepartComponent implements OnInit{
   }
   
     updatePoint(){
-      window.alert("modification"+this.Depart.id)
-      //this.DepartService.updateDepart(this.Depart);
+      const jsonData = JSON.stringify(this.Depart); 
+      console.log("modification  "+ jsonData);
+      this.DepartService.updateDepart(this.Depart);
     }
 
 }

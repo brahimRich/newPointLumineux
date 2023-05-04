@@ -7,6 +7,14 @@ import { map } from 'rxjs/operators';
 import { SessionStorageService } from 'ngx-webstorage';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
+import { HttpHeaders } from '@angular/common/http';
+
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json'
+  })
+};
 
 
   export interface techniciennes{
@@ -23,9 +31,9 @@ import { Router } from '@angular/router';
   export class techniciennesService {
 
     private getURL = 'http://localhost:4200/api/technicienne/getAll';
-    private deleteURL= '';
-    private AddURL= '';
-    private UpdateURL= '';
+    private deleteURL= '/api/technicienne/delete';
+    private AddURL= '/api/technicienne/add';
+    private UpdateURL= '/api/technicienne/update';
     
   
     constructor(private http: HttpClient,private sessionStorage: SessionStorageService,private router: Router,private location: Location) {}
@@ -56,7 +64,7 @@ import { Router } from '@angular/router';
     Addtechniciennes(techniciennes: techniciennes) {
       let techniciennesJson = JSON.stringify(techniciennes);
       console.log('ajout de j ********************'+techniciennesJson);
-       this.http.post<techniciennes>(this.AddURL, techniciennesJson )
+       this.http.post<techniciennes>(this.AddURL, techniciennesJson, httpOptions)
       .subscribe(
         (response) => {
           console.log('Réponse de la requête POST :', response);

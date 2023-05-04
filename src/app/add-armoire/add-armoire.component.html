@@ -144,7 +144,7 @@
       </tbody>
     </table>
     <br>
-    <button  type="submit"  (click)="submitProduct()">Suivant</button>
-    <button *ngIf="Mofifer" [disabled]="boutonDesactive" (click)="updatePoint()">Update</button>
+    <button *ngIf="!Mofifer" [disabled]="boutonDesactive" (click)="submitProduct()">Ajouter</button>
+    <button *ngIf="Mofifer" [disabled]="boutonDesactive" (click)="updatePoint()">Mofier</button>
 </form> 
   

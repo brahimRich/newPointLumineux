@@ -5,9 +5,6 @@
 
 <input type="text" [(ngModel)]="searchText" placeholder="Rechercher une armoire" (keyup)="onSearchTermChanged()">
 <div *ngFor="let product of Armoirees">
-  <p *ngIf="product.id"> 
-    id : {{ product.id }}
-  </p>
   
   <div *ngFor="let armoire of product.armoireListe">
     <p> 

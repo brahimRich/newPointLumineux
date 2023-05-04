@@ -17,7 +17,7 @@
   <div class="col-md-4 inputGroupContainer">
   <div class="input-group">
   <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-  <input   placeholder="Nom" class="form-control"  id="nom" type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="techniciennes.nom" >
+  <input   placeholder="Nom" class="form-control"  id="nom" name="nom" type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="techniciennes.nom" >
     </div>
   </div>
 </div>
@@ -29,7 +29,7 @@
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
   <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-  <input  placeholder="Prenom" class="form-control"  id="prenom" type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="techniciennes.prenom">
+  <input  placeholder="Prenom" class="form-control"  id="prenom" name="prenom" type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="techniciennes.prenom">
     </div>
   </div>
 </div>
@@ -40,7 +40,7 @@
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-  <input  placeholder="CIN" class="form-control"  id="cin" type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="techniciennes.cin">
+  <input  placeholder="CIN" class="form-control" name="cin" id="cin" type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="techniciennes.cin">
     </div>
   </div>
 </div>
@@ -51,7 +51,8 @@
 
 <br>
 
-<button (click)="onSubmit()" >Soumettre</button>
+<button *ngIf="!Mofifer" [disabled]="boutonDesactive" (click)="submitProduct()">Ajouter</button>
+<button *ngIf="Mofifer" [disabled]="boutonDesactive" (click)="updatePoint()">Mofier</button>
 
 </fieldset>
 </form>

@@ -16,11 +16,12 @@ const httpOptions = {
 export interface Depart {
     id : number ;
     observation : string;
-    Armoire : Armoire;
+    armoire : Armoire;
     caracteristiqueList : caracteristiqueList[];
 }
 
 export interface caracteristiqueList{
+    id :number
     tenstion_sortie_triphase : string;
     tenstion_sortie_mono : string;
     courantA : string;
@@ -31,6 +32,7 @@ export interface caracteristiqueList{
 }
 
 export interface departType{
+  id_Depart : number;
     num_depart : number;
     typedepart : string;
 }
@@ -82,10 +84,27 @@ export class DepartService{
     }
 
     
-    updateDepart(Depart: Depart){
-        const url = `${this.UpdateURL}/${Depart.id}`;
-         this.http.put<Depart>(url, Depart)
-         .subscribe(
+    updateDepart(Depart: Depart) {
+      const url = `${this.UpdateURL}/${Depart.id}`;
+    
+      const modifiedDepart = {...Depart};
+      const caractWithoutId = modifiedDepart.caracteristiqueList.map((caract) => ({
+        tenstion_sortie_triphase: caract.tenstion_sortie_triphase,
+        tenstion_sortie_mono: caract.tenstion_sortie_mono,
+        courantA: caract.courantA,
+        tenstion_extrimite_triphase: caract.tenstion_extrimite_triphase,
+        tenstion_extrimite_mono: caract.tenstion_extrimite_mono,
+        nbr_lumineux: caract.nbr_lumineux,
+        departType: caract.departType
+      }));
+      
+      const modifiedDepartWithoutId = {...modifiedDepart, caracteristiqueList: caractWithoutId};
+      const modifiedDepartJson = JSON.stringify(modifiedDepartWithoutId);
+    
+      console.log("mmmmmmmmmmmmmmmmmmmmmmmmmm "+modifiedDepartJson);
+    
+      this.http.put<Depart>(url, modifiedDepartWithoutId)
+        .subscribe(
           (response) => {
             console.log('Réponse de la requête put :', response);
           },
@@ -93,7 +112,10 @@ export class DepartService{
             console.error('Erreur lors de la requête put :', error);
           }
         );
-      }
+    }
+    
+    
+    
 
 
 }

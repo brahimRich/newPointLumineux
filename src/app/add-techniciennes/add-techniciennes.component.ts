@@ -22,14 +22,27 @@ export class AddTechniciennesComponent implements OnInit {
 
   techniciennes : techniciennes = 
     {
-      id: 1,
-      nom : 'mihi',
-      prenom : 'rida' ,
-      cin : 'JH5454',
+      id: 0,
+      nom : '',
+      prenom : '' ,
+      cin : '',
     }
 
   ngOnInit() {
-   
+    const routeParams = this.route.snapshot.paramMap;
+    const technicienne = Number(routeParams.get('technicienne'));
+    if(technicienne){
+      this.Mofifer=true;
+      this.boutonDesactive = false;
+    this.techniciennesService.FindtechniciennesById(technicienne).subscribe(
+      technicienne => {
+        this.techniciennes = technicienne;
+      },
+      error => {
+        console.error(error);
+      }
+    );
+    }
   }
  
     constructor(private techniciennesService: techniciennesService,private route: ActivatedRoute,private formBuilder: FormBuilder,private cartService: CartService,private sessionStorage: SessionStorageService,private router: Router,private location: Location) { 
@@ -39,7 +52,6 @@ export class AddTechniciennesComponent implements OnInit {
     loadData() {
       const techniciennes = this.sessionStorage.retrieve('techniciennes');
     }
-
     
     onSubmit() {
           this.sessionStorage.store('techniciennes', this.techniciennes);
@@ -52,6 +64,14 @@ export class AddTechniciennesComponent implements OnInit {
           }
 
           this.techniciennesService.Addtechniciennes(this.techniciennes);
+    }
+
+    submitProduct(){
+      this.techniciennesService.Addtechniciennes(this.techniciennes);
+    }
+
+    updatePoint(){
+      this.techniciennesService.updatetechniciennes(this.techniciennes);
     }
 
 

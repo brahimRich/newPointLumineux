@@ -103,6 +103,8 @@ export interface Armoire {
       }
 
       updateArmoire(Armoire: Armoire){
+        let ArmoireJson = JSON.stringify(Armoire);
+        console.log('modification ********************'+ArmoireJson);
         const url = `${this.UpdateURL}/${Armoire.id}`;
          this.http.put<Armoire>(url, Armoire)
          .subscribe(

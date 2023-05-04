@@ -23,50 +23,10 @@ export class AddInterventionComponent {
   Mofifer : boolean = false;
   boutonDesactive: boolean = true;
   errorMessageMarque='';
-  selectedPoints: PointLumineux[] = [];
-  selecteTechnicienes:techniciennes[] = []
-
-  //   {
-  //     id: 1,
-  //     nom : 'mihi',
-  //     prenom : 'rida' ,
-  //     cin : 'JH5454',
-  //   },{
-  //     id: 2,
-  //     nom : 'rich',
-  //     prenom : 'brahim' ,
-  //     cin : 'JH5478',
-  //   },
-  //   {
-  //     id: 2,
-  //     nom : 'rich',
-  //     prenom : 'brahim' ,
-  //     cin : 'JH5478',
-  //   },
-  //]; 
 
   PointxLimineuxs: PointLumineux[] = [];
 
-  techniciennes: techniciennes[] = [
-    /*{
-      id: 1,
-      nom: 'mihi',
-      prenom: 'rida',
-      cin: 'JH5454'
-    },
-    {
-      id: 2,
-      nom: 'Doe',
-      prenom: 'John',
-      cin: 'AB1234'
-    },
-    {
-      id: 3,
-      nom: 'Smith',
-      prenom: 'Jane',
-      cin: 'CD5678'
-    }*/
-  ];
+  techniciennes: techniciennes[] = [];
   
   Intervention : Intervention = {
     id_Intervention : 0,
@@ -76,110 +36,44 @@ export class AddInterventionComponent {
     etat_intervention : 0,
     date_intervention : new Date(2023, 3, 30),
     techniciennes : [
-      /*{
-        id: 1,
-        nom: 'mihi',
-        prenom: 'rida',
-        cin: 'JH5454'
-      },
-      {
-        id: 2,
-        nom: 'Doe',
-        prenom: 'John',
-        cin: 'AB1234'
-      },*/
+      
     ],
     pointLumineuxList : [
-      {
-        reference: 3,
-        type : 'type de point',
-        longitude: 0,
-        latitude: 0,
-        allume: true,
-        numero :0,
-        marque : '',
-        degre_prot : '',
-        puissance_max : 0,
-        temperature : 0,
-        class_electrique : '',
-        date_accussition : '',
-        adresse : {
-          rue: '',
-          quertier: '',
-        },
-        coordonnees :{
-          x: 0,
-          y: 0,
-        }
-        }
+      
     ],
     interventionList : null,
   }
   
+   
   
-
-  // technicienChoisi: techniciennes [ ]= [
-  //   {
-  //     id: 1,
-  //     nom: '',
-  //     prenom: '',
-  //     cin: '',
-  //   }
-  // ];  
-  
-  //selectedTechniciennes: Array<{id: number, nom: string, prenom: string, cin: string}> = [];
-  selectedTechniciennes: any[] = [];
+  selectedTechniciennes: any []=[];
+  selectedPoints: any[] = [];
 
   ajouterOption() {
-    // add selected techniciennes to the technicienChoisi array
-    this.technicienChoisi = [...this.technicienChoisi, ...this.selectedTechniciennes];
+    this.technicienChoisi = [...this.technicienChoisi,...this.selectedTechniciennes];
+    this.Intervention.techniciennes=this.technicienChoisi;
   }
+
+  ajouterOptionPoint() {
+    this.pointlimunieuxchoisi = [...this.pointlimunieuxchoisi,...this.selectedPoints];
+    this.Intervention.pointLumineuxList=this.pointlimunieuxchoisi;
+  }
+
   
   technicienChoisi: any[] = [];
+  pointlimunieuxchoisi: any[] = [];
 
 
-  
-  technicienneSelectionnee: techniciennes = {
-    id: 1,
-    nom: '',
-    prenom: '',
-    cin: '',
-  };  
+
 
   pointlumineuxSelectionnee: PointLumineux ;
 
-/*
-  afficherTechnicienneSelectionnee() {
-    console.log(this.technicienneSelectionnee);
-  }*/
 
-
-  optionsSelectionnees: techniciennes[] = [];
-
-
-
- 
-  
-  aajouterOption() {
-    if (this.technicienneSelectionnee !== undefined) {
-
-      console.log("technicienne sélectionnée :", this.technicienneSelectionnee.id);
-      this.Intervention.techniciennes.push(this.technicienneSelectionnee);
-    } else {
-      console.log("Aucune technicienne sélectionnée.");
-    }
-  }
-  
-  ajouterOptionPoint() {
-    if (this.pointlumineuxSelectionnee) {
-      console.log("poucher point")
-      this.Intervention.pointLumineuxList.push(this.pointlumineuxSelectionnee);
-    }
-  }
 
   constructor(private http: HttpClient,private InterventionService: InterventionService,private route: ActivatedRoute,private formBuilder: FormBuilder,private cartService: CartService,private sessionStorage: SessionStorageService,private router: Router,private location: Location,private techniciennesService :techniciennesService,private ProductService : ProductService) { 
     this.techniciennes = [];
     this.pointlumineuxSelectionnee = this.PointxLimineuxs[0];
+   
   }
 
   ngOnInit(): void {
@@ -202,7 +96,7 @@ export class AddInterventionComponent {
     this.techniciennesService.getAlltechniciennes()
     .subscribe((data: techniciennes[]) => {
       this.techniciennes = data;
-      this.Intervention.techniciennes[0]=data[0];
+      //this.Intervention.techniciennes[0]=data[0];
       console.log("tech "+data[0].nom);
     });
 
@@ -210,16 +104,13 @@ export class AddInterventionComponent {
     this.ProductService.getAllPointLumineux()
     .subscribe((data: PointLumineux[]) => {
       this.PointxLimineuxs = data;
-      this.Intervention.pointLumineuxList[0]=data[0];
+      //this.Intervention.pointLumineuxList[0]=data[0];
+      //this.pointlimunieuxchoisi=data;
       console.log("point lu "+data[0].adresse.quertier);
     });
 
 
   }
-
-
-
-
 
 updateErrorMessagee() {
   if (this.errorMessageMarque=='') {
@@ -231,23 +122,11 @@ updateErrorMessagee() {
 
 }
 
-submitDepart() {
-
-  //this.InterventionService.AddIntervention(this.Intervention);
-}
-
 updateDepart(){
   window.alert("modification"+this.Intervention.id_Intervention)
   this.InterventionService.updateArmoire(this.Intervention);
 }
 
-onPointsLumineuxSelected() {
-  this.Intervention.pointLumineuxList = [...this.selectedPoints];
-}
-
-onTechnicinnesSelected(){
-  this.Intervention.techniciennes = [...this.selecteTechnicienes];
-}
 
 submitIntervention() {
   /*console.log("intervention "+this.Intervention.techniciennes[0].nom)
