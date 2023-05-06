@@ -23,7 +23,6 @@ import { AddTechniciennesComponent } from './add-techniciennes/add-techniciennes
 import { DetailTechComponent } from './detail-tech/detail-tech.component';
 import { ListeArmoireComponent } from './liste-armoire/liste-armoire.component';
 import { LoginTechComponent } from './login-tech/login-tech.component';
-import { NomDuComposantComponent } from './nom-du-composant/nom-du-composant.component';
 
 @NgModule({
   imports: [
@@ -74,7 +73,7 @@ import { NomDuComposantComponent } from './nom-du-composant/nom-du-composant.com
     DetailTechComponent,
     ListeArmoireComponent,
     LoginTechComponent,
-    NomDuComposantComponent,
+    //NomDuComposantComponent,
   ],
   bootstrap: [
     AppComponent

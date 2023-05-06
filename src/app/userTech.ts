@@ -32,7 +32,7 @@ export interface userTech {
 
     getAllAdmin(): Observable<any> {
         return this.http.get<any>(this.getURL);
-      }
+    }
 
     FindAdmin(email: String , password : String): Observable<userTech> {
         return this.getAllAdmin().pipe(
