@@ -23,6 +23,7 @@ import { AddTechniciennesComponent } from './add-techniciennes/add-techniciennes
 import { DetailTechComponent } from './detail-tech/detail-tech.component';
 import { ListeArmoireComponent } from './liste-armoire/liste-armoire.component';
 import { LoginTechComponent } from './login-tech/login-tech.component';
+import { InterventionFormComponent } from './intervention-form/intervention-form.component';
 
 @NgModule({
   imports: [
@@ -73,6 +74,7 @@ import { LoginTechComponent } from './login-tech/login-tech.component';
     DetailTechComponent,
     ListeArmoireComponent,
     LoginTechComponent,
+    InterventionFormComponent,
     //NomDuComposantComponent,
   ],
   bootstrap: [

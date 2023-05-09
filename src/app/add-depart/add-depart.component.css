@@ -3,19 +3,28 @@ table {
     width: 100%;
   }
 
+  thead{
+    color: rgb(83, 83, 83);
+  }
+
   th, td {
-    border: 1px solid black;
+    border: 1px solid rgb(219, 219, 219);
     padding: 8px;
     text-align: center;
   }
 
   thead th {
-    background-color: #eee;
+    background-color: #d3d3d3;
     font-weight: bold;
   }
 
   tbody tr:nth-child(even) {
-    background-color: #f2f2f2;
+    background-color: transparent;
+  }
+
+  tr td input{
+    border: none;
+    outline: none;
   }
 
   tfoot {
@@ -31,7 +40,6 @@ table {
     font-size: 16px;
     font-weight: bold;
     color: #fff;
-    background-color: #89abd0;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -39,6 +47,8 @@ table {
     display: block; /* Make the button a block element */
     margin-left: 670px ;/* Center the button horizontally */
     margin-top: 5px;
+    background: #6b6e7b;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
   }
   
   button:disabled {
@@ -47,7 +57,9 @@ table {
   }
   
   button:hover {
-    background-color: #00d9b8;
+    letter-spacing: 2px;
+      box-shadow: none;
+      transition: .5s;
   }
 
   .parent-container {
@@ -58,3 +70,7 @@ table {
     display: inline-block;
   }
   
+
+  .dep{
+    background-color: #d3d3d3;
+  }

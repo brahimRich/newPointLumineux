@@ -1,0 +1,32 @@
+<form [formGroup]="interventionForm" (ngSubmit)="onSubmit()">
+    <label>ID Intervention</label>
+    <input formControlName="id_Intervention" type="number">
+  
+    <label>Type</label>
+    <input formControlName="type" type="text">
+  
+    <label>Intitule Intervention</label>
+    <input formControlName="intitule_Intervention" type="text">
+  
+    <label>Dure Intervention</label>
+    <input formControlName="dure_Intervention" type="number">
+  
+    <label>Etat Intervention</label>
+    <input formControlName="etat_intervention" type="number">
+  
+    <label>Date Intervention</label>
+    <input formControlName="date_intervention" type="date">
+  
+    <label>Techniciennes</label>
+    <input formControlName="techniciennes" type="text">
+  
+    <label>Point Lumineux List</label>
+    <input formControlName="pointLumineuxList" type="text">
+  
+    <label>Intervention List</label>
+    <input formControlName="interventionList" type="text">
+  
+    <button type="submit">Save</button>
+  </form>
+
+  
