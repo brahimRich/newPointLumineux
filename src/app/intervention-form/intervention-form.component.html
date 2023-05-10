@@ -1,32 +1,184 @@
-<form [formGroup]="interventionForm" (ngSubmit)="onSubmit()">
-    <label>ID Intervention</label>
-    <input formControlName="id_Intervention" type="number">
-  
-    <label>Type</label>
-    <input formControlName="type" type="text">
-  
-    <label>Intitule Intervention</label>
-    <input formControlName="intitule_Intervention" type="text">
-  
-    <label>Dure Intervention</label>
-    <input formControlName="dure_Intervention" type="number">
-  
-    <label>Etat Intervention</label>
-    <input formControlName="etat_intervention" type="number">
-  
-    <label>Date Intervention</label>
-    <input formControlName="date_intervention" type="date">
-  
-    <label>Techniciennes</label>
-    <input formControlName="techniciennes" type="text">
-  
-    <label>Point Lumineux List</label>
-    <input formControlName="pointLumineuxList" type="text">
-  
-    <label>Intervention List</label>
-    <input formControlName="interventionList" type="text">
-  
-    <button type="submit">Save</button>
+<!-- <div class="container rb-10">
+
+  <form (ngSubmit)="submit()">
+    <div *ngIf="step == 1">
+      <div class="form-group">
+        <label for="exampleInputEmail">Nom</label>
+        <input type="text" class="form-control"
+        id="exampleInputEmail" aria-describedby="emailHelp"
+        placeholder="Nom">
+
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Last name</label>
+        <input type="text" class="form-control"
+        id="exampleInputPassword1" placeholder="Last Name">
+      </div>
+    </div>
+
+
+    <h4>Contact details</h4>
+    <div *ngIf="step == 2">
+      <div class="form-group">
+        <label for="exampleInputEmail">Email</label>
+        <input type="text" class="form-control"
+        id="exampleInputEmail" aria-describedby="emailHelp"
+        placeholder="Nom">
+
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Last name</label>
+        <input type="text" class="form-control"
+        id="exampleInputPassword1" placeholder="Last Name">
+      </div>
+    </div>
+
+
+    <h4>Personal details</h4>
+    <div *ngIf="step == 3">
+      <div class="form-group">
+        <label for="exampleInputEmail">Email</label>
+        <input type="text" class="form-control"
+        id="exampleInputEmail" aria-describedby="emailHelp"
+        placeholder="Nom">
+
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Last name</label>
+        <select name="" id="" class="form-control">
+          <option value="null">Select Only one</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+    </div>
+
+
+    <a class="btn btn-primary mx-2" *ngIf="step != 1" (click)="previous">Previous</a>
+    <button type="submit" class="btn btn-ptimary mx-2" *ngIf="step != 3">Next</button>
+    <button type="submit" class="btn btn-ptimary mx-2" *ngIf="step == 3">Submit</button>
   </form>
 
+
+
+</div>
+ -->
+
+
+ 
+ <app-top-bar></app-top-bar>
+
+
+ <div class="caontainer">
   
+  <!-- <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
+   {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
+ </button> -->
+ <mat-stepper [linear]="isLinear" #stepper>
+   <mat-step [stepControl]="firstFormGroup">
+     <form [formGroup]="firstFormGroup" *ngIf="PointLumineux" >
+       <ng-template matStepLabel>Fill out your name</ng-template>
+ 
+       <mat-form-field appearance="fill">
+         <mat-label>Name</mat-label>
+         <input matInput placeholder="Name" formControlName="firstCtrl" required type="text" id="name" name="name" (keyup)="updateErrorMessagee()" [(ngModel)]="PointLumineux.type">
+       </mat-form-field>
+ 
+       <mat-form-field appearance="fill">
+         <mat-label>Longitude:</mat-label>
+         <input matInput placeholder="Longitude" formControlName="firstCtrl" required type="number" id="longitude" name="longitude" (keyup)="updateErrorMessagee()" [(ngModel)]="PointLumineux.longitude">
+       </mat-form-field>
+ 
+       <mat-form-field appearance="fill">
+         <mat-label for="name">Latitude:</mat-label>
+         <input matInput placeholder="Latitude" formControlName="firstCtrl" required type="number" id="latitude" name="latitude" (keyup)="updateErrorMessagee()" [(ngModel)]="PointLumineux.latitude">
+       </mat-form-field>
+ 
+       <mat-form-field appearance="fill">
+         <mat-label for="name">Allume:</mat-label>
+         <input matInput placeholder="Etat d'allume" formControlName="firstCtrl" required  type="text" id="allume" name="allume"  [(ngModel)]="PointLumineux.allume">
+       </mat-form-field>
+ 
+       <mat-form-field appearance="fill">
+         <mat-label for="name">Température:</mat-label>
+         <input matInput placeholder="Température" formControlName="firstCtrl"  required type="number" id="temperature" name="temperature" (keyup)="updateErrorMessagee()" [(ngModel)]="PointLumineux.temperature">
+       </mat-form-field>
+   
+       <mat-form-field appearance="fill">
+         <mat-label for="name">Classe électrique:</mat-label>
+         <input matInput placeholder="Classe électrique" formControlName="firstCtrl" required type="text" id="class_electrique" name="class_electrique" (keyup)="updateErrorMessagee()" [(ngModel)]="PointLumineux.class_electrique">
+       </mat-form-field>
+ 
+       <mat-form-field appearance="fill" class="nn">
+         <mat-label for="name">Date d'acquisition:</mat-label>
+         <input matInput placeholder="Date d'acquisition" formControlName="firstCtrl" required type="date" id="date_accussition" name="date_accussition" (keyup)="updateErrorMessagee()" [(ngModel)]="PointLumineux.date_accussition">
+       </mat-form-field>
+
+       
+     </form>
+     <div>
+      <button mat-button matStepperNext class="switch1">Next</button>
+    </div>
+   </mat-step>
+ 
+ 
+   <mat-step [stepControl]="secondFormGroup" label="Continue">
+     <form [formGroup]="secondFormGroup">
+ 
+       <mat-form-field appearance="fill">
+         <mat-label>Numéro :</mat-label>
+         <input matInput formControlName="secondCtrl" placeholder="Numéro" required  type="number" id="Numero" name="Numero" (keyup)="updateErrorMessagee()" [(ngModel)]="PointLumineux.numero">
+       </mat-form-field>
+ 
+       <mat-form-field appearance="fill">
+         <mat-label>Marque:</mat-label>
+         <input matInput formControlName="secondCtrl" placeholder="Marque" required type="text" id="Marque" name="Marque" (keyup)="updateErrorMessagee()" [(ngModel)]="PointLumineux.marque">
+       </mat-form-field>
+ 
+       <mat-form-field appearance="fill">
+         <mat-label>Degré de protection:</mat-label>
+         <input matInput formControlName="secondCtrl" placeholder="Degré de protection" required type="text" id="degre_prot" name="degre_prot" (keyup)="updateErrorMessagee()" [(ngModel)]="PointLumineux.degre_prot">
+       </mat-form-field>
+ 
+       <mat-form-field appearance="fill">
+         <mat-label>Puissance maximale:</mat-label>
+         <input matInput formControlName="secondCtrl" placeholder="Puissance maximale" required type="text" id="puissance_max" name="puissance_max" (keyup)="updateErrorMessagee()" [(ngModel)]="PointLumineux.puissance_max">
+       </mat-form-field>
+ 
+       <mat-form-field appearance="fill" style="font-size: 16px;">
+        <mat-label for="name">Coordonnées (abscisse):</mat-label>
+        <input type="number" id="x" name="x" [(ngModel)]="PointLumineux.coordonnees.x" matInput placeholder="X" formControlName="secondCtrl" required>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label for="name">Coordonnées (ordonnée):</mat-label>
+        <input type="number" id="y" name="y" [(ngModel)]="PointLumineux.coordonnees.y" matInput placeholder="Y" formControlName="secondCtrl" required>
+      </mat-form-field>
+      
+ 
+       <mat-form-field appearance="fill" class="nnn">
+        <mat-label for="Addresse">Addresse:</mat-label>
+         <input type="text" id="rue" name="rue" [(ngModel)]="PointLumineux.adresse.rue" matInput placeholder="Addresse" formControlName="secondCtrl" required>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="nnnn">
+          <mat-label for="Quartier">Quartier:</mat-label>
+         <input type="text" id="quartier" name="quartier" [(ngModel)]="PointLumineux.adresse.quertier" matInput placeholder="Quartier" formControlName="secondCtrl" required>
+       </mat-form-field>
+ 
+       <div>
+         <button mat-button matStepperPrevious class="switch2">Previous</button>
+         <button mat-button matStepperNext class="switch3">Next</button>
+       </div>
+     </form>
+   </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    <p>You are now done.</p>
+    <div>
+      <button mat-button matStepperPrevious class="switch">Back</button>
+      <button mat-button (click)="stepper.reset()" class="switch">Reset</button>
+    </div>
+  </mat-step>
+</mat-stepper>
+
+ </div>

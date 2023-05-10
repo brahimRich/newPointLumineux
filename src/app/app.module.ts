@@ -25,8 +25,16 @@ import { ListeArmoireComponent } from './liste-armoire/liste-armoire.component';
 import { LoginTechComponent } from './login-tech/login-tech.component';
 import { InterventionFormComponent } from './intervention-form/intervention-form.component';
 
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 @NgModule({
   imports: [
+    MatStepperModule,
+    MatFormFieldModule,
+    MatInputModule,
     BrowserModule,
     NgxWebstorageModule.forRoot({prefix: 'my-app', separator: '-', caseSensitive: true}),
     HttpClientModule,
@@ -55,8 +63,10 @@ import { InterventionFormComponent } from './intervention-form/intervention-form
       { path: 'technicienne-update/:technicienne', component: AddTechniciennesComponent },
       {path : 'technicien/:id',component : DetailTechComponent},
       {path : 'LoginTech',component : LoginTechComponent},
-
-    ])
+      {path : 'form' , component:InterventionFormComponent}
+    ]),
+    BrowserAnimationsModule,
+    
   ],
   declarations: [
     AppComponent,

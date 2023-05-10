@@ -1,9 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { Intervention, InterventionService } from '../intervention';
-import { techniciennes } from '../techniciennes';
-import { PointLumineux, ProductService } from '../products';
+import { Component, OnInit ,  Output, EventEmitter  } from "@angular/core";
+import {FormBuilder, Validators} from '@angular/forms';
+import { PointLumineux ,ProductService} from '../products';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-intervention-form',
@@ -12,34 +10,90 @@ import { PointLumineux, ProductService } from '../products';
 })
 export class InterventionFormComponent implements OnInit {
 
-  interventionForm!: FormGroup;
-  // techniciennes = techniciennes;
-  // pointLumineuxList = PointLumineux;
 
-  constructor(
-    private fb: FormBuilder,
-    private interventionService: InterventionService,
-    private router: Router
-  ) {}
+  Mofifer : boolean = false;
+  boutonDesactive: boolean = true;
+  errorMessageN='';
+  errorMessageLa='';
+  errorMessageLo='';
+  PointLumineux : PointLumineux = {
+    reference: 86,
+    type : '',
+    longitude: 0,
+    latitude: 0,
+    allume: true,
+    numero :0,
+    marque : '',
+    degre_prot : '',
+    puissance_max : 0,
+    temperature : 0,
+    class_electrique : '',
+    date_accussition : '',
+    adresse : {
+      rue: '',
+      quertier: '',
+    },
+    coordonnees :{
+      x: 0, 
+      y: 0,
+    }
+  };
 
+  @Output() productAdded = new EventEmitter<PointLumineux>();
+  
+  firstFormGroup = this._formBuilder.group({
+    firstCtrl: ['', Validators.required],
+  });
+  secondFormGroup = this._formBuilder.group({
+    secondCtrl: ['', Validators.required],
+  });
+
+  
+  isLinear = false;
+
+  constructor(private _formBuilder: FormBuilder,private productService: ProductService,private route: ActivatedRoute,private formBuilder: FormBuilder) {}
   ngOnInit(): void {
-    this.interventionForm = this.fb.group({
-      type: ['', Validators.required],
-      intitule_Intervention: ['', Validators.required],
-      dure_Intervention: [null, [Validators.required, Validators.min(1)]],
-      etat_intervention: [0, [Validators.required, Validators.min(0), Validators.max(1)]],
-      date_intervention: ['', Validators.required],
-      techniciennes: ['', Validators.required],
-      pointLumineuxList: ['', Validators.required],
-    });
-  }
-
-  onSubmit(): void {
-    if (this.interventionForm.valid) {
-      const formData = this.interventionForm.value;
-      //this.interventionService.AddIntervention(formData).subscribe(() => {
-        this.router.navigate(['/interventions']);
-     // });
+    const routeParams = this.route.snapshot.paramMap;
+    const pointLumineux = Number(routeParams.get('pointLumineux'));
+    if(pointLumineux){
+      this.Mofifer=true;
+      this.errorMessageN='';
+      this.errorMessageLa='';
+      this.errorMessageLo='';
+      this.boutonDesactive = false;
+    this.productService.FindById(pointLumineux).subscribe(
+      pointLumineux => {
+        this.PointLumineux = pointLumineux;
+      },
+      error => {
+        console.error(error);
+      }
+    );
     }
   }
+
+  updateErrorMessagee() {
+    if(this.PointLumineux.type=='') this.errorMessageN='Ce champ est obligatoire';
+    else this.errorMessageN='';
+    if(this.PointLumineux.latitude==null || this.PointLumineux.latitude==0) this.errorMessageLa='Le champ Latitude est obligatoire';
+    else this.errorMessageLa='';
+    if(this.PointLumineux.longitude==null || this.PointLumineux.longitude==0) this.errorMessageLo='Le champ Longitude est obligatoire';
+    else this.errorMessageLo='';
+    if (this.errorMessageN=='' && this.errorMessageLa=='' && this.errorMessageLo=='') {
+      console.log('eror vide')
+      this.boutonDesactive = false; 
+    } else {
+      this.boutonDesactive = true; 
+    }
+  }
+
+  //  step : any = 1;
+
+  // submit(){
+  //   this.step = this.step + 1; 
+  // }
+
+  // previous(){
+  //   this.step = this.step - 1; 
+  // }
 }
