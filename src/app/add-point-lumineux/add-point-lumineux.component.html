@@ -60,7 +60,7 @@
 
     <div>
       <label for="puissance_max">Puissance maximale:</label>
-      <input type="text" id="puissance_max" name="puissance_max" (keyup)="updateErrorMessagee()" [(ngModel)]="PointLumineux.puissance_max">
+      <input type="number" id="puissance_max" name="puissance_max" (keyup)="updateErrorMessagee()" [(ngModel)]="PointLumineux.puissance_max">
       <div *ngIf="errorMessageLo" [ngClass]="{'error-message': true}">
         <div>{{errorMessageLo}}</div>
       </div>
@@ -262,39 +262,39 @@
      <form [formGroup]="firstFormGroup" *ngIf="PointLumineux" >
        <ng-template matStepLabel>First step</ng-template>
  
-       <mat-form-field appearance="fill">
+       <mat-form-field >
          <mat-label>Name</mat-label>
-         <input matInput placeholder="Name" formControlName="firstCtrl" required type="text" id="name" name="name" (keyup)="updateErrorMessagee()" [(ngModel)]="PointLumineux.type">
+         <input matInput placeholder="Name" formControlName="Ctrl1" required type="text" id="name" name="name" (keyup)="updateErrorMessagee()" [(ngModel)]="PointLumineux.type" >
        </mat-form-field>
  
-       <mat-form-field appearance="fill">
+       <mat-form-field >
          <mat-label>Longitude:</mat-label>
-         <input matInput placeholder="Longitude" formControlName="firstCtrl" required type="number" id="longitude" name="longitude" (keyup)="updateErrorMessagee()" [(ngModel)]="PointLumineux.longitude">
+         <input matInput placeholder="Longitude" formControlName="Ctrl2" required type="number" id="longitude" name="longitude" (keyup)="updateErrorMessagee()" [(ngModel)]="PointLumineux.longitude">
        </mat-form-field>
  
-       <mat-form-field appearance="fill">
-         <mat-label for="name">Latitude:</mat-label>
-         <input matInput placeholder="Latitude" formControlName="firstCtrl" required type="number" id="latitude" name="latitude" (keyup)="updateErrorMessagee()" [(ngModel)]="PointLumineux.latitude">
+       <mat-form-field >
+         <mat-label >Latitude:</mat-label>
+         <input matInput placeholder="Latitude" formControlName="Ctrl3" required type="number" id="latitude" name="latitude" (keyup)="updateErrorMessagee()" [(ngModel)]="PointLumineux.latitude">
        </mat-form-field>
  
-       <mat-form-field appearance="fill">
-         <mat-label for="name">Allume:</mat-label>
-         <input matInput placeholder="Etat d'allume" formControlName="firstCtrl" required  type="text" id="allume" name="allume"  [(ngModel)]="PointLumineux.allume">
+       <mat-form-field >
+         <mat-label >Allume:</mat-label>
+         <input matInput placeholder="Etat d'allume" formControlName="Ctrl4" required  type="text" id="allume" name="allume"  [(ngModel)]="PointLumineux.allume">
        </mat-form-field>
  
-       <mat-form-field appearance="fill">
-         <mat-label for="name">Température:</mat-label>
-         <input matInput placeholder="Température" formControlName="firstCtrl"  required type="number" id="temperature" name="temperature" (keyup)="updateErrorMessagee()" [(ngModel)]="PointLumineux.temperature">
+       <mat-form-field >
+         <mat-label >Température:</mat-label>
+         <input matInput placeholder="Température" formControlName="Ctrl5"  required type="number" id="temperature" name="temperature" (keyup)="updateErrorMessagee()" [(ngModel)]="PointLumineux.temperature">
        </mat-form-field>
    
-       <mat-form-field appearance="fill">
+       <mat-form-field appearance="fill" >
          <mat-label for="name">Classe électrique:</mat-label>
-         <input matInput placeholder="Classe électrique" formControlName="firstCtrl" required type="text" id="class_electrique" name="class_electrique" (keyup)="updateErrorMessagee()" [(ngModel)]="PointLumineux.class_electrique">
+         <input matInput placeholder="Classe électrique" formControlName="Ctrl6" required type="text" id="class_electrique" name="class_electrique" (keyup)="updateErrorMessagee()" [(ngModel)]="PointLumineux.class_electrique">
        </mat-form-field>
  
        <mat-form-field appearance="fill" class="nn">
          <mat-label for="name">Date d'acquisition:</mat-label>
-         <input matInput placeholder="Date d'acquisition" formControlName="firstCtrl" required type="date" id="date_accussition" name="date_accussition" (keyup)="updateErrorMessagee()" [(ngModel)]="PointLumineux.date_accussition">
+         <input matInput placeholder="Date d'acquisition" formControlName="Ctrl7" required type="date" id="date_accussition" name="date_accussition" (keyup)="updateErrorMessagee()" [(ngModel)]="PointLumineux.date_accussition">
        </mat-form-field>
 
        
@@ -310,46 +310,46 @@
  
        <mat-form-field appearance="fill">
          <mat-label>Numéro :</mat-label>
-         <input matInput formControlName="secondCtrl" placeholder="Numéro" required  type="number" id="Numero" name="Numero" (keyup)="updateErrorMessagee()" [(ngModel)]="PointLumineux.numero">
+         <input matInput formControlName="Ctrl8" placeholder="Numéro" required  type="number" id="Numero" name="Numero" (keyup)="updateErrorMessagee()" [(ngModel)]="PointLumineux.numero">
        </mat-form-field>
  
-       <mat-form-field appearance="fill">
+       <mat-form-field >
          <mat-label>Marque:</mat-label>
-         <input matInput formControlName="secondCtrl" placeholder="Marque" required type="text" id="Marque" name="Marque" (keyup)="updateErrorMessagee()" [(ngModel)]="PointLumineux.marque">
+         <input matInput formControlName="Ctrl9" placeholder="Marque" required type="text" id="Marque" name="Marque" (keyup)="updateErrorMessagee()" [(ngModel)]="PointLumineux.marque">
        </mat-form-field>
  
-       <mat-form-field appearance="fill">
+       <mat-form-field >
          <mat-label>Degré de protection:</mat-label>
-         <input matInput formControlName="secondCtrl" placeholder="Degré de protection" required type="text" id="degre_prot" name="degre_prot" (keyup)="updateErrorMessagee()" [(ngModel)]="PointLumineux.degre_prot">
+         <input matInput formControlName="Ctrl10" placeholder="Degré de protection" required type="text" id="degre_prot" name="degre_prot" (keyup)="updateErrorMessagee()" [(ngModel)]="PointLumineux.degre_prot">
        </mat-form-field>
  
        <mat-form-field appearance="fill">
          <mat-label>Puissance maximale:</mat-label>
-         <input matInput formControlName="secondCtrl" placeholder="Puissance maximale" required type="text" id="puissance_max" name="puissance_max" (keyup)="updateErrorMessagee()" [(ngModel)]="PointLumineux.puissance_max">
+         <input matInput formControlName="Ctrl11" placeholder="Puissance maximale" required type="text" id="puissance_max" name="puissance_max" (keyup)="updateErrorMessagee()" [(ngModel)]="PointLumineux.puissance_max">
        </mat-form-field>
  
        <mat-form-field appearance="fill" style="font-size: 16px;">
         <mat-label for="name">Coordonnées (abscisse):</mat-label>
-        <input type="number" id="x" name="x" [(ngModel)]="PointLumineux.coordonnees.x" matInput placeholder="X" formControlName="secondCtrl" required>
+        <input type="number" id="x" name="x" [(ngModel)]="PointLumineux.coordonnees.x" matInput placeholder="X" formControlName="Ctrl12" required>
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label for="name">Coordonnées (ordonnée):</mat-label>
-        <input type="number" id="y" name="y" [(ngModel)]="PointLumineux.coordonnees.y" matInput placeholder="Y" formControlName="secondCtrl" required>
+        <input type="number" id="y" name="y" [(ngModel)]="PointLumineux.coordonnees.y" matInput placeholder="Y" formControlName="Ctrl13" required>
       </mat-form-field>
       
  
        <mat-form-field appearance="fill" class="nnn">
-        <mat-label for="Addresse">Addresse:</mat-label>
-         <input type="text" id="rue" name="rue" [(ngModel)]="PointLumineux.adresse.rue" matInput placeholder="Addresse" formControlName="secondCtrl" required>
+        <mat-label for="rue">rue:</mat-label>
+         <input type="text" id="rue" name="rue" [(ngModel)]="PointLumineux.adresse.rue" matInput placeholder="Addresse" formControlName="Ctrl14" required>
         </mat-form-field>
         <mat-form-field appearance="fill" class="nnnn">
           <mat-label for="Quartier">Quartier:</mat-label>
-         <input type="text" id="quartier" name="quartier" [(ngModel)]="PointLumineux.adresse.quertier" matInput placeholder="Quartier" formControlName="secondCtrl" required>
+         <input type="text" id="quartier" name="quartier" [(ngModel)]="PointLumineux.adresse.quertier" matInput placeholder="Quartier" formControlName="Ctrl15" required>
        </mat-form-field>
  
        <div>
          <button mat-button matStepperPrevious class="switch2">Previous</button>
-         <button mat-button matStepperNext class="switch3">Submit</button>
+         <button mat-button matStepperNext class="switch3">suivant</button>
          <!-- <button *ngIf="Mofifer" [disabled]="boutonDesactive" (click)="updatePoint()">Mofier</button> -->
        </div>
      </form>
@@ -361,11 +361,15 @@
     <img src="../../assets/images/accept.png" alt="" style="height: 70px;width: 70px;float: left;margin-left: 42%;">
     </div>
 
+    <div class=""></div>
     <div class="add">
       
-        <a [routerLink]="['/AddPointLumineux']" style="text-decoration: none; color: rgb(74, 121, 215);">
+        <!-- <a [routerLink]="['/AddPointLumineux']" style="text-decoration: none; color: rgb(74, 121, 215);">
           Ajouter une autre P.L
-        </a>
+        </a> -->
+
+        <button *ngIf="!Mofifer" [disabled]="boutonDesactive" (click)="submitProduct()">Ajouter</button>
+    <button *ngIf="Mofifer" [disabled]="boutonDesactive" (click)="updatePoint()">Mofier</button>
        
       
 

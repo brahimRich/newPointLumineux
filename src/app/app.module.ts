@@ -24,11 +24,27 @@ import { DetailTechComponent } from './detail-tech/detail-tech.component';
 import { ListeArmoireComponent } from './liste-armoire/liste-armoire.component';
 import { LoginTechComponent } from './login-tech/login-tech.component';
 import { InterventionFormComponent } from './intervention-form/intervention-form.component';
+import { environment } from "../environments/environment";
+import { initializeApp } from "firebase/app";
+initializeApp(environment.firebase);
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 
-import { MatStepperModule } from '@angular/material/stepper';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
+import { AppRoutingModule } from './app-routing.module';
+import { AngularFireMessagingModule } from '@angular/fire/compat/messaging';
+import { AngularFireModule } from '@angular/fire/compat';
+import { HomeTechComponent } from './home-tech/home-tech.component';
+import { ListInterTTechComponent } from './list-inter-t-tech/list-inter-t-tech.component';
+import { NotificationComponent } from './notification/notification.component';
+import { TopBarTechComponent } from './top-bar-tech/top-bar-tech.component';
+import { DetailsDialogComponent } from './details-dialog/details-dialog.component';
+import { AsyncPipe } from '../../node_modules/@angular/common';
+import { DatePipe } from '@angular/common';
+import { MatStepperModule } from '@angular/material/stepper';
 
 @NgModule({
   imports: [
@@ -36,9 +52,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatFormFieldModule,
     MatInputModule,
     BrowserModule,
+    MatDialogModule,
+    AppRoutingModule,
     NgxWebstorageModule.forRoot({prefix: 'my-app', separator: '-', caseSensitive: true}),
     HttpClientModule,
     FormsModule,
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
+    AngularFireMessagingModule,
+    AngularFireModule.initializeApp(environment.firebase),
     ReactiveFormsModule,
     NgxWebstorageModule.forRoot(),
     RouterModule.
@@ -48,10 +70,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       { path: 'ListeProducts/:productId', component: ProductListComponent },
       { path: 'AddPointLumineux', component: AddPointLumineuxComponent },
       { path: 'product-update/:pointLumineux', component: AddPointLumineuxComponent },
-      //{ path: 'Login', component: LoginComponent },
+      { path: 'Login', component: LoginComponent },
       { path: 'Home', component: HomeComponent },
-      //{ path: '', component: HomeComponent },
-            //{ path: '', component: ProductListComponent },
+      { path: 'Homet', component: HomeTechComponent },
+      { path: '', component: HomeComponent },
+      { path: '', component: ProductListComponent },
+      { path: 'ListInterT', component: ListInterTTechComponent },
 
       { path: 'AddArmoire', component: AddArmoireComponent }, 
       { path: 'AddDepart', component: AddDepartComponent },  
@@ -63,10 +87,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       { path: 'technicienne-update/:technicienne', component: AddTechniciennesComponent },
       {path : 'technicien/:id',component : DetailTechComponent},
       {path : 'LoginTech',component : LoginTechComponent},
+      {path : 'notification',component : NotificationComponent},
       {path : 'form' , component:InterventionFormComponent}
+
     ]),
-    BrowserAnimationsModule,
-    
+    BrowserAnimationsModule
   ],
   declarations: [
     AppComponent,
@@ -84,14 +109,20 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     DetailTechComponent,
     ListeArmoireComponent,
     LoginTechComponent,
-    InterventionFormComponent,
-    //NomDuComposantComponent,
+    NotificationComponent,
+    HomeTechComponent,
+    TopBarTechComponent,
+    ListInterTTechComponent,
+    DetailsDialogComponent,
   ],
+   providers: [AsyncPipe,DatePipe],
+
   bootstrap: [
     AppComponent
   ], 
 })
 export class AppModule { }
+
 
 
 /*

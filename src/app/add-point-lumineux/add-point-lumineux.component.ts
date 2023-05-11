@@ -12,14 +12,27 @@ import { FormGroup, FormControl, Validators,FormBuilder } from '@angular/forms';
 export class AddPointLumineuxComponent implements OnInit {
 
   firstFormGroup = this._formBuilder.group({
-    firstCtrl: ['', Validators.required],
+    Ctrl1: ['', Validators.required],
+    Ctrl2: ['', Validators.required],
+    Ctrl3: ['', Validators.required],
+    Ctrl4: ['', Validators.required],
+    Ctrl5: ['', Validators.required],
+    Ctrl6: ['', Validators.required],
+    Ctrl7: ['', Validators.required],
   });
   secondFormGroup = this._formBuilder.group({
-    secondCtrl: ['', Validators.required],
+    Ctrl8: ['', Validators.required],
+    Ctrl9: ['', Validators.required],
+    Ctrl10: ['', Validators.required],
+    Ctrl11: ['', Validators.required],
+    Ctrl12: ['', Validators.required],
+    Ctrl13: ['', Validators.required],
+    Ctrl14: ['', Validators.required],
+    Ctrl15: ['', Validators.required],
   });
 
   
-  isLinear = false;
+  isLinear = true;
 
 
   Mofifer : boolean = false;
@@ -68,6 +81,9 @@ export class AddPointLumineuxComponent implements OnInit {
       this.productService.FindById(pointLumineux).subscribe(
         pointLumineux => {
           this.PointLumineux = pointLumineux;
+          let pointLumineuxJson = JSON.stringify(this.PointLumineux);
+          console.log("recupere "+pointLumineuxJson)
+
         },
         error => {
           console.error(error);

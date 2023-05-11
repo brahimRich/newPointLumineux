@@ -81,17 +81,20 @@
 
 						  </thead>
 						  <tbody>
-						    <tr class="alert" role="alert" *ngFor="let product of products">
-						       <th scope="row" ><!--{{product.id}}-->7</th> <!--*ngIf="product.id"-->
-                  <td ><!--{{product.allume}}-->oui</td><!--*ngIf="product.allume"-->
-						      <td><a [title]="product.type + ' details'" [routerLink]="['/products', product.reference]">{{ product.type }}</a></td>
-						      <td><!--{{ product.marque }}-->Poto</td><!--*ngIf="product.marque"-->
-                  <td>
-                    <button (click)="share()" class="btn1">Share</button>
-                    <button (click)="delete(product)" class="btn2">Supprimer</button>
-                    <button (click)="update(product)" class="btn3">Modifier</button>
-                  </td>
-						    </tr>
+                
+
+                <tr class="alert" role="alert" *ngFor="let product of products">
+                  <th scope="row" *ngIf="product.date_accussition" >{{product.date_accussition}}</th> <!--*ngIf="product.id"-->
+                 <td *ngIf="product.allume">{{product.allume}}</td><!--*ngIf="product.allume"-->
+                 <td><a [title]="product.type + ' details'" [routerLink]="['/products', product.reference]">{{ product.type }}</a></td>
+                 <td *ngIf="product.marque">{{ product.marque }}</td><!--*ngIf="product.marque"-->
+                 <td>
+                   <button (click)="share()" class="btn1">Share</button>
+                   <button (click)="delete(product)" class="btn2">Supprimer</button>
+                   <button (click)="update(product)" class="btn3">Modifier</button>
+                 </td>
+               </tr>
+
 						  </tbody>
 						</table>
 					</div>

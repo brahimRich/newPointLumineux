@@ -3,6 +3,11 @@ import {FormBuilder, Validators} from '@angular/forms';
 import { PointLumineux ,ProductService} from '../products';
 import { ActivatedRoute } from '@angular/router';
 
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+
 @Component({
   selector: 'app-intervention-form',
   templateUrl: './intervention-form.component.html',
