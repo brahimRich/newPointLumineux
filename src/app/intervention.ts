@@ -50,8 +50,8 @@ export class InterventionService {
     
     Notification : Notification ={
       topic: "Topic",
-      title: "zaaaab fin",
-      message: "zaaaaaaaaaaaaaaaaaaaaab fin",
+      title: "intervention sur un point lumineux",
+      message: "vous averz une intervention",
       createdAt: new Date(),
       token: "",
       technicienne: {

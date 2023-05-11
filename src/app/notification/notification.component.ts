@@ -36,6 +36,9 @@ export class NotificationComponent implements OnInit{
     this.listen();
     this.loadNotifications();
     console.log("userrr connecter "+this.user.id);
+    const d : Date =new Date("2023-05-11T11:37:47.332");
+    let datae = JSON.stringify(this.notificationService.getNotificationByDate(d));
+     console.log("bsaaaaaaahtk "+datae)
   }
   requestPermission() {
     const messaging = getMessaging();
@@ -83,10 +86,10 @@ export class NotificationComponent implements OnInit{
      //this.formattedDate = this.datePipe.transform(data, 'yyyy-MM-ddTHH:mm:ss.SSS');
     console.log("Date notification "+this.formattedDate);
     //this.formattedDate = new Date(data); // Convertir la chaîne de caractères en objet Date
-    this.notificationService.getNotificationByDate(data).subscribe(
+    this.notificationService.getAllNotifications().subscribe(
       notifications => {
         console.log("/////////////////////////////////////");
-        this.data=notifications
+        this.data=notifications[4]
         let datae = JSON.stringify(this.data);
         console.log("dateh**************** "+datae);
         const dialogRef = this.dialog.open(DetailsDialogComponent, {

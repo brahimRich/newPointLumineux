@@ -44,14 +44,19 @@ export class NotificationService {
   }
 
   getNotificationByDate(date: Date): Observable<any> {
-    const dateObj = new Date(date);
-    console.log("get time "+dateObj.getTime())
     return this.getAllNotifications().pipe(
-      map(Notifications => Notifications.find((Notification: Notification) =>
-      1==1
-  ))
-  );
+      map((notifications) =>
+        notifications.filter(
+          (notification: Notification) => 1===1
+        )
+      )
+    );
   }
+  
+
+
+}
+
 
   //Notification.createdAt.getTime()==date.getTime()
 
@@ -68,4 +73,4 @@ export class NotificationService {
       console.log('Error retrieving notifications:', error);
     }
   );*/
-}
+
