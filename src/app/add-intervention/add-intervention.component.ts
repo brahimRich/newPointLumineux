@@ -13,7 +13,12 @@ import { Router } from '@angular/router';
 import { CartService } from '../cart.service';
 
 import { HttpClient } from '@angular/common/http';
-import { Notification } from './../notification/notification';
+import { environment } from "./../../environments/environment";
+import { getMessaging, getToken, onMessage } from "firebase/messaging";
+
+import { MatDialog } from '@angular/material/dialog';
+import { DetailsDialogComponent } from './../details-dialog/details-dialog.component';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-add-intervention',
@@ -77,6 +82,7 @@ export class AddInterventionComponent {
   }
 
   ngOnInit(): void {
+    this.requestPermission()
     const routeParams = this.route.snapshot.paramMap;
       const Intervention = Number(routeParams.get('Intervention'));
       if(Intervention){
@@ -93,6 +99,7 @@ export class AddInterventionComponent {
       );
     }
 
+ 
     this.techniciennesService.getAlltechniciennes()
     .subscribe((data: techniciennes[]) => {
       this.techniciennes = data;
@@ -110,6 +117,23 @@ export class AddInterventionComponent {
     });
 
 
+  }
+
+
+  requestPermission() {
+    const messaging = getMessaging();
+    getToken(messaging, 
+     { vapidKey: environment.firebase.vapidKey}).then(
+       (currentToken) => {
+         if (currentToken) {
+           console.log("Hurraaa!!! we got the token.....");
+           console.log(currentToken);
+         } else {
+           console.log('No registration token available. Request permission to generate one.');
+         }
+     }).catch((err) => {
+        console.log('An error occurred while retrieving token. ', err);
+    });
   }
 
 updateErrorMessagee() {
