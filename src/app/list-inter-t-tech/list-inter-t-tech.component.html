@@ -4,14 +4,15 @@
 <h2>Les Intervention</h2>
 
 <input type="text" [(ngModel)]="searchText" placeholder="Rechercher une intervention" (keyup)="onSearchTermChanged()">
+<br><br>
 <div *ngFor="let inter of ListeIntervention">
   
     <p> 
       L'intutuller : {{ inter.intitule_Intervention }}
     </p>
     <p> 
-        Membre :<div *ngFor="let tech of inter.techniciennes">
-            * {{ tech.nom }}
+        <div *ngFor="let tech of inter.techniciennes">
+          Membre : {{ tech.nom }}
             </div>
 
 </div> 

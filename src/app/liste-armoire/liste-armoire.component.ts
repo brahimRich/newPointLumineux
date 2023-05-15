@@ -45,7 +45,7 @@ export class ListeArmoireComponent implements OnInit {
 
   delete(Armoire : Armoire){
     this.Armoirees=this.filteredArmoires();
-    window.alert('supprimer le produit ?'+Armoire.id);
+    window.alert('Voulez-vous supprimer cette armoire '+Armoire.id+' ?');
     this.ArmoireService.deleteArmoire(Armoire.id).subscribe(
       data => {
         console.log(data);
@@ -58,7 +58,7 @@ export class ListeArmoireComponent implements OnInit {
   }
 
   update(Arm : Armoire){
-    window.alert('Modifer '+Arm.id);
+    window.alert('Voulez-vous update cette armoire '+Arm.armoireListe[0].marque +' de ID = '+Arm.id+' ?');
     this.router.navigate(['/armoire-update', Arm.id]);
   }
 
@@ -66,17 +66,37 @@ export class ListeArmoireComponent implements OnInit {
   ngAfterViewInit() {
     this.cdRef.detectChanges();
   }
+ 
+  
 
-  onSearchTermChanged() {
-    this.Armoirees=this.filteredArmoires();
-    if(this.searchText=='') this.ngOnInit()
-  }
 
-  filteredArmoires() {
-    console.log("checheee");
-    return this.Armoirees.filter(Armoire =>
-      Armoire.id.toLowerCase().includes(this.searchText.toLowerCase())
-    );
+onSearchTermChanged() {
+  console.log("onSearchTermChanged");
+  if (this.searchText === '') {
+    this.ngOnInit();
+  } else {
+    this.Armoirees = this.filteredArmoires();
   }
+}
+
+
+filteredArmoires() {
+console.log("filteredArmoires");
+  return this.Armoirees.filter(Armoire =>
+    Armoire.armoireListe[0].marque.toLowerCase().includes(this.searchText.toLowerCase())
+  );
+
+console.log("filteredArmoires sortie");
+}
+  
+  // filteredArmoires(): Armoire[] {
+  //   if (!this.Armoirees) {
+  //     return [];
+  //   }
+  //   const filtered = this.Armoirees.filter((armoire) => {
+  //     return armoire.nombre.toLowerCase().includes(this.searchText.toLowerCase());
+  //   });
+  //   return filtered;
+  // }
 }
     

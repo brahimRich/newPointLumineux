@@ -89,10 +89,10 @@ export class NotificationComponent implements OnInit{
     this.notificationService.getAllNotifications().subscribe(
       notifications => {
         console.log("/////////////////////////////////////");
-        this.data=notifications[4]
+        this.data=notifications[0]
         let datae = JSON.stringify(this.data);
         console.log("dateh**************** "+datae);
-        const dialogRef = this.dialog.open(DetailsDialogComponent, {
+        const dialogRef = this.dialog.open(DetailsDialogComponent, {  
           data: this.data,
           width: '900px' // Ajustez la largeur selon vos besoins
         });
@@ -104,7 +104,7 @@ export class NotificationComponent implements OnInit{
     
     
   }
-  
+   
 
   
 

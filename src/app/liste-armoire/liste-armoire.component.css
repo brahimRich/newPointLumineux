@@ -1,56 +1,158 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  /* Style pour le titre "Les Points Lumineux" */
-  h2 {
-    font-size: 2em;
-    text-align: center;
-    margin-bottom: 1em;
-  }
-  
-  /* Style pour la barre de recherche */
-  input[type="text"] {
-    padding: 0.5em;
-    margin-bottom: 1em;
-    width: 98.5%;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  /* Style pour les produits */
-  h3 {
-    margin-top: 1.5em;
-    font-size: 1.5em;
-  }
-  
-  p {
-    margin: 0.5em 0;
-  }
-  
-  /* Style pour les boutons */
-  button {
-    background-color: #4CAF50; /* couleur de fond */
-    color: white; /* couleur de texte */
-    padding: 0.5em 1em; /* taille du bouton */
-    border: none; /* pas de bordure */
-    border-radius: 4px; /* coins arrondis */
-    cursor: pointer; /* curseur en forme de main */
-    margin-right: 0.5em; /* espace entre les boutons */
-  }
-  
-  /* Style pour le bouton "Share" */
-  button:nth-of-type(1) {
-    background-color: #2196F3; /* couleur de fond différente */
-  }
-  
-  /* Style pour le bouton "Supprimer" */
-  button:nth-of-type(2) {
-    background-color: #f44336; /* couleur de fond différente */
-  }
-  
-  /* Style pour le bouton "Modifier" */
-  button:nth-of-type(3) {
-    background-color: #FFC107; /* couleur de fond différente */
-  }
-  
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: #333;
+}
 
-  
-  
+
+.header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 100px;
+  background: rgba(213, 213, 213, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1;
+  backdrop-filter: blur(10px);
+}
+
+.logo{
+  color:#5c6975;
+  font-size: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  cursor: default;
+}
+
+
+.navbar a{
+  color: #475058;
+  font-size: 18px;
+  text-decoration: none;
+  margin-left: 35px;
+}
+
+.navbar a:hover{
+  color: #66a0d3;
+  border-bottom: 3px solid #66a0d3;
+  padding-bottom: 2px;
+  transition: .2s;
+}
+
+table {
+  text-align: left;
+  line-height: 40px;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 2px solid #306085;
+  width: 900px;
+  margin: 50px auto 0;
+  margin-top: 15px;
+  border-radius: .25rem;
+}
+
+thead tr:first-child {
+  background: #306085;
+  color: #fff;
+  border: none;
+}
+
+th:first-child,
+td:first-child {
+  padding: 0 15px 0 20px;
+}
+
+th {
+  font-weight: 500;
+}
+
+thead tr:last-child th {
+  border-bottom: 3px solid #ddd;
+}
+
+tbody tr:hover {
+  background-color: #f2f2f2;
+  cursor: default;
+}
+
+tbody tr:last-child td {
+  border: none;
+}
+
+tbody td {
+  border-bottom: 1px solid #ddd;
+}
+
+td:last-child {
+  text-align: right;
+  padding-right: 10px;
+}
+
+.button {
+  color: #aaa;
+  cursor: pointer;
+  vertical-align: middle;
+  margin-top: -4px;
+}
+
+.edit:hover {
+  color: #0a79df;
+}
+
+.delete:hover {
+  color: #dc2a2a;
+}
+
+/* Style pour la barre de recherche */
+input[type="text"] {
+  padding: 0.5em;
+  margin-bottom: 1em;
+  width: 98.5%;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+}
+
+
+.input-group {
+  margin-top: 80px;
+  margin-left: 40%;
+  width: 300px;
+}
+
+.input-group .form-control {
+  border-radius: 30px;
+  border-color: #ccc;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.input-group-append .input-group-text {
+  border-radius: 30px;
+  background-color: #ccc;
+  border-color: #ccc;
+  color: #fff;
+  cursor: pointer;
+  position: relative;
+  margin-top: 80px;
+  margin-left: 45%;
+}
+
+.input-group-append .input-group-text:hover {
+  background-color: #aaa;
+  border-color: transparent;
+}
+
+
+.add{
+  float: right;
+  margin-left: 87%;
+  margin-top: -47px;
+  position: absolute;
+}

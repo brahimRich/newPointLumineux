@@ -1,7 +1,79 @@
-<app-top-bar></app-top-bar>
+<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
 
-<h2>Liste des armoires</h2>
+<header class="header">
+  <a [routerLink]="['/Home']" class="logo">LightX</a>
+
+  <nav class="navbar">
+    <a [routerLink]="['/ListeProducts']">Point Limineux</a>
+    <a [routerLink]="['/Addtechnicienne']">Techniciens</a>
+    <a [routerLink]="['/Intervention']">Interventions</a>
+    <a [routerLink]="['/ListeArmoire']">Armoires</a>
+  </nav>
+</header>
+
+
+<br><br><br>
+<div class="input-group">
+  <input type="text" class="form-control" [(ngModel)]="searchText" placeholder="Type to search" (keyup)="onSearchTermChanged()">
+</div>
+
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="5">Liste des armoires  </th>
+      
+      <th>
+        <a [routerLink]="['/AddArmoire']" style="text-decoration: none;color: white;margin-top: 37px;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16" style="margin-top: 10px;margin-right:-100px">
+            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
+          </svg>
+        </a>
+        
+      </th>
+    </tr>
+    <tr style="background-color: rgb(225, 225, 225);">
+      <th>Marque</th>
+      <th>Calibre</th>
+      <th>Nombre</th>
+      <th colspan="3">Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of Armoirees">
+      <td>{{ product.armoireListe[0].marque }}</td>
+      <td>{{ product.armoireListe[0].calibre }}</td>
+      <td>{{ product.armoireListe[0].nombre }}</td>
+      <td>{{ product.armoireListe[0].typeArmoire.nom }}</td>
+      <td colspan="2">
+        <i class="material-icons button edit" (click)="update(product)"  >edit</i>
+        <i class="material-icons button delete" (click)="delete(product)">delete</i>
+
+      </td>
+    </tr>
+  </tbody>
+</table> 
+
+
+
+<script src="js/jquery.min.js"></script>
+<script src="js/popper.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/main.js"></script>
+
+
+
+
+
+
+
+<!-- <h2>Liste des armoires</h2>
 
 <input type="text" [(ngModel)]="searchText" placeholder="Rechercher une armoire" (keyup)="onSearchTermChanged()">
 <div *ngFor="let product of Armoirees">
@@ -24,4 +96,4 @@
   <button type="button" (click)="share()" >Share</button>
   <button (click)="delete(product)" >Supprimer</button>
   <button (click)="update(product)" >Modifier</button>
-</div> 
+</div>  -->

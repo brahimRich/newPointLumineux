@@ -22,6 +22,8 @@ const httpOptions = {
 	  nom : string;
     prenom : string ;
 	  cin : string;
+    email : string;
+    password : string;
   }
 
   @Injectable({
@@ -55,6 +57,7 @@ const httpOptions = {
           map(technicienness => technicienness.find((techniciennes: techniciennes) => techniciennes.nom === nom && techniciennes.prenom === prenom))
         );
     }
+
 
     deletetechniciennes(id: number) {
       const url = `${this.deleteURL}/${id}`;

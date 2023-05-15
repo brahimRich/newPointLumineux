@@ -26,6 +26,8 @@ export class AddTechniciennesComponent implements OnInit {
       nom : '',
       prenom : '' ,
       cin : '',
+      email : '',
+      password : '',
     }
 
   ngOnInit() {

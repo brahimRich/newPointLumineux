@@ -31,7 +31,7 @@ export class ProductListComponent implements OnInit{
   pointLumineux: PointLumineux | undefined;
 
   share() {
-    window.alert('The product has been shared!');
+    window.alert('The product has been shared!'); 
   }
   
   onNotify() {
@@ -66,11 +66,11 @@ export class ProductListComponent implements OnInit{
     this.products=this.filteredProducts();
     if(this.searchText=='') this.ngOnInit()
   }
-
+ 
    filteredProducts() {
     console.log("checheee");
     return this.products.filter(pointLumineux =>
-      pointLumineux.type.toLowerCase().includes(this.searchText.toLowerCase())
+      pointLumineux.adresse.rue.toLowerCase().includes(this.searchText.toLowerCase())
     );
   }
 }

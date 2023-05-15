@@ -19,7 +19,7 @@ export interface typeArmoire {
 }
 
 export interface armoireListe {
-  marque : string;
+  marque : string;  
   calibre : string;
   nombre : number;
   typeArmoire:typeArmoire;

@@ -88,7 +88,7 @@ import { MatStepperModule } from '@angular/material/stepper';
       {path : 'technicien/:id',component : DetailTechComponent},
       {path : 'LoginTech',component : LoginTechComponent},
       {path : 'notification',component : NotificationComponent},
-      {path : 'form' , component:InterventionFormComponent}
+      {path : 'form' , component:InterventionFormComponent},
 
     ]),
     BrowserAnimationsModule
@@ -114,6 +114,7 @@ import { MatStepperModule } from '@angular/material/stepper';
     TopBarTechComponent,
     ListInterTTechComponent,
     DetailsDialogComponent,
+    InterventionFormComponent,
   ],
    providers: [AsyncPipe,DatePipe],
 

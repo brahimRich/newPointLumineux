@@ -22,6 +22,7 @@ body{
   display: flex;
   justify-content: space-between;
   align-items: center;
+  z-index: 1;
   backdrop-filter: blur(10px);
 }
 
@@ -39,9 +40,11 @@ body{
   font-size: 18px;
   text-decoration: none;
   margin-left: 35px;
-  transition: .3s;
 }
 
 .navbar a:hover{
-  color: #5b7d9b;
+  color: #66a0d3;
+  border-bottom: 3px solid #66a0d3;
+  padding-bottom: 2px;
+  transition: .2s;
 }

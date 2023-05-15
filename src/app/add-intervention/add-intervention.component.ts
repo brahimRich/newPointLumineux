@@ -20,12 +20,18 @@ import { MatDialog } from '@angular/material/dialog';
 import { DetailsDialogComponent } from './../details-dialog/details-dialog.component';
 import { DatePipe } from '@angular/common';
 
+
 @Component({
   selector: 'app-add-intervention',
   templateUrl: './add-intervention.component.html',  
   styleUrls: ['./add-intervention.component.css']
 })
 export class AddInterventionComponent {
+
+
+  
+
+
   Mofifer : boolean = false;
   boutonDesactive: boolean = true;
   errorMessageMarque='';
@@ -75,7 +81,7 @@ export class AddInterventionComponent {
 
 
 
-  constructor(private http: HttpClient,private InterventionService: InterventionService,private route: ActivatedRoute,private formBuilder: FormBuilder,private cartService: CartService,private sessionStorage: SessionStorageService,private router: Router,private location: Location,private techniciennesService :techniciennesService,private ProductService : ProductService) { 
+  constructor(private technicienneService: techniciennesService,private http: HttpClient,private InterventionService: InterventionService,private route: ActivatedRoute,private formBuilder: FormBuilder,private cartService: CartService,private sessionStorage: SessionStorageService,private router: Router,private location: Location,private techniciennesService :techniciennesService,private ProductService : ProductService) { 
     this.techniciennes = [];
     this.pointlumineuxSelectionnee = this.PointxLimineuxs[0];
    
@@ -167,6 +173,44 @@ submitIntervention() {
 }
 
 
+tech : techniciennes | undefined;
+
+detail(id : number){
+  this.technicienneService.FindtechniciennesById(id).subscribe(
+    data => {
+      this.tech = data;
+    }, 
+    error => {
+      console.error(error);
+    }  
+  )
+}
+
+
+deleteTech(id: number) {
+  for (let i = 0; i < this.technicienChoisi.length; i++) {
+    if (this.technicienChoisi[i].id === id) {
+      this.technicienChoisi.splice(i, 1);
+      break;
+    }
+  }
+}
+
+
+
+showPopup = false;
+
+  openPopup() {
+    this.showPopup = true;
+  }
+
+  closePopup() {
+    this.showPopup = false;
+  }
+
+  openPopupp() {
+    this.showPopup = true;
+  }
 
 
 }

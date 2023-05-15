@@ -5,15 +5,16 @@
 export const environment = {
     production: false,
     firebase: {
-        apiKey: "AIzaSyAlIrWoQDWII6A5YanNkf0Z3v2e9r1jqaI",
-        authDomain: "tess-511a2.firebaseapp.com",
-        projectId: "tess-511a2",
-        storageBucket: "tess-511a2.appspot.com",
-        messagingSenderId: "556245538675",
-        appId: "1:556245538675:web:59b7cdd44f24ad64979706",
-        measurementId: "G-VLGFQKBHNG",
+    apiKey: "AIzaSyAlIrWoQDWII6A5YanNkf0Z3v2e9r1jqaI",
+    authDomain: "tess-511a2.firebaseapp.com",
+    projectId: "tess-511a2",
+    storageBucket: "tess-511a2.appspot.com",
+    messagingSenderId: "556245538675",
+    appId: "1:556245538675:web:59b7cdd44f24ad64979706",
+    measurementId: "G-VLGFQKBHNG",
         vapidKey :"BLYSW5dmPp5c-eG6moMi4mk_HoJxjUwlCA88Cu1Yp9UmnRhxUvrqjty6tspddildwd1Nrnxxjvu4v3IE5ejoNx4"
     }
+
   };
   
   /*
