@@ -89,7 +89,7 @@ import { MatStepperModule } from '@angular/material/stepper';
       {path : 'LoginTech',component : LoginTechComponent},
       {path : 'notification',component : NotificationComponent},
       {path : 'form' , component:InterventionFormComponent},
-
+      {path : 'DetailsDialogComponent' , component : DetailsDialogComponent},
     ]),
     BrowserAnimationsModule
   ],

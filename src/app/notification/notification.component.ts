@@ -22,7 +22,7 @@ export class NotificationComponent implements OnInit{
 
   recentNotificationCount: number = 0;
   title = 'af-notification';
-  message: any = null;
+  message : any = null;
   notifications: Notification[] = [];
   messages : any []=[];
   usercibler : number = 0;

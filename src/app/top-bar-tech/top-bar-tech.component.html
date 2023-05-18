@@ -1,5 +1,25 @@
 <nav class="navbar">
     <a [routerLink]="['/Homet']"><h1>Home</h1></a>
-    <a [routerLink]="['/ListInterT']">intervention</a>
-  </nav>
+    <a [routerLink]="['/DetailsDialogComponent']">DetailsDialogComponent</a>
+    <!-- <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bell-fill" viewBox="0 0 16 16">
+      <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z"/>
+    </svg> -->
+
+    <button (click)="openPopupp()" style="background-color: transparent;border: none;margin-right: 20px;">
+      <svg xmlns="http://www.w3.org/2000/svg" id="notification" width="25" height="25" fill="currentColor" class="bi bi-bell-fill" viewBox="0 0 16 16">
+        <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z"/>
+      </svg>
+    </button>
+</nav>
+
+
+<div class="not" *ngIf="showPopup" >
+  <button (click)="closePopup()" id="close">
+    <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="none" viewBox="0 0 16 16">
+      <path stroke="currentColor" stroke-width="" d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+    </svg>    
+  </button>
+  <app-notification></app-notification>
+  
+</div>
     

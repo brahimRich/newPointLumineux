@@ -31,7 +31,7 @@ body {
 .con2{
   float: right;
   margin-left: 450px;
-  margin-top: -390px;
+  margin-top: -330px;
   right: 0;
   width: 50%;
   justify-content: space-between;
@@ -56,7 +56,7 @@ body {
   height: fit-content;
   margin-left: 80px;
   margin-top: 10px;
-  height: 70px;
+  height: 67px;
   padding-left: 10px;
 }
 
@@ -201,7 +201,7 @@ button {
   width: 200px;
   height: 40px;
   top: 460px;
-  right: 300px;
+  right:600px;
 }
 
 button:hover {
@@ -314,16 +314,15 @@ form label{
 
 
  */
- 
-
-
 
  .popup {
-  height: 300px;
-  background-color: #78ffb0;
+  height: 100px;
+  background-color: #e0e0e0;
   padding: 20px;
   height: fit-content;
   width: 100px;
+  border : 2px solid #7b7474;
+  border-radius:7px;
   left: 0;
   top: 170px;
   border-radius: 5px;
@@ -366,6 +365,7 @@ form label{
 
 .retire{
   position: absolute;
-  top: 90px;
-  
+  top: 170px;
+  float: right;
+  right: 80px;
 }

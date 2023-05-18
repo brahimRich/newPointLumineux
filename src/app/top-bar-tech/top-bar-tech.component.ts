@@ -7,4 +7,23 @@ import { Component } from '@angular/core';
 })
 export class TopBarTechComponent {
 
+
+
+
+
+  
+showPopup = false;
+
+openPopup() {
+  this.showPopup = true;
+}
+
+closePopup() {
+  this.showPopup = false;
+}
+
+openPopupp() {
+  this.showPopup = true;
+}
+
 }

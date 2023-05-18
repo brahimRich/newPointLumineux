@@ -19,7 +19,7 @@ export class LoginTechComponent implements OnInit {
   email: string='';
   password: string='';
   errorMessageN='k';
-  errorMessageLo='p';
+  errorMessageLo='p'; 
   errorLogin='o';
 
 

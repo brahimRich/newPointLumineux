@@ -56,7 +56,7 @@ export class AddInterventionComponent {
   }
   
    
-  
+   
   selectedTechniciennes: any []=[];
   selectedPoints: any[] = [];
 
@@ -162,6 +162,8 @@ submitIntervention() {
   
 
   this.InterventionService.AddIntervention(this.Intervention);
+
+  console.log("ca marche")
 
    /*   const currentUrl = this.router.url;
       if(currentUrl=='/Intervention' || currentUrl==''){

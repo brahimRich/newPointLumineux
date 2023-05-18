@@ -11,15 +11,15 @@
 	<form>
 		
     <div class="con1">
-      <div class="field" tabindex="1">
+      <div class="field" tabindex="1"><br>
         <label for="type" >Type d'intervention</label>
         <input type="text" id="email" name="email" [(ngModel)]="Intervention.type" (keyup)="updateErrorMessagee()">
-      </div><br>
+      </div><br><br>
       <div class="field" tabindex="2">
         <label for="intitule_Intervention" >Intitule d'intervention:</label>
         <input type="text" id="password" name="password" [(ngModel)]="Intervention.intitule_Intervention" (keyup)="updateErrorMessagee()">
-      </div><br>
-      <div class="field" tabindex="3">
+      </div><br><br>
+      <!-- <div class="field" tabindex="3">
         <label for="dure_Intervention" >Dure d'intervention:</label>
         <input type="number" id="dure_Intervention" name="dure_Intervention" [(ngModel)]="Intervention.dure_Intervention" (keyup)="updateErrorMessagee()">
       </div><br>
@@ -27,12 +27,12 @@
       <div class="field" tabindex="3">
         <label for="etat_intervention" >Etat d'intervention:</label>
         <input type="text" id="etat_intervention" name="etat_intervention" [(ngModel)]="Intervention.etat_intervention" (keyup)="updateErrorMessagee()">
-      </div><br>
+      </div><br> -->
   
       <div class="field" tabindex="3">
         <label for="date_intervention" >Date d'intervention:</label>
         <input type="date" id="date_intervention" name="date_intervention" [(ngModel)]="Intervention.date_intervention" (keyup)="updateErrorMessagee()">  
-      </div><br>
+      </div><br><br>
       
     </div>
     
@@ -67,7 +67,7 @@
 </div>
 
 
-<div class="contt">
+<div class="contt"*ngIf="selectedTechniciennes.length">
   <div class="field" tabindex="2" id="blur">
     <div class="techChoisi" *ngIf="selectedTechniciennes.length" id="ress">
       <label for="selectedPoints"> <h1>Les techniciennes sélectionés :</h1></label>
@@ -80,7 +80,7 @@
   </div>
   
 
-    <div id="popup1" class="overlay" *ngIf="showPopup">
+    <div id="popup1"  *ngIf="showPopup">
       <div class="popup" >
         <h2>Quelques détails sur cet technicien :</h2>
         <!-- <a class="close" href="#">&times; </a> -->
@@ -113,31 +113,23 @@
 
 
 
-<script>
-  // Récupère toutes les éléments HTML avec la classe "clickable-div"
-let clickableDivs = document.querySelectorAll('.clickable-div');
+<!-- <div class="popup" >
+  <h2>Quelques détails sur cet technicien :</h2>
+  <div class="close" (click)="closePopup()">&times;</div>
+  <div >
+    <div class="infos">
+      <h3><p>Nom : <strong>jkghjklm</strong> </p></h3>
+      <h3><p>Prenom : <strong>mlmkjhgfd</strong></p></h3>
+      <h3><p>CIN : <strong>iouygtfrddfghjk</strong></p></h3>
+      <h3><p>Email : <strong>ùmoiulytjrhyuijk</strong></p></h3>
+    </div>
 
-// Parcourt tous les éléments récupérés et ajoute un écouteur d'événement de clic
-clickableDivs.forEach(function(div) {
-  div.addEventListener('click', function() {
-    let message = "Informations sur la technicienne : " + div.innerText;
-    let dialogBox = document.createElement('div');
-    dialogBox.classList.add('dialog-box');
-    dialogBox.textContent = message;
-    document.body.appendChild(dialogBox);
+    <button class="retire">Retirer</button>
+  </div>
+</div>  -->
 
-    // affiche la boîte de dialogue lorsque l'élément est cliqué
-    dialogBox.style.display = 'block';
-    console.log("hhhhh")
 
-    // cache la boîte de dialogue lorsque l'utilisateur clique sur la boîte de dialogue
-    dialogBox.addEventListener('click', function() {
-      dialogBox.style.display = 'none';
-    });
-  });
-});
 
-</script>
 
 
 
