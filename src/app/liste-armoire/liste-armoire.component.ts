@@ -5,7 +5,10 @@ import { Router } from '@angular/router';
 
 
 import { Armoire,ArmoireService } from '../armoire';
+<<<<<<< HEAD
 import { GetPermetionService } from '../get-permetion.service';
+=======
+>>>>>>> origin/main
 
 @Component({
   selector: 'app-liste-armoire',
@@ -18,10 +21,16 @@ export class ListeArmoireComponent implements OnInit {
   searchText = '';
 
   
+<<<<<<< HEAD
   constructor(private GetPermetionService: GetPermetionService,private ArmoireService: ArmoireService,private router: Router,private cdRef: ChangeDetectorRef) { }
 
   ngOnInit(): void {
     this.GetPermetionService.getPerm();
+=======
+  constructor(private ArmoireService: ArmoireService,private router: Router,private cdRef: ChangeDetectorRef) { }
+
+  ngOnInit(): void {
+>>>>>>> origin/main
     this.ArmoireService.getAllArmoire().subscribe(
       data => {
         this.Armoirees = data;

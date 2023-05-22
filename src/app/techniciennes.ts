@@ -24,8 +24,11 @@ const httpOptions = {
 	  cin : string;
     email : string;
     password : string;
+<<<<<<< HEAD
     dtype : String;
     tele : String
+=======
+>>>>>>> origin/main
   }
 
   @Injectable({
@@ -35,8 +38,11 @@ const httpOptions = {
   export class techniciennesService {
 
     private getURL = 'http://localhost:4200/api/technicienne/getAll';
+<<<<<<< HEAD
     private getURLUsers = 'http://localhost:4200/api/technicienne/getAllUser';
 
+=======
+>>>>>>> origin/main
     private deleteURL= '/api/technicienne/delete';
     private AddURL= '/api/technicienne/add';
     private UpdateURL= '/api/technicienne/update';
@@ -46,12 +52,16 @@ const httpOptions = {
 
     getAlltechniciennes(): Observable<any> {
       console.log("get all techn");
+<<<<<<< HEAD
         return this.http.get<any>(this.getURLUsers);
     } 
 
     getAllUser(): Observable<any> {
       console.log("get all user");
         return this.http.get<any>(this.getURLUsers);
+=======
+        return this.http.get<any>(this.getURL);
+>>>>>>> origin/main
     } 
 
 

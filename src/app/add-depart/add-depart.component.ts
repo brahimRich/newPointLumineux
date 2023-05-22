@@ -2,10 +2,13 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import {Depart,caracteristiqueList,departType,DepartService} from '../depart';
 import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl, Validators,FormBuilder } from '@angular/forms';
+<<<<<<< HEAD
 import { userTech,UserTechService } from '../userTech'; 
 import { SessionStorageService } from 'ngx-webstorage';
 import { Observable } from 'rxjs';
 import { GetPermetionService } from '../get-permetion.service';
+=======
+>>>>>>> origin/main
 
 import {  ArmoireService ,Armoire,typeArmoire,armoireListe } from '../armoire';
 
@@ -46,9 +49,12 @@ export class AddDepartComponent implements OnInit{
   Depart : Depart =  {
     id: 7,
     observation: 'observation',
+<<<<<<< HEAD
     ajouteurUser : {
       id : 0
     },
+=======
+>>>>>>> origin/main
     armoire: {
       id: 9,
       armoireListe: []
@@ -186,6 +192,7 @@ export class AddDepartComponent implements OnInit{
   };
 
 
+<<<<<<< HEAD
   constructor(private GetPermetionService: GetPermetionService,private DepartService: DepartService,private UserTechService: UserTechService,private route: ActivatedRoute,private formBuilder: FormBuilder,private ArmoireService: ArmoireService,private sessionStorage: SessionStorageService) { 
   }
 
@@ -203,6 +210,13 @@ export class AddDepartComponent implements OnInit{
       }
     )
 
+=======
+  constructor(private DepartService: DepartService,private route: ActivatedRoute,private formBuilder: FormBuilder,private ArmoireService: ArmoireService) { 
+  }
+
+
+  ngOnInit(): void {
+>>>>>>> origin/main
     const routeParams = this.route.snapshot.paramMap;
     const Depart = Number(routeParams.get('depart'));
     if(Depart){
@@ -261,11 +275,14 @@ export class AddDepartComponent implements OnInit{
     console.log("ajout avant "+ jsonData);
     this.DepartService.AddDepart(this.Depart);
   }
+<<<<<<< HEAD
 
   getPermetion(id: number): Observable<any[]> {
     return this.UserTechService.GetPermetion(id);
   }
   
+=======
+>>>>>>> origin/main
   
     updatePoint(){
       const jsonData = JSON.stringify(this.Depart); 

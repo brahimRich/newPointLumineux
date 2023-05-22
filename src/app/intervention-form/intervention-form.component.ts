@@ -7,7 +7,10 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+<<<<<<< HEAD
 import { GetPermetionService } from '../get-permetion.service';
+=======
+>>>>>>> origin/main
 
 @Component({
   selector: 'app-intervention-form',
@@ -57,9 +60,14 @@ export class InterventionFormComponent implements OnInit {
   
   isLinear = false;
 
+<<<<<<< HEAD
   constructor(private GetPermetionService: GetPermetionService,private _formBuilder: FormBuilder,private productService: ProductService,private route: ActivatedRoute,private formBuilder: FormBuilder) {}
   ngOnInit(): void {
     this.GetPermetionService.getPerm();
+=======
+  constructor(private _formBuilder: FormBuilder,private productService: ProductService,private route: ActivatedRoute,private formBuilder: FormBuilder) {}
+  ngOnInit(): void {
+>>>>>>> origin/main
     const routeParams = this.route.snapshot.paramMap;
     const pointLumineux = Number(routeParams.get('pointLumineux'));
     if(pointLumineux){

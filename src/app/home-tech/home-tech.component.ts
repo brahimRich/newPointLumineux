@@ -1,17 +1,23 @@
 import { Component , OnInit, ChangeDetectorRef} from '@angular/core';
 import { InterventionService,Intervention } from '../intervention';
 import { SessionStorageService } from 'ngx-webstorage';
+<<<<<<< HEAD
 import { getMessaging, getToken, onMessage } from "firebase/messaging";
 import { environment } from "./../../environments/environment";
 import { GetPermetionService } from '../get-permetion.service';
+=======
+>>>>>>> origin/main
 
 @Component({
   selector: 'app-home-tech',
   templateUrl: './home-tech.component.html',
   styleUrls: ['./home-tech.component.css']
 })
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> origin/main
 export class HomeTechComponent implements OnInit {
 
   
@@ -19,6 +25,7 @@ export class HomeTechComponent implements OnInit {
   Tech :any ;
   searchText ='';
   Intervention: Intervention | undefined;
+<<<<<<< HEAD
   idInterventionComplete : number =0 ;
   messageSup : String= "L'intervention est bien termener";
 
@@ -82,17 +89,36 @@ export class HomeTechComponent implements OnInit {
       data => {
         this.ListeIntervention = data;
         console.log("data "+data[0].date_intervention)
+=======
+
+  constructor(private InterventionService: InterventionService,private sessionStorage: SessionStorageService,private cdRef: ChangeDetectorRef) { }
+
+
+  ngOnInit(): void {
+    this.Tech   = this.sessionStorage.retrieve('userTech');
+    console.log()
+    this.InterventionService.getAllInterventions(this.Tech.id).subscribe(
+      data => {
+        this.ListeIntervention = data;
+        console.log(data[0].date_intervention)
+>>>>>>> origin/main
       }, 
       error => {
         console.log(error);
       }
     );
     }
+<<<<<<< HEAD
 
     ngAfterViewInit() {
       this.cdRef.detectChanges();
     }
     
+=======
+    ngAfterViewInit() {
+      this.cdRef.detectChanges();
+    }
+>>>>>>> origin/main
     onSearchTermChanged() {
       this.ListeIntervention=this.filteredArmoires();
       if(this.searchText=='') this.ngOnInit()
@@ -104,6 +130,7 @@ export class HomeTechComponent implements OnInit {
         Intervention.intitule_Intervention.toLowerCase().includes(this.searchText.toLowerCase())
       );
     }
+<<<<<<< HEAD
 
     showPopup = false;
 
@@ -124,3 +151,6 @@ export class HomeTechComponent implements OnInit {
       this.showPopup = false;
     }
 }
+=======
+}
+>>>>>>> origin/main

@@ -2,7 +2,10 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { PointLumineux ,ProductService} from '../products';
 import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl, Validators,FormBuilder } from '@angular/forms';
+<<<<<<< HEAD
 import { GetPermetionService } from '../get-permetion.service';
+=======
+>>>>>>> origin/main
 
 
 @Component({
@@ -66,12 +69,19 @@ export class AddPointLumineuxComponent implements OnInit {
 
   @Output() productAdded = new EventEmitter<PointLumineux>();
 
+<<<<<<< HEAD
   constructor(private GetPermetionService: GetPermetionService,private _formBuilder: FormBuilder,private productService: ProductService,private route: ActivatedRoute,private formBuilder: FormBuilder) { 
+=======
+  constructor(private _formBuilder: FormBuilder,private productService: ProductService,private route: ActivatedRoute,private formBuilder: FormBuilder) { 
+>>>>>>> origin/main
   }
  
 
   ngOnInit(): void {
+<<<<<<< HEAD
       this.GetPermetionService.getPerm();
+=======
+>>>>>>> origin/main
       const routeParams = this.route.snapshot.paramMap;
       const pointLumineux = Number(routeParams.get('pointLumineux'));
       if(pointLumineux){

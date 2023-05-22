@@ -3,7 +3,10 @@ import { ArmoireService ,Armoire,typeArmoire,armoireListe} from '../armoire';
 
 import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl, Validators,FormBuilder } from '@angular/forms';
+<<<<<<< HEAD
 import { GetPermetionService } from '../get-permetion.service';
+=======
+>>>>>>> origin/main
 
  
 
@@ -106,18 +109,29 @@ export class AddArmoireComponent implements OnInit {
 
   
 
+<<<<<<< HEAD
   constructor(private GetPermetionService: GetPermetionService,private ArmoireService: ArmoireService,private route: ActivatedRoute,private formBuilder: FormBuilder,private router: Router) { 
   }
 
   ngOnInit(): void {
       this.GetPermetionService.getPerm();
+=======
+  constructor(private ArmoireService: ArmoireService,private route: ActivatedRoute,private formBuilder: FormBuilder,private router: Router) { 
+  }
+
+  ngOnInit(): void {
+>>>>>>> origin/main
       const routeParams = this.route.snapshot.paramMap;
       const Armoire = Number(routeParams.get('armoire'));
       if(Armoire){
         this.Mofifer=true;
         this.errorMessageMarque='';
         this.boutonDesactive = false;
+<<<<<<< HEAD
         this.ArmoireService.FindById(Armoire).subscribe(
+=======
+      this.ArmoireService.FindById(Armoire).subscribe(
+>>>>>>> origin/main
         Armoire => {
           this.Armoire = Armoire;
         },

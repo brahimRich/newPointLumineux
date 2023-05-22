@@ -2,7 +2,10 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { techniciennes,techniciennesService} from '../techniciennes';
 import { ActivatedRoute } from '@angular/router';
+<<<<<<< HEAD
 import { GetPermetionService } from '../get-permetion.service';
+=======
+>>>>>>> origin/main
 
 import { FormGroup, FormControl, Validators,FormBuilder } from '@angular/forms';
 import { SessionStorageService } from 'ngx-webstorage';
@@ -20,6 +23,7 @@ export class AddTechniciennesComponent implements OnInit {
   Mofifer : boolean = false;
   boutonDesactive: boolean = true;
   errorMessageMarque='';
+<<<<<<< HEAD
   selectedType: any=null;
 
   ListeTypes : any []=[{
@@ -27,6 +31,8 @@ export class AddTechniciennesComponent implements OnInit {
   },{
     type : 'Technicienne'
   }];
+=======
+>>>>>>> origin/main
 
   techniciennes : techniciennes = 
     {
@@ -36,12 +42,18 @@ export class AddTechniciennesComponent implements OnInit {
       cin : '',
       email : '',
       password : '',
+<<<<<<< HEAD
       dtype : '',
       tele :''
     }
 
   ngOnInit() {
     this.GetPermetionService.getPerm();
+=======
+    }
+
+  ngOnInit() {
+>>>>>>> origin/main
     const routeParams = this.route.snapshot.paramMap;
     const technicienne = Number(routeParams.get('technicienne'));
     if(technicienne){
@@ -50,7 +62,10 @@ export class AddTechniciennesComponent implements OnInit {
     this.techniciennesService.FindtechniciennesById(technicienne).subscribe(
       technicienne => {
         this.techniciennes = technicienne;
+<<<<<<< HEAD
         this.selectedType=technicienne.dtype;
+=======
+>>>>>>> origin/main
       },
       error => {
         console.error(error);
@@ -59,7 +74,11 @@ export class AddTechniciennesComponent implements OnInit {
     }
   }
  
+<<<<<<< HEAD
     constructor(private GetPermetionService: GetPermetionService,private techniciennesService: techniciennesService,private route: ActivatedRoute,private formBuilder: FormBuilder,private cartService: CartService,private sessionStorage: SessionStorageService,private router: Router,private location: Location) { 
+=======
+    constructor(private techniciennesService: techniciennesService,private route: ActivatedRoute,private formBuilder: FormBuilder,private cartService: CartService,private sessionStorage: SessionStorageService,private router: Router,private location: Location) { 
+>>>>>>> origin/main
     }
 
 
@@ -97,11 +116,14 @@ export class AddTechniciennesComponent implements OnInit {
         this.boutonDesactive = true; 
       }
     }
+<<<<<<< HEAD
 
     ajouterType(){
       this.techniciennes.dtype=this.selectedType;
       this.selectedType=this.selectedType;
       console.log('le type de utiliateur '+this.selectedType)
     }
+=======
+>>>>>>> origin/main
 }
  

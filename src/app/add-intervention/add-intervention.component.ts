@@ -1,7 +1,10 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import {Intervention,InterventionService} from '../intervention'
 import {techniciennes,techniciennesService} from '../techniciennes'
+<<<<<<< HEAD
 import { GetPermetionService } from '../get-permetion.service';
+=======
+>>>>>>> origin/main
 
 import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl, Validators,FormBuilder } from '@angular/forms';
@@ -36,7 +39,10 @@ export class AddInterventionComponent {
   Mofifer : boolean = false;
   boutonDesactive: boolean = true;
   errorMessageMarque='';
+<<<<<<< HEAD
   messageSup : String= "Vous Avez une intervention";
+=======
+>>>>>>> origin/main
 
   PointxLimineuxs: PointLumineux[] = [];
 
@@ -45,6 +51,7 @@ export class AddInterventionComponent {
   Intervention : Intervention = {
     id_Intervention : 0,
     type : '',
+<<<<<<< HEAD
     admin : {
       id:0,
       nom:"",
@@ -53,6 +60,8 @@ export class AddInterventionComponent {
       email : "",
       password : ""
     },
+=======
+>>>>>>> origin/main
     intitule_Intervention : '',
     dure_Intervention : 0,
     etat_intervention : 0,
@@ -91,14 +100,21 @@ export class AddInterventionComponent {
 
 
 
+<<<<<<< HEAD
   constructor(private GetPermetionService: GetPermetionService,private technicienneService: techniciennesService,private http: HttpClient,private InterventionService: InterventionService,private route: ActivatedRoute,private formBuilder: FormBuilder,private cartService: CartService,private sessionStorage: SessionStorageService,private router: Router,private location: Location,private techniciennesService :techniciennesService,private ProductService : ProductService) { 
+=======
+  constructor(private technicienneService: techniciennesService,private http: HttpClient,private InterventionService: InterventionService,private route: ActivatedRoute,private formBuilder: FormBuilder,private cartService: CartService,private sessionStorage: SessionStorageService,private router: Router,private location: Location,private techniciennesService :techniciennesService,private ProductService : ProductService) { 
+>>>>>>> origin/main
     this.techniciennes = [];
     this.pointlumineuxSelectionnee = this.PointxLimineuxs[0];
    
   }
 
   ngOnInit(): void {
+<<<<<<< HEAD
     this.GetPermetionService.getPerm();
+=======
+>>>>>>> origin/main
     this.requestPermission()
     const routeParams = this.route.snapshot.paramMap;
       const Intervention = Number(routeParams.get('Intervention'));
@@ -127,11 +143,17 @@ export class AddInterventionComponent {
 
     this.ProductService.getAllPointLumineux()
     .subscribe((data: PointLumineux[]) => {
+<<<<<<< HEAD
       for (let i = 0; i < data.length; i++) {
         if (data[0].allume==false) {
           this.PointxLimineuxs[i]=data[i];
         }
       }
+=======
+      this.PointxLimineuxs = data;
+      //this.Intervention.pointLumineuxList[0]=data[0];
+      //this.pointlimunieuxchoisi=data;
+>>>>>>> origin/main
       console.log("point lu "+data[0].adresse.quertier);
     });
 
@@ -174,7 +196,11 @@ updateDepart(){
 submitIntervention() {
   
 
+<<<<<<< HEAD
   this.InterventionService.AddIntervention(this.Intervention,this.messageSup);
+=======
+  this.InterventionService.AddIntervention(this.Intervention);
+>>>>>>> origin/main
 
   console.log("ca marche")
 

@@ -7,10 +7,23 @@
 <!-- * * * * * * * to get started with your project! * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
+<<<<<<< HEAD
 <div class="content" role="main" >
   <router-outlet *ngIf="userTech!=null"></router-outlet>
   <app-login-tech *ngIf="userTech==null" ></app-login-tech >
 </div>
+=======
+<!-- Toolbar -->
+  <div class="content" role="main" >
+  <router-outlet ></router-outlet>
+  <app-login *ngIf="user==null" ></app-login>
+</div>   
+
+<div class="content" role="main" *ngIf="admin!=0">
+  <router-outlet *ngIf="userTech!=null"></router-outlet>
+  <app-login-tech *ngIf="userTech==null" ></app-login-tech >
+</div> 
+>>>>>>> origin/main
 
 
 <!-- 

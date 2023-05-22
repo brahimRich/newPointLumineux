@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
+<<<<<<< HEAD
 import { SessionStorageService } from 'ngx-webstorage';
+=======
+>>>>>>> origin/main
 
 @Component({
   selector: 'app-top-bar',
@@ -8,6 +11,7 @@ import { SessionStorageService } from 'ngx-webstorage';
 })
 export class TopBarComponent {
 
+<<<<<<< HEAD
   constructor(private sessionStorage: SessionStorageService){}
 
   storedRoles :any[]=[];
@@ -47,4 +51,6 @@ export class TopBarComponent {
   openPopupp() {
     this.showPopup = true;
   }
+=======
+>>>>>>> origin/main
 }

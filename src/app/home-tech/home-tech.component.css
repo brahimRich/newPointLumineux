@@ -66,6 +66,7 @@ body{
   width: 30%;
   float: right;
   margin-right: 80px;
+<<<<<<< HEAD
 }
 
 
@@ -242,4 +243,6 @@ transition: 1s;
   width: 100px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
   margin-top: 30px;
+=======
+>>>>>>> origin/main
 }

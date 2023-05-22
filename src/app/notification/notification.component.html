@@ -12,7 +12,11 @@
   <p>Type d'intervention :  <span>{{ message.data['TypeIn'] }}</span></p>
   <p>Intitule d'intervention : <span>{{ message.data['IntiIn'] }}</span></p>
   <p>Date d'intervention: : <span>{{ message.data['DateIn'] }}</span></p>
+<<<<<<< HEAD
   <button type="button" (click)="VoirPlus('2023-05-19T14:49:57.028')">Voir plus</button>
+=======
+  <button type="button" (click)="VoirPlus(parseDate(message.data['DateNo']))">Voir plus</button>
+>>>>>>> origin/main
 </li>
 
 

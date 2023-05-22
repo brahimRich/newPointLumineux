@@ -5,7 +5,10 @@ import { CartService } from '../cart.service';
 import { SessionStorageService } from 'ngx-webstorage';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
+<<<<<<< HEAD
 import { Observable } from 'rxjs';
+=======
+>>>>>>> origin/main
 
 
 
@@ -20,17 +23,28 @@ export class LoginTechComponent implements OnInit {
   email: string='';
   password: string='';
   errorMessageN='k';
+<<<<<<< HEAD
   errorMessageLo='p';
   errorLogin='o';
 
   permetion : any[]=[];
+=======
+  errorMessageLo='p'; 
+  errorLogin='o';
+
+
+>>>>>>> origin/main
   userTech: userTech = {
     id: 0,
     nom: '',
     prenom: '',
     email: '',
+<<<<<<< HEAD
     password: '',
     dtype :''
+=======
+    password: ''
+>>>>>>> origin/main
   };
 
   ngOnInit() {
@@ -55,6 +69,7 @@ export class LoginTechComponent implements OnInit {
             }else{
               this.errorLogin='';
               this.sessionStorage.store('userTech', this.userTech);
+<<<<<<< HEAD
               this.getPermetion(this.userTech.id).subscribe(
                 (per: any[]) => {
                   this.permetion = per;
@@ -108,6 +123,21 @@ export class LoginTechComponent implements OnInit {
             } 
           }
         }
+=======
+              this.loadData();
+              const currentUrl = this.router.url;
+              if(currentUrl=='/' || currentUrl=='' || currentUrl=='/LoginTech'){
+                this.router.navigateByUrl('/Homet', { skipLocationChange: false }).then(() => {
+                  window.location.reload(); 
+                });
+              }else{
+              this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+                this.router.navigateByUrl(currentUrl);
+              });
+              window.location.reload();
+            }
+            } 
+>>>>>>> origin/main
           }, (error) => {
             console.error("Erroroooooooooooooooooooooooooooooooooooooooooooooooooooooo: ", error);
           });
@@ -129,11 +159,14 @@ export class LoginTechComponent implements OnInit {
     if(this.password=='') this.errorMessageLo='Le champ Password est obligatoire';
     else this.errorMessageLo='';
   }
+<<<<<<< HEAD
 
   getPermetion(id: number): Observable<any[]> {
     return this.UserTechService.GetPermetion(id);
   }
   
+=======
+>>>>>>> origin/main
  
 }
    

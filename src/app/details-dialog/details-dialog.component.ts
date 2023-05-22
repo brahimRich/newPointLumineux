@@ -12,6 +12,10 @@ export class DetailsDialogComponent {
   constructor(@Inject(MAT_DIALOG_DATA) public data: any) { }
   techs: any[]= this.data.intervention.techniciennes;
 
+<<<<<<< HEAD
+=======
+  
+>>>>>>> origin/main
   showPopup = false;
 
 openPopup() {
@@ -25,5 +29,8 @@ closePopup() {
 openPopupp() {
   this.showPopup = true;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/main
 }

@@ -19,16 +19,24 @@ export interface userTech {
     email : String;
     password : String;
     id: number;
+<<<<<<< HEAD
     dtype : String
+=======
+>>>>>>> origin/main
   }
   
   @Injectable({
     providedIn: 'root'
   })
   export class UserTechService {
+<<<<<<< HEAD
     private getURL = 'http://localhost:4200/api/technicienne/getAllUser';
     private AddURL= 'http://localhost:4200/api/technicienne/add';
     private getPermetionUserUrl= 'http://localhost:4200/api/technicienne/getRolesUser';
+=======
+    private getURL = 'http://localhost:4200/api/technicienne/getAll';
+    private AddURL= 'http://localhost:4200/api/technicienne/add';
+>>>>>>> origin/main
 
     constructor(private http: HttpClient) {}
 
@@ -58,11 +66,14 @@ export interface userTech {
         );
       }
 
+<<<<<<< HEAD
       GetPermetion(id:number) : Observable<any>{
         const url = `${this.getPermetionUserUrl}/${id}`;
         return this.http.get<any>(url);
       }
 
+=======
+>>>>>>> origin/main
       getAllTechn(): Observable<any> {
         return this.http.get<any>(this.getURL);
       }

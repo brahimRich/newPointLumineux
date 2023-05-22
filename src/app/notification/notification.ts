@@ -16,6 +16,7 @@ export interface InterNotifier {
   intitule_Intervention : String
 }
 
+<<<<<<< HEAD
 export interface InterNotifierReponcee {
   admin : TechnNotifier,
   dure_Intervention : String,
@@ -31,6 +32,8 @@ export interface InterNotifierReponce {
 
 
 
+=======
+>>>>>>> origin/main
 export interface Notification {
     topic: string;
     title: string;
@@ -40,6 +43,7 @@ export interface Notification {
     technicienne:TechnNotifier;
     intervention:Intervention;
   }
+<<<<<<< HEAD
 
   export interface NotificationReponcee {
     topic: string;
@@ -49,6 +53,8 @@ export interface Notification {
     token: string;
     notification : InterNotifierReponce;
   }
+=======
+>>>>>>> origin/main
   
 
 @Injectable({
@@ -56,26 +62,44 @@ export interface Notification {
 })
 export class NotificationService {
   private getUrl = 'http://localhost:4200/api/notification/getAll'; 
+<<<<<<< HEAD
   private getByDate = 'http://localhost:4200/api/notification/getInterBuDate'; 
   private getUrlNR="http://localhost:4200/api/notification/getAllR"
+=======
+
+>>>>>>> origin/main
   constructor(private http: HttpClient) { }
 
   getAllNotifications(): Observable<Notification[]> {
     return this.http.get<Notification[]>(this.getUrl);
   }
 
+<<<<<<< HEAD
   getAllNotificationsReponce(): Observable<any[]> {
     return this.http.get<any[]>(this.getUrlNR);
   }
 
+=======
+>>>>>>> origin/main
   parseDate(dateString: string): Date {
     return new Date(dateString);
   }
 
+<<<<<<< HEAD
   getNotificationByDate(date: String): Observable<any> {
     const url = `${this.getByDate}/${date}`;
     console.log("3laaaaaah "+url)
     return this.http.get<Notification>(url);
+=======
+  getNotificationByDate(date: Date): Observable<any> {
+    return this.getAllNotifications().pipe(
+      map((notifications) =>
+        notifications.filter(
+          (notification: Notification) => 1===1
+        )
+      )
+    );
+>>>>>>> origin/main
   }
   
 

@@ -26,11 +26,17 @@ import { LoginTechComponent } from './login-tech/login-tech.component';
 import { InterventionFormComponent } from './intervention-form/intervention-form.component';
 import { environment } from "../environments/environment";
 import { initializeApp } from "firebase/app";
+<<<<<<< HEAD
 
 initializeApp(environment.firebase);
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { PermissionGuard } from './permission.guard';
+=======
+initializeApp(environment.firebase);
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+>>>>>>> origin/main
 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -47,6 +53,7 @@ import { DetailsDialogComponent } from './details-dialog/details-dialog.componen
 import { AsyncPipe } from '../../node_modules/@angular/common';
 import { DatePipe } from '@angular/common';
 import { MatStepperModule } from '@angular/material/stepper';
+<<<<<<< HEAD
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PowerBIEmbedModule } from 'powerbi-client-angular';
 import { HomeSuperAdminComponent } from './home-super-admin/home-super-admin.component';
@@ -59,11 +66,18 @@ import { ListeTechComponent } from './liste-tech/liste-tech.component';
 
 @NgModule({
   
+=======
+
+@NgModule({
+>>>>>>> origin/main
   imports: [
     MatStepperModule,
     MatFormFieldModule,
     MatInputModule,
+<<<<<<< HEAD
     PowerBIEmbedModule,
+=======
+>>>>>>> origin/main
     BrowserModule,
     MatDialogModule,
     AppRoutingModule,
@@ -88,6 +102,7 @@ import { ListeTechComponent } from './liste-tech/liste-tech.component';
       { path: 'Homet', component: HomeTechComponent },
       { path: '', component: HomeComponent },
       { path: '', component: ProductListComponent },
+<<<<<<< HEAD
       { path: 'ListInterT', component: ListInterTTechComponent ,canActivate: [PermissionGuard], data: { requiredPermissions: ['liste des Interventions'] } },
       { path: 'AddArmoire', component: AddArmoireComponent , canActivate: [PermissionGuard], data: { requiredPermissions: ['Ajout un Armoire'] } }, 
       { path: 'AddDepart', component: AddDepartComponent ,canActivate: [PermissionGuard], data: { requiredPermissions: ['Ajout un depart'] } },  
@@ -98,16 +113,31 @@ import { ListeTechComponent } from './liste-tech/liste-tech.component';
       { path: 'Intervention', component: AddInterventionComponent , canActivate: [PermissionGuard], data: { requiredPermissions: ['Ajout un Intervention'] } }, 
       { path: 'Addtechnicienne', component: AddTechniciennesComponent }, 
       { path: 'ListeTech', component: ListeTechComponent }, 
+=======
+      { path: 'ListInterT', component: ListInterTTechComponent },
+
+      { path: 'AddArmoire', component: AddArmoireComponent }, 
+      { path: 'AddDepart', component: AddDepartComponent },  
+      { path: 'ListeArmoire', component: ListeArmoireComponent }, 
+      { path: 'armoire-update/:armoire', component: AddArmoireComponent },
+      { path: 'depart-update/:depart', component: AddDepartComponent },
+      { path: 'Intervention', component: AddInterventionComponent }, 
+      { path: 'Addtechnicienne', component: AddTechniciennesComponent }, 
+>>>>>>> origin/main
       { path: 'technicienne-update/:technicienne', component: AddTechniciennesComponent },
       {path : 'technicien/:id',component : DetailTechComponent},
       {path : 'LoginTech',component : LoginTechComponent},
       {path : 'notification',component : NotificationComponent},
       {path : 'form' , component:InterventionFormComponent},
+<<<<<<< HEAD
       {path : 'Db' , component:DashboardComponent},
       {path : 'Roles' , component:HomeSuperAdminComponent},
       {path : 'error' , component:Eror404Component}
 
 
+=======
+      {path : 'DetailsDialogComponent' , component : DetailsDialogComponent},
+>>>>>>> origin/main
     ]),
     BrowserAnimationsModule
   ],
@@ -132,6 +162,7 @@ import { ListeTechComponent } from './liste-tech/liste-tech.component';
     TopBarTechComponent,
     ListInterTTechComponent,
     DetailsDialogComponent,
+<<<<<<< HEAD
     DashboardComponent,
     HomeSuperAdminComponent,
     TopBarSuperAdminComponent,
@@ -142,6 +173,11 @@ import { ListeTechComponent } from './liste-tech/liste-tech.component';
     ListeTechComponent,
   ],
    providers: [AsyncPipe,DatePipe,PermissionGuard],
+=======
+    InterventionFormComponent,
+  ],
+   providers: [AsyncPipe,DatePipe],
+>>>>>>> origin/main
 
   bootstrap: [
     AppComponent

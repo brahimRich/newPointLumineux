@@ -13,6 +13,7 @@ const httpOptions = {
   })
 };
 
+<<<<<<< HEAD
 export interface Ajoteur {
   id : number ;
 }
@@ -21,6 +22,11 @@ export interface Depart {
     id : number ;
     observation : string;
     ajouteurUser : Ajoteur;
+=======
+export interface Depart {
+    id : number ;
+    observation : string;
+>>>>>>> origin/main
     armoire : Armoire;
     caracteristiqueList : caracteristiqueList[];
 }

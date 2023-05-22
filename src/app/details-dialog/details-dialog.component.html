@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+<app-top-bar-tech></app-top-bar-tech>
+>>>>>>> origin/main
 
 
 <!-- <div class="container">
@@ -27,8 +31,13 @@
         <div class="infos">
                 <h3>Message  &nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;  <span>{{ data.message }}</span></h3>
                 <h3>Type d'intervention  &nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;  <span>{{ data.intervention.type }}</span></h3>
+<<<<<<< HEAD
                 <h3>Intutulle de Intervention &nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp; <span>{{ data.intervention.intitule_Intervention}}</span></h3>
                 <h3>date de l'intervention &nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp; <span>{{ data.intervention.date_intervention }}</span></h3><br>
+=======
+                <h3>Intutulle de Intervention &nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp; <span>{{ data.intervention.type }}</span></h3>
+                <h3>date de l'intervention &nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp; <span>{{ data.intervention.type }}</span></h3><br>
+>>>>>>> origin/main
         </div>
 
         <div class="tech">
@@ -48,8 +57,36 @@
         </div>
     
         
+<<<<<<< HEAD
         
+=======
+        <button class="valider" (click)="openPopupp()" >Terminer</button>
+>>>>>>> origin/main
     
 </div>
 
 
+<<<<<<< HEAD
+=======
+
+<form class="not" *ngIf="showPopup" >
+
+       <p>
+        Dure d'intervention  &nbsp;&nbsp;:&nbsp;&nbsp;
+        <input type="number"  name="dure_Intervention" >
+       </p>
+        <br>
+        
+        <p>Etat d'intervention &nbsp;&nbsp;:&nbsp;&nbsp;
+           <input type="text" name="etat_intervention" >
+        </p>
+      
+        <button (click)="closePopup()" id="cl">
+                fermer
+        </button>
+        <button (click)="closePopup()" id="val" >
+                Valider
+        </button>
+        
+</form> 
+>>>>>>> origin/main

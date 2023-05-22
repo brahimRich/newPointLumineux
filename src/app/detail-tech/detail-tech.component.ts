@@ -2,7 +2,10 @@
 import { techniciennes,techniciennesService} from '../techniciennes';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+<<<<<<< HEAD
 import { GetPermetionService } from '../get-permetion.service';
+=======
+>>>>>>> origin/main
 
 import { FormGroup, FormControl, Validators,FormBuilder } from '@angular/forms';
 import { SessionStorageService } from 'ngx-webstorage';
@@ -18,14 +21,21 @@ import { CartService } from '../cart.service';
 })
 export class DetailTechComponent implements OnInit {
 
+<<<<<<< HEAD
   constructor(private GetPermetionService: GetPermetionService,private techniciennesService:techniciennesService,private ActivatedRoute: ActivatedRoute){}
+=======
+  constructor(private techniciennesService:techniciennesService,private ActivatedRoute: ActivatedRoute){}
+>>>>>>> origin/main
 
   id:any;
   itemTech : any;
   
 
   ngOnInit(): void {
+<<<<<<< HEAD
     this.GetPermetionService.getPerm();
+=======
+>>>>>>> origin/main
     this.ActivatedRoute.paramMap.subscribe(params => {
       const idParam = params.get('id');
       if (idParam !== null) {

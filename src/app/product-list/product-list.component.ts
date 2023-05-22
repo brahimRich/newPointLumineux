@@ -3,7 +3,10 @@ import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { PointLumineux ,ProductService} from '../products';
 import { Router } from '@angular/router';
+<<<<<<< HEAD
 import { GetPermetionService } from '../get-permetion.service';
+=======
+>>>>>>> origin/main
 
 @Component({
   selector: 'app-product-list',
@@ -15,10 +18,16 @@ export class ProductListComponent implements OnInit{
   products: any[] = [];
   searchText = '';
 
+<<<<<<< HEAD
   constructor(private GetPermetionService: GetPermetionService,private productService: ProductService,private router: Router,private cdRef: ChangeDetectorRef) { }
 
   ngOnInit(): void {
     this.GetPermetionService.getPerm();
+=======
+  constructor(private productService: ProductService,private router: Router,private cdRef: ChangeDetectorRef) { }
+
+  ngOnInit(): void {
+>>>>>>> origin/main
     this.productService.getAllPointLumineux().subscribe(
       data => {
         this.products = data;

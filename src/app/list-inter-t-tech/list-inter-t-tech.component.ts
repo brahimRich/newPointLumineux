@@ -1,7 +1,10 @@
 import { Component , OnInit, ChangeDetectorRef} from '@angular/core';
 import { InterventionService,Intervention } from '../intervention';
 import { SessionStorageService } from 'ngx-webstorage';
+<<<<<<< HEAD
 import { GetPermetionService } from '../get-permetion.service';
+=======
+>>>>>>> origin/main
 
 @Component({
   selector: 'app-list-inter-t-tech',
@@ -11,27 +14,42 @@ import { GetPermetionService } from '../get-permetion.service';
 export class ListInterTTechComponent implements OnInit{
 
   ListeIntervention : any[]=[];
+<<<<<<< HEAD
   ListeAllIntervention : any[]=[];
 
+=======
+>>>>>>> origin/main
   Tech :any ;
   searchText ='';
   Intervention: Intervention | undefined;
 
+<<<<<<< HEAD
   constructor(private GetPermetionService: GetPermetionService,private InterventionService: InterventionService,private sessionStorage: SessionStorageService,private cdRef: ChangeDetectorRef) { }
 
 
   ngOnInit(): void {
     this.GetPermetionService.getPerm();
+=======
+  constructor(private InterventionService: InterventionService,private sessionStorage: SessionStorageService,private cdRef: ChangeDetectorRef) { }
+
+
+  ngOnInit(): void {
+>>>>>>> origin/main
     this.Tech   = this.sessionStorage.retrieve('userTech');
     console.log()
     this.InterventionService.getAllInterventions(this.Tech.id).subscribe(
       data => {
         this.ListeIntervention = data;
+<<<<<<< HEAD
+=======
+        console.log(data[0].date_intervention)
+>>>>>>> origin/main
       }, 
       error => {
         console.log(error);
       }
     );
+<<<<<<< HEAD
 
     this.InterventionService.getAllIntervention().subscribe(
       data => {
@@ -42,6 +60,8 @@ export class ListInterTTechComponent implements OnInit{
       }
     );
     
+=======
+>>>>>>> origin/main
     }
     ngAfterViewInit() {
       this.cdRef.detectChanges();

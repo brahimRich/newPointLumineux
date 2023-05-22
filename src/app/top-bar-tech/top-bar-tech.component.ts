@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 import { CdkTextareaAutosize } from '@angular/cdk/text-field';
+=======
+>>>>>>> origin/main
 import { Component } from '@angular/core';
 
 @Component({
@@ -8,6 +11,7 @@ import { Component } from '@angular/core';
 })
 export class TopBarTechComponent {
 
+<<<<<<< HEAD
   storedRoles :any[]=[];
   ngOnInit(): void {
     const storedRolesJSON = localStorage.getItem('userRoles');
@@ -24,6 +28,12 @@ export class TopBarTechComponent {
     }
     return false;
   }
+=======
+
+
+
+
+>>>>>>> origin/main
   
 showPopup = false;
 

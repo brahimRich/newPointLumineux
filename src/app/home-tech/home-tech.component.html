@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <app-top-bar></app-top-bar>
+=======
+<app-top-bar-tech></app-top-bar-tech>
+>>>>>>> origin/main
 
 
 <!-- <h2>Les Intervention</h2>
@@ -31,9 +35,13 @@
   <div class="intervention" *ngFor="let inter of ListeIntervention">
     <h2 class="id">
         <span style="color: black;">ID : </span> {{inter.id_Intervention}} <br>
+<<<<<<< HEAD
         <span style="color: black; margin-left: 180px;">L'intutuller :  </span> {{ inter.intitule_Intervention }} <span style="color: black; margin-left: 50px;">type d'intervention : </span>{{ inter.type }}<br>
         <span style="color: black; margin-left: 180px;" >Date d'intervention : </span>{{inter.date_intervention}}
 
+=======
+        <span style="color: black; margin-left: 180px;">L'intutuller :  </span> {{ inter.intitule_Intervention }} <span style="color: black; margin-left: 50px;">type d'intervention : </span>{{ inter.type }}
+>>>>>>> origin/main
     </h2>
         <div class="tech">
           <h4 style="font-weight: 500;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
@@ -47,6 +55,7 @@
           <h4 style="font-weight: 500; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
             Numéro de point limineux :</h4>
           <div *ngFor="let pt of inter.pointLumineuxList" style="color: rgb(124, 124, 124); font-weight: 500;">
+<<<<<<< HEAD
             {{pt.type}}
           </div>
         </div>
@@ -80,3 +89,10 @@
    </button>
    
 </form> 
+=======
+            {{pt.numero}}
+          </div>
+        </div>
+  </div>
+</div>
+>>>>>>> origin/main
