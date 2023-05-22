@@ -1,0 +1,60 @@
+@import "~@fortawesome/fontawesome-free/css/all.css";
+body{
+    background-color: rgb(177, 177, 177);
+  }
+
+.not{
+    color :rgb(85, 85, 85);
+    text-decoration: none;
+    border: 1.5px solid rgb(237, 237, 237);
+    box-shadow: 0 0 21px rgb(237, 237, 237);
+    border: 8px;
+    padding: 15px;
+    background-color: #d6d6d6;
+    border-radius: 7px;
+    width: fit-content;
+    height: fit-content;
+    margin : 15px auto;
+    justify-content: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 600;
+    overflow : auto;
+    margin-left: -30px;
+}
+
+.not span{
+    color: black;
+}
+
+.not button{
+    background-color: transparent;
+    border:none;
+    color: rgb(125, 176, 199);
+    text-align: center;
+    margin-left: 40%;
+}
+
+.not button:hover{
+    transition: .9s;
+    color: rgb(41, 63, 73);
+}
+
+
+.prece{
+    color :rgb(85, 85, 85);
+    text-decoration: none;
+    border: 1.5px solid rgb(237, 237, 237);
+    box-shadow: 0 0 21px rgb(237, 237, 237);
+    border: 8px;
+    padding: 15px;
+    background-color: #ececec;
+    border-radius: 7px;
+    width: fit-content;
+    height: fit-content;
+    margin : 15px auto;
+    justify-content: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 600;
+    overflow : auto;
+    margin-left: -30px;
+}

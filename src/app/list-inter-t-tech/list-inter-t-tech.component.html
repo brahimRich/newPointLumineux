@@ -1,0 +1,63 @@
+<app-top-bar></app-top-bar>
+
+
+<!-- <h2>Les Intervention</h2>
+
+<input type="text" [(ngModel)]="searchText" placeholder="Rechercher une intervention" (keyup)="onSearchTermChanged()">
+<br><br>
+<div *ngFor="let inter of ListeIntervention">
+  
+    <p> 
+      L'intutuller : {{ inter.intitule_Intervention }}
+    </p>
+    <p> 
+        <div *ngFor="let tech of inter.techniciennes">
+          Membre : {{ tech.nom }}
+            </div>
+
+</div> 
+<br><br>
+************ Notification **********************<br>
+
+<app-notification></app-notification> -->
+
+
+
+<h2 style="text-align: center; margin-top: 70px;">Les interventions : </h2>
+
+
+
+<div class="container">
+  <div class="intervention" *ngFor="let inter of ListeAllIntervention">
+    <h2 class="id">
+        <span style="color: black;">ID : </span> {{inter.id_Intervention}} <br>
+        <span style="color: black; margin-left: 180px;">L'intutullerr :  </span> {{ inter.intitule_Intervention }} <span style="color: black; margin-left: 50px;">type d'intervention : </span>{{ inter.type }}<br>
+        <span style="color: black;" >Date d'intervention : </span>{{inter.date_intervention}}
+    </h2>
+        <div class="tech">
+          <h4 style="font-weight: 500;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+            Membres de cette intervention :</h4>
+          <div *ngFor="let tech of inter.techniciennes"  style="color: rgb(124, 124, 124); font-weight: 500;">
+             Nom : {{ tech.nom }} , Prenom : {{tech.prenom}} 
+          </div>
+        </div>
+
+        <div class="pointl">
+          <h4 style="font-weight: 500; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+            Numéro de point limineux :</h4>
+          <div *ngFor="let pt of inter.pointLumineuxList" style="color: rgb(124, 124, 124); font-weight: 500;">
+            {{pt.reference}}
+          </div>
+        </div>
+
+        <div *ngIf="inter.completeur" class="tech">
+            <h4 style="font-weight: 500; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+              L'intervention est completrer par :</h4>
+              Nom : {{inter.completeur.nom}} <br>
+              Prenom : {{inter.completeur.prenom}}<br>
+              Email : {{inter.completeur.email}}<br>
+              CIN : {{inter.completeur.cin}}
+        </div>
+
+  </div>
+</div>

@@ -1,0 +1,82 @@
+<app-top-bar></app-top-bar>
+
+
+<!-- <h2>Les Intervention</h2>
+
+<input type="text" [(ngModel)]="searchText" placeholder="Rechercher une intervention" (keyup)="onSearchTermChanged()">
+<br><br>
+<div *ngFor="let inter of ListeIntervention">
+  
+    <p> 
+      L'intutuller : {{ inter.intitule_Intervention }}
+    </p>
+    <p> 
+        <div *ngFor="let tech of inter.techniciennes">
+          Membre : {{ tech.nom }}
+            </div>
+
+</div> 
+<br><br>
+************ Notification **********************<br>
+
+<app-notification></app-notification> -->
+
+
+
+<h2 style="text-align: center; margin-top: 70px;">Liste des interventions</h2>
+
+
+
+<div class="container">
+  <div class="intervention" *ngFor="let inter of ListeIntervention">
+    <h2 class="id">
+        <span style="color: black;">ID : </span> {{inter.id_Intervention}} <br>
+        <span style="color: black; margin-left: 180px;">L'intutuller :  </span> {{ inter.intitule_Intervention }} <span style="color: black; margin-left: 50px;">type d'intervention : </span>{{ inter.type }}<br>
+        <span style="color: black; margin-left: 180px;" >Date d'intervention : </span>{{inter.date_intervention}}
+
+    </h2>
+        <div class="tech">
+          <h4 style="font-weight: 500;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+            Membres de cette intervention :</h4>
+          <div *ngFor="let tech of inter.techniciennes"  style="color: rgb(124, 124, 124); font-weight: 500;">
+             {{ tech.nom }}
+          </div>
+        </div>
+
+        <div class="pointl">
+          <h4 style="font-weight: 500; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+            Numéro de point limineux :</h4>
+          <div *ngFor="let pt of inter.pointLumineuxList" style="color: rgb(124, 124, 124); font-weight: 500;">
+            {{pt.type}}
+          </div>
+        </div>
+        <button class="valider" (click)="openPopupp(inter.id_Intervention,inter.dure_Intervention,inter.etat_intervention)" >Terminer</button>
+  </div>
+</div>
+
+
+<form class="not" *ngIf="showPopup" >
+
+  <p>
+   Dure d'intervention  &nbsp;&nbsp;:&nbsp;&nbsp;
+   <input type="text"  name="dure_Intervention" >
+  </p>
+   <br>
+   
+   <p>Etat d'intervention &nbsp;&nbsp;:&nbsp;&nbsp;
+      <input type="text" name="etat_intervention" >
+   </p>
+
+   <p>Message (suplementaire) &nbsp;&nbsp;:&nbsp;&nbsp;
+    <input type="text" name="messageSup" [(ngModel)]="messageSup" >
+ </p>
+
+   
+   <button (click)="closePopup()" id="cl">
+           fermer
+   </button>
+   <button (click)="validerclosePopup()" id="val" >
+           Valider
+   </button>
+   
+</form> 

@@ -1,0 +1,80 @@
+table {
+    border-collapse: collapse;
+    width: 60%;
+    margin-left: 8%;
+    height: 50%;
+    box-shadow: 5px 5px 19px rgb(212, 212, 212);
+    border-radius: 10px;
+  }
+
+  thead{
+    color: rgb(83, 83, 83);
+  }
+
+  th, td {
+    border: 1px solid rgb(219, 219, 219);
+    padding: 8px;
+    text-align: center;
+  }
+
+  thead th {
+    background-color: #e0e0e0;
+    font-weight: bold;
+  }
+
+  tbody tr:nth-child(even) {
+    background-color: transparent;
+  }
+
+  tr td input{
+    border: none;
+    outline: none;
+  }
+
+  tfoot {
+    font-weight: bold;
+  }
+
+  tfoot td:first-child {
+    text-align: right;
+  }
+
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+    display: block; /* Make the button a block element */
+    margin-left: 670px ;/* Center the button horizontally */
+    margin-top: 10px;
+    background: #6b6e7b;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  
+  button:hover {
+    letter-spacing: 2px;
+      box-shadow: none;
+      transition: .5s;
+  }
+
+  .parent-container {
+    text-align: center;
+  }
+  
+  button {
+    display: inline-block;
+  }
+  
+
+  .dep{
+    background-color: #d3d3d3;
+  }

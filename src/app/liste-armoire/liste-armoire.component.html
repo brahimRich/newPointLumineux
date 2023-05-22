@@ -1,0 +1,85 @@
+
+
+<app-top-bar></app-top-bar>
+
+
+
+<br><br><br>
+<div class="input-group">
+  <input type="text" class="form-control" [(ngModel)]="searchText" placeholder="Type to search" (keyup)="onSearchTermChanged()">
+</div>
+
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="5">Liste des armoires  </th>
+      
+      <th>
+        <a [routerLink]="['/AddArmoire']" style="text-decoration: none;color: white;margin-top: 37px;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16" style="margin-top: 10px;margin-right:-100px">
+            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
+          </svg>
+        </a>
+        
+      </th>
+    </tr>
+    <tr style="background-color: rgb(225, 225, 225);">
+      <th>Marque</th>
+      <th>Calibre</th>
+      <th>Nombre</th>
+      <th colspan="3">Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of Armoirees">
+      <td>{{ product.armoireListe[0].marque }}</td>
+      <td>{{ product.armoireListe[0].calibre }}</td>
+      <td>{{ product.armoireListe[0].nombre }}</td>
+      <td>{{ product.armoireListe[0].typeArmoire.nom }}</td>
+      <td colspan="2">
+        <i class="material-icons button edit" (click)="update(product)"  >edit</i>
+        <i class="material-icons button delete" (click)="delete(product)">delete</i>
+
+      </td>
+    </tr>
+  </tbody>
+</table> 
+
+
+
+<script src="js/jquery.min.js"></script>
+<script src="js/popper.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/main.js"></script>
+
+
+
+
+
+
+
+<!-- <h2>Liste des armoires</h2>
+
+<input type="text" [(ngModel)]="searchText" placeholder="Rechercher une armoire" (keyup)="onSearchTermChanged()">
+<div *ngFor="let product of Armoirees">
+  
+  <div *ngFor="let armoire of product.armoireListe">
+    <p> 
+      Marque : {{ armoire.marque }}
+    </p>
+    <p> 
+      Calibre : {{ armoire.calibre }}
+    </p>
+    <p> 
+      Nombre : {{ armoire.nombre }}
+    </p>
+    <p> 
+      Type d'armoire : {{ armoire.typeArmoire.nom }}
+    </p>
+  </div>
+  
+  <button type="button" (click)="share()" >Share</button>
+  <button (click)="delete(product)" >Supprimer</button>
+  <button (click)="update(product)" >Modifier</button>
+</div>  -->

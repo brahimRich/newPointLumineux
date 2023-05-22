@@ -1,0 +1,23 @@
+
+<h1>Connexion</h1>
+<form>
+    <div *ngIf="errorLogin" [ngClass]="{'error-message': true}">
+        <div>{{errorLogin}}</div>
+      </div>
+    <div>
+      <label for="email" >Nom d'utilisateur:</label>
+      <input type="text" id="email" name="email" [(ngModel)]="email" (keyup)="updateErrorMessagee()">
+      <div *ngIf="errorMessageN" [ngClass]="{'error-message': true}">
+        <div>{{errorMessageN}}</div>
+      </div>
+    </div>
+    <div>
+      <label for="password" >Mot de passe:</label>
+      <input type="password" id="password" name="password" [(ngModel)]="password" (keyup)="updateErrorMessagee()">
+      <div *ngIf="errorMessageLo" [ngClass]="{'error-message': true}">
+        <div>{{errorMessageLo}}</div>
+      </div>
+    </div>  
+    <button (click)="onSubmit()" >Soumettre</button>
+</form>
+  

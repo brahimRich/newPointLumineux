@@ -1,0 +1,39 @@
+<h3 style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;text-align: center;">Notifications récentes</h3>
+<span *ngIf="recentNotificationCount > 0">({{ recentNotificationCount }})</span>
+
+<ul style="list-style-type: none;">
+
+<li class="not" *ngFor="let message of InterventionNotifier">
+  <h3>Le : <span style="color:red;"><strong>{{ message.data['DateNo'] }}</strong></span></h3>
+  <h3  style="text-align: center;">Titre : <strong>{{ message.notification.title }}</strong></h3>
+  <p>message :  <span>{{ message.notification.body }}</span></p>
+  <p>Date de notofication : {{ message.notification.createdAt }}</p>
+
+</li>
+
+</ul> 
+
+
+<hr>
+<div *ngIf="!message" style="text-align: center;">
+aucun messgae recent 
+</div>
+
+<hr>
+<h3 style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;text-align: center;">Old notification</h3>
+
+<div style="color :blue;">
+<ol >
+<li *ngFor="let notification of notifications" class="prece">
+<h3><i class="fas fa-bell"></i> Titre : {{ notification.title }}</h3>
+<p>messgae : {{ notification.message }}<p>
+<p>L'intervention Regler : {{ notification.notification.intervention.id_Intervention }} <p>
+<p>Date de notofication : {{ notification.createdAt }}</p>
+</li>
+</ol>
+</div>
+
+
+
+
+

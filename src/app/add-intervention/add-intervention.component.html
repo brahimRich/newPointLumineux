@@ -1,0 +1,143 @@
+
+
+
+
+<app-top-bar></app-top-bar>
+
+<br><br><br><br><br><br>
+<form>
+		
+<div class="container">
+	<form>
+		
+    <div class="con1">
+      <div class="field" tabindex="1"><br>
+        <label for="type" >Type d'intervention</label>
+        <input type="text" id="email" name="email" [(ngModel)]="Intervention.type" (keyup)="updateErrorMessagee()">
+      </div><br><br>
+      <div class="field" tabindex="2">
+        <label for="intitule_Intervention" >Intitule d'intervention:</label>
+        <input type="text" id="password" name="password" [(ngModel)]="Intervention.intitule_Intervention" (keyup)="updateErrorMessagee()">
+      </div><br><br>
+      <!-- <div class="field" tabindex="3">
+        <label for="dure_Intervention" >Dure d'intervention:</label>
+        <input type="number" id="dure_Intervention" name="dure_Intervention" [(ngModel)]="Intervention.dure_Intervention" (keyup)="updateErrorMessagee()">
+      </div><br>
+  
+      <div class="field" tabindex="3">
+        <label for="etat_intervention" >Etat d'intervention:</label>
+        <input type="text" id="etat_intervention" name="etat_intervention" [(ngModel)]="Intervention.etat_intervention" (keyup)="updateErrorMessagee()">
+      </div><br> -->
+  
+      <div class="field" tabindex="3">
+        <label for="date_intervention" >Date d'intervention:</label>
+        <input type="date" id="date_intervention" name="date_intervention" [(ngModel)]="Intervention.date_intervention" (keyup)="updateErrorMessagee()">  
+      </div><br><br>
+      
+    </div>
+    
+		<div class="con2">
+      <div class="field" tabindex="1">
+        <label for="techniciennes">Techniciennes :</label><br>
+        <select name="techniciennes" id="techniciennes" [(ngModel)]="selectedTechniciennes" multiple (change)="ajouterOption()" id="select">
+          <option *ngFor="let technicienne of techniciennes" [ngValue]="technicienne">
+            {{ technicienne.nom }} {{ technicienne.prenom }}
+          </option>
+        </select>
+      </div><br>
+
+
+
+      <div class="field" tabindex="3">
+        <label for="pointsLumineux">Points Lumineux :</label>
+        <select name="pointsLumineux" id="pointsLumineux" [(ngModel)]="selectedPoints" multiple (change)="ajouterOptionPoint()"  id="select">
+          <option *ngFor="let PointxLimineu of PointxLimineuxs" [value]="PointxLimineu">{{ PointxLimineu.type }}</option>
+        </select>
+      </div><br>
+
+    </div>
+
+   
+
+
+    <button id="sb" value="Ajouter" *ngIf="!Mofifer" type="submit" [disabled]="boutonDesactive" (click)="submitIntervention()">Ajouter</button>
+
+    <div class="field" tabindex="1"><br>
+      <label for="type" >Message (suplementaire)</label>
+      <input type="text" id="messageSup" name="messageSup" [(ngModel)]="messageSup" (keyup)="updateErrorMessagee()">
+    </div>
+    
+	</form>
+
+
+</div>
+
+
+<div class="contt"*ngIf="selectedTechniciennes.length">
+  <div class="field" tabindex="2" id="blur">
+    <div class="techChoisi" *ngIf="selectedTechniciennes.length" id="ress">
+      <label for="selectedPoints"> <h1>Les techniciennes sélectionés :</h1></label>
+      <div *ngFor="let technicien of technicienChoisi" id="resul" (click)="detail(technicien.id)" (click)="openPopupp()">
+        <p> <strong>Nom :</strong> {{ technicien.nom }} &nbsp;&nbsp;<strong>Prenom :</strong> {{ technicien.prenom }} &nbsp;&nbsp;<strong>CIN : </strong> {{ technicien.cin }}  &nbsp;&nbsp;&nbsp;  
+        </p>
+       
+      </div>
+    </div>
+  </div>
+  
+
+    <div id="popup1"  *ngIf="showPopup">
+      <div class="popup" >
+        <h2>Quelques détails sur cet technicien :</h2>
+        <!-- <a class="close" href="#">&times; </a> -->
+        <div class="close" (click)="closePopup()">&times;</div>
+        <div  *ngIf="tech">
+          <div class="infos">
+            <h3><p>Nom : <strong>{{tech.nom}}</strong> </p></h3>
+            <h3><p>Prenom : <strong>{{tech.prenom}}</strong></p></h3>
+            <h3><p>CIN : <strong>{{tech.cin}}</strong></p></h3>
+            <h3><p>Email : <strong>{{tech.email}}</strong></p></h3>
+          </div>
+
+          <button class="retire" (click)="deleteTech(tech.id)" (click)="closePopup()" >Retirer</button>
+        </div>
+      </div>
+    </div>
+    
+    
+  
+  <div class="field" tabindex="4">
+    <div class="techChoisi" *ngIf="selectedPoints.length" id="resss">
+      <label for="selectedPoints"><h1>Les Points Lumineux sélectionnées :</h1></label>
+      <div *ngFor="let pointLumineux of pointlimunieuxchoisi" id="resul" >
+        <p><strong>Type :</strong> {{ pointLumineux.type }}  &nbsp;&nbsp;<strong>Longitude :</strong> {{ pointLumineux.longitude }} &nbsp;&nbsp;<strong>Latitude : </strong> {{ pointLumineux.latitude }}  
+        </p>
+      </div>
+      </div>
+  </div><br>
+</div>
+
+
+
+<!-- <div class="popup" >
+  <h2>Quelques détails sur cet technicien :</h2>
+  <div class="close" (click)="closePopup()">&times;</div>
+  <div >
+    <div class="infos">
+      <h3><p>Nom : <strong>jkghjklm</strong> </p></h3>
+      <h3><p>Prenom : <strong>mlmkjhgfd</strong></p></h3>
+      <h3><p>CIN : <strong>iouygtfrddfghjk</strong></p></h3>
+      <h3><p>Email : <strong>ùmoiulytjrhyuijk</strong></p></h3>
+    </div>
+
+    <button class="retire">Retirer</button>
+  </div>
+</div>  -->
+
+
+
+
+
+
+
+

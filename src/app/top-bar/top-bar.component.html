@@ -1,0 +1,68 @@
+<!-- <li data-active="true"><a [routerLink]="['/Home']">Home</a></li>
+<li data-active="false"><a [routerLink]="['/ListeProducts']">Point Lumineux</a></li>
+<li data-active="false"><a [routerLink]="['/ListeArmoire']">Armoires</a></li>
+ <li data-active="false"><a [routerLink]="['/AddPointLumineux']">Ajout Point Lumineux</a></li> -->
+<!-- <li data-active="false"><a [routerLink]="['/AddArmoire']">Ajout Armoire</a></li> -->
+<!-- <li data-active="false"><a [routerLink]="['/Addtechnicienne']">Ajout techniciennes</a></li> 
+<li data-active="false"><a [routerLink]="['/Intervention']"> Intervention</a></li>
+ -->
+
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+ </head>
+ <body>    
+
+    <header class="header">{{GetRoleUserCourant()}}
+        <a *ngIf="GetRoleUserCourant()=='Admin'" [routerLink]="['/Home']" class="logo">HomeAdmin</a>
+        <a *ngIf="GetRoleUserCourant()=='Technicienne'" [routerLink]="['/Homet']" class="logo">HomeTech</a>
+        <a *ngIf="GetRoleUserCourant()=='SuperAdmin'" [routerLink]="['/Roles']" class="logo">HomeSuperAdmin</a>
+        <nav class="navbar">
+          <a *ngIf="GetRoleUserCourant()=='SuperAdmin'" [routerLink]="['/Db']">Dashbord</a>
+          <a *ngIf="RechechestoredRoles('Ajout point') || RechechestoredRoles('liste des points')" [routerLink]="['/ListeProducts']">Point Limineux</a>
+          <a *ngIf="RechechestoredRoles('Ajout user')" [routerLink]="['/Addtechnicienne']">Ajout un utilisateur</a>
+          <a *ngIf="RechechestoredRoles('Ajout un Intervention')" [routerLink]="['/Intervention']">Ajout Interventions</a>
+          <a *ngIf="RechechestoredRoles('Lister les Armoires') || RechechestoredRoles('Ajout un Armoire')" [routerLink]="['/ListeArmoire']">Armoires</a>
+          <a *ngIf="RechechestoredRoles('Ajout un depart')" [routerLink]="['/AddDepart']">Ajouter un Depart</a>
+          <a *ngIf="RechechestoredRoles('Lister les departs')" [routerLink]="['/ListeDepart']">Les Departs</a>
+          <a *ngIf="RechechestoredRoles('liste des users')" [routerLink]="['/ListeTech']">Les Utilisateur</a>
+          <a *ngIf="GetRoleUserCourant()=='Admin'" [routerLink]="['/ListInterT']">Les Intervention</a>
+          <button *ngIf="GetRoleUserCourant()=='Admin'" (click)="openPopupp()" style="background-color: transparent;border: none;margin-right: 20px;">
+            <svg xmlns="http://www.w3.org/2000/svg" id="notification" width="25" height="25" fill="currentColor" class="bi bi-bell-fill" viewBox="0 0 16 16">
+              <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z"/>
+            </svg>
+          </button>
+
+          <button *ngIf="GetRoleUserCourant()=='Technicienne'" (click)="openPopupp()" style="background-color: transparent;border: none;margin-right: 20px;">
+            <svg xmlns="http://www.w3.org/2000/svg" id="notification" width="25" height="25" fill="currentColor" class="bi bi-bell-fill" viewBox="0 0 16 16">
+              <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z"/>
+            </svg>
+          </button>
+        </nav>
+    </header>
+    <div class="not" *ngIf="showPopup" >
+      <button (click)="closePopup()" id="close">
+        <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="none" viewBox="0 0 16 16">
+          <path stroke="currentColor" stroke-width="" d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+        </svg>    
+      </button>
+      <app-notification-admin></app-notification-admin>
+    </div>
+
+    
+<div class="not" *ngIf="showPopup" >
+  <button (click)="closePopup()" id="close">
+    <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="none" viewBox="0 0 16 16">
+      <path stroke="currentColor" stroke-width="" d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+    </svg>    
+  </button>
+  <app-notification></app-notification>
+  
+</div>
+ </body>
+ </html>

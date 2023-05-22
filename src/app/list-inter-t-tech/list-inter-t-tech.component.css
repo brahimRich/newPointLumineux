@@ -1,0 +1,68 @@
+body{
+  background-color: rgb(177, 177, 177);
+}
+
+
+
+.container{
+  margin-top: 20px;
+  background-color: rgb(255, 255, 255);
+  width: 90%;
+  height: fit-content;
+  margin: 20px auto;
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+.intervention{
+  width: 70%;
+  background-color: rgb(231, 231, 231);
+  margin: 15px auto;
+  height: fit-content;
+  padding: 15px 15px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 1px 1px 19px rgb(167, 167, 167);
+}
+
+.intervention:hover{
+  box-shadow: 1px 1px 19px rgb(110, 110, 110);
+  transition: .5s;
+  
+}
+
+
+
+.id{
+  text-align: start; 
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: cornflowerblue; 
+  width: fit-content;
+  height: fit-content;
+  font-weight: 700;
+}
+
+
+
+.tech{
+  height: fit-content;
+  background-color: rgb(242, 242, 242);
+  background-color: 0 0 19px rgb(210, 210, 210);
+  padding: 10px;
+  border: 7px;
+  width: 30%;
+  float: left;
+  margin-left: 80px;
+}
+
+.pointl{
+  height: fit-content;
+  background-color: rgb(242, 242, 242);
+  background-color: 0 0 19px rgb(210, 210, 210);
+  border: 7px;
+  padding: 10px;
+  width: 30%;
+  float: right;
+  margin-right: 80px;
+}

@@ -1,0 +1,194 @@
+ <app-top-bar></app-top-bar>
+
+
+<!--
+<p>add-techniciennes works!</p>
+ 
+<div class="container">
+
+    <form class="well form-horizontal" action=" " method="post"  id="contact_form">
+<fieldset>
+
+
+<legend>Add a new technician!</legend>
+
+
+
+<div class="form-group">
+  <label class="col-md-4 control-label">Nom</label>  
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input   placeholder="Nom" class="form-control"  id="nom" name="nom" type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="techniciennes.nom" >
+    </div>
+  </div>
+</div>
+
+
+
+<div class="form-group">
+  <label class="col-md-4 control-label" >Prenom</label> 
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input  placeholder="Prenom" class="form-control"  id="prenom" name="prenom" type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="techniciennes.prenom">
+    </div>
+  </div>
+</div>
+
+
+       <div class="form-group">
+  <label class="col-md-4 control-label">CIN</label>  
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+  <input  placeholder="CIN" class="form-control" name="cin" id="cin" type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="techniciennes.cin">
+    </div>
+  </div>
+</div>
+
+
+
+       
+
+<br>
+
+<button *ngIf="!Mofifer" [disabled]="boutonDesactive" (click)="submitProduct()">Ajouter</button>
+<button *ngIf="Mofifer" [disabled]="boutonDesactive" (click)="updatePoint()">Mofier</button>
+
+</fieldset>
+</form>
+</div>
+     -->
+ 
+
+
+
+<!-- 
+ <!DOCTYPE html>
+<html>
+<head>
+<title>Creative Colorlib SignUp Form</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+
+<link href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i" rel="stylesheet">
+
+</head>
+<body>
+
+<br><br><br>
+
+	<form class="well form-horizontal" action=" " method="post"  id="contact_form">
+    <div class="main-w3layouts wrapper">
+      <h1 style="color:rgb(89, 89, 89)">Ajouter un nouveau technicien</h1>
+      <div class="main-agileinfo">
+        <div class="agileits-top">
+          <form action="#" method="post">
+            <input class="text" placeholder="Nom" class="form-control"  id="nom" name="nom" type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="techniciennes.nom" required=""><br>
+			   		<input class="text" placeholder="Prenom" class="form-control"  id="prenom" name="prenom" type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="techniciennes.prenom"required=""><br>
+			   		<input class="text"  name="password"  placeholder="CIN" class="form-control" name="cin" id="cin" type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="techniciennes.cin" required="">
+    
+            <input type="submit" id="sb" value="Ajouter" *ngIf="!Mofifer" type="submit" [disabled]="boutonDesactive" (click)="submitProduct()">
+  
+          </form>
+        </div>
+      </div>
+      
+      
+    </div>
+  </form>
+  
+</body>
+</html> -->
+
+
+
+
+
+<br><br><br><br><br>
+<div class="container">
+  <div class="container">
+    <form>
+      <div class="field" tabindex="1">
+        <label for="username">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+            <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
+          </svg>
+          Nom
+        </label>
+        <input  placeholder="Nom" class="form-control"  id="nom" name="nom" type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="techniciennes.nom" required="">
+      </div><br>
+      <div class="field" tabindex="2">
+        <label for="email">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-vcard-fill" viewBox="0 0 16 16">
+            <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm9 1.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 0-1h-4a.5.5 0 0 0-.5.5ZM9 8a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 0-1h-4A.5.5 0 0 0 9 8Zm1 2.5a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 0-1h-3a.5.5 0 0 0-.5.5Zm-1 2C9 10.567 7.21 9 5 9c-2.086 0-3.8 1.398-3.984 3.181A1 1 0 0 0 2 13h6.96c.026-.163.04-.33.04-.5ZM7 6a2 2 0 1 0-4 0 2 2 0 0 0 4 0Z"/>
+          </svg>
+          Prenom
+        </label>
+        <input placeholder="Prenom" class="form-control"  id="prenom" name="prenom" type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="techniciennes.prenom"required="">
+      </div><br>
+      <div class="field" tabindex="3">
+        <label for="email">
+          <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-person-lock" viewBox="0 0 16 16">
+            <path d="M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 5.996V14H3s-1 0-1-1 1-4 6-4c.564 0 1.077.038 1.544.107a4.524 4.524 0 0 0-.803.918A10.46 10.46 0 0 0 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h5ZM9 13a1 1 0 0 1 1-1v-1a2 2 0 1 1 4 0v1a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1v-2Zm3-3a1 1 0 0 0-1 1v1h2v-1a1 1 0 0 0-1-1Z"/>
+          </svg>
+          CIN
+        </label>
+        <input name="cin"  placeholder="CIN" class="form-control" name="cin" id="cin" type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="techniciennes.cin" required="">
+      </div><br>
+  
+      <div class="field" tabindex="3">
+        <label for="email">
+          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-envelope-at-fill" viewBox="0 0 16 16">
+            <path d="M2 2A2 2 0 0 0 .05 3.555L8 8.414l7.95-4.859A2 2 0 0 0 14 2H2Zm-2 9.8V4.698l5.803 3.546L0 11.801Zm6.761-2.97-6.57 4.026A2 2 0 0 0 2 14h6.256A4.493 4.493 0 0 1 8 12.5a4.49 4.49 0 0 1 1.606-3.446l-.367-.225L8 9.586l-1.239-.757ZM16 9.671V4.697l-5.803 3.546.338.208A4.482 4.482 0 0 1 12.5 8c1.414 0 2.675.652 3.5 1.671Z"/>
+            <path d="M15.834 12.244c0 1.168-.577 2.025-1.587 2.025-.503 0-1.002-.228-1.12-.648h-.043c-.118.416-.543.643-1.015.643-.77 0-1.259-.542-1.259-1.434v-.529c0-.844.481-1.4 1.26-1.4.585 0 .87.333.953.63h.03v-.568h.905v2.19c0 .272.18.42.411.42.315 0 .639-.415.639-1.39v-.118c0-1.277-.95-2.326-2.484-2.326h-.04c-1.582 0-2.64 1.067-2.64 2.724v.157c0 1.867 1.237 2.654 2.57 2.654h.045c.507 0 .935-.07 1.18-.18v.731c-.219.1-.643.175-1.237.175h-.044C10.438 16 9 14.82 9 12.646v-.214C9 10.36 10.421 9 12.485 9h.035c2.12 0 3.314 1.43 3.314 3.034v.21Zm-4.04.21v.227c0 .586.227.8.581.8.31 0 .564-.17.564-.743v-.367c0-.516-.275-.708-.572-.708-.346 0-.573.245-.573.791Z"/>
+          </svg>
+          Email
+        </label>
+        <input name="email"  placeholder="Email" class="form-control" name="email" id="email" type="email" (keyup)="updateErrorMessagee()" [(ngModel)]="techniciennes.email" required="">
+      </div><br>
+  
+      <div class="field" tabindex="3">
+        <label for="Password">
+          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" fill="currentColor" class="bi bi-body-text" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M0 .5A.5.5 0 0 1 .5 0h4a.5.5 0 0 1 0 1h-4A.5.5 0 0 1 0 .5Zm0 2A.5.5 0 0 1 .5 2h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5Zm9 0a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5Zm-9 2A.5.5 0 0 1 .5 4h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5Zm5 0a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5Zm7 0a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5Zm-12 2A.5.5 0 0 1 .5 6h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5Zm8 0a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5Zm-8 2A.5.5 0 0 1 .5 8h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5Zm7 0a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5Zm-7 2a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 0 1h-8a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5Z"/>
+          </svg>
+          Password
+        </label>
+        <input name="password"  placeholder="password" class="form-control" name="password" id="password" type="password" (keyup)="updateErrorMessagee()" [(ngModel)]="techniciennes.password" required="">
+      </div><br>
+
+      <div class="field" tabindex="3">
+        <label for="num">
+          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" fill="currentColor" class="bi bi-body-text" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M0 .5A.5.5 0 0 1 .5 0h4a.5.5 0 0 1 0 1h-4A.5.5 0 0 1 0 .5Zm0 2A.5.5 0 0 1 .5 2h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5Zm9 0a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5Zm-9 2A.5.5 0 0 1 .5 4h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5Zm5 0a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5Zm7 0a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5Zm-12 2A.5.5 0 0 1 .5 6h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5Zm8 0a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5Zm-8 2A.5.5 0 0 1 .5 8h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5Zm7 0a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5Zm-7 2a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 0 1h-8a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5Z"/>
+          </svg>
+          Numéro
+        </label>
+        <input name="num"  placeholder="Numéro" class="form-control" name="num" id="num" type="text" (keyup)="updateErrorMessagee()" [(ngModel)]="techniciennes.tele" required="">
+      </div>
+
+
+      <label for="techniciennes">choix de type d'utilisateur :</label>
+    <select name="armoire" id="armoire" [(ngModel)]="selectedType"  (change)="ajouterType()">
+    <option *ngFor="let type of ListeTypes" [ngValue]="type.type">
+        {{ type.type }}
+    </option>
+    </select>
+
+    <label for="selectedPoints"> type d'utilisateur selectioner:</label>
+    <div class="techChoisi" *ngIf="selectedType">
+      <div *ngIf="selectedType">
+        <strong>type d'utilisateur :</strong>{{ selectedType }} 
+      </div>
+    </div>
+
+      
+      <button type="reset" type="submit" id="sb" value="Ajouter" *ngIf="!Mofifer" type="submit" [disabled]="boutonDesactive" (click)="submitProduct()">Ajouter</button>
+      <button *ngIf="Mofifer" [disabled]="boutonDesactive" (click)="updatePoint()">Mofier</button>
+
+    </form>
+</div>

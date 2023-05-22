@@ -1,0 +1,52 @@
+<app-top-bar></app-top-bar>
+<br><br><br><br>
+<table>
+    <thead>
+      <tr>
+        <th></th>
+        <th *ngFor="let r of Roles">{{ r.name }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let u of Users">
+        <th>{{ u.nom }} {{u.prenom}} : {{u.dtype}}</th> 
+        <td *ngFor="let r of Roles; let i = index">
+          <ng-container *ngIf="hasRole(u,r)">
+            <button (click)="SupprimerRoles(u, r)" [style.gridColumn]="i + 2">Supprimer</button>
+          </ng-container>
+          <button *ngIf="!hasRole(u,r)" (click)="AjouterRoler(u, r)" [style.gridColumn]="i + 2">Ajouter</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
